@@ -1,0 +1,43 @@
+{#
+    --------------------------------------------------------------------------------------------
+    ACCORDION COMPONENT
+    --------------------------------------------------------------------------------------------
+
+    An accordion content component.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    items *                                                                               required
+    modifier
+
+
+    * each item must be like
+        {
+            header (required),
+            content, (optional)
+            modifiers (array, optional)
+        }
+#}
+
+{% set modifier = modifier is not empty ? ' accordion--' ~ modifier : null %}
+
+<div class="accordion js-accordion{{ modifier }}">
+    <nav class="accordion__nav">
+        <ul class="accordion__list">
+            {% for item in items %}
+                <li class="accordion-item{{ modifiers_implode('accordion-item', item.modifiers) }}">
+                    <div class="accordion-item__header">
+                        {{- item.header|safe_raw -}}
+                    </div>
+                    {% if item.content is not empty %}
+                        <div class="accordion-item__content">
+                            {{- item.content|safe_raw -}}
+                        </div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

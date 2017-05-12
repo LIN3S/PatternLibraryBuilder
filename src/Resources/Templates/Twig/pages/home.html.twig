@@ -1,0 +1,263 @@
+{#
+    --------------------------------------------------------------------------------------------
+    HOME PAGE
+    --------------------------------------------------------------------------------------------
+
+    Home page layout.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+#}
+
+{% extends '@Euskaltel/app.html.twig' %}
+
+{% import '@Euskaltel/compositions/macro/sliders.html.twig' as sliders %}
+{% import '@Euskaltel/atoms/macro/buttons.html.twig' as buttons %}
+{% import '@Euskaltel/atoms/macro/links.html.twig' as links %}
+
+{% block header %}
+    {% include '@Euskaltel/layouts/header.html.twig' %}
+{% endblock %}
+
+{% block content %}
+
+    {{ sliders.hero_slider(
+    'home-slider',
+    'Featured home slider',
+    [{
+        background_image: 'https://dummyimage.com/600x400/000/fff&text=1',
+        title: 'Ya contamos con más de 180.000 puntos de Euskaltel WiFi',
+        subtitle: 'Para conectarse gratis con tu móvil en las calles de Euskadi.',
+        cta_title: 'Descubre la App',
+        cta_url: '/',
+        nav_item: {
+            label: '¡¡Promo Enero!!'
+        }
+    }, {
+        background_image: 'https://dummyimage.com/600x400/000/fff&text=2',
+        title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+        subtitle: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        cta_title: 'Descubre la App',
+        cta_url: '/',
+        nav_item: {
+            label: 'Porque la vida ocurre ahí fuera'
+        }
+    }, {
+        background_image: 'https://dummyimage.com/600x400/000/fff&text=3',
+        title: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
+        subtitle: 'Para conectarse gratis con tu móvil en las calles de Euskadi.',
+        cta_title: 'Descubre la App',
+        cta_url: '/',
+        nav_item: {
+            label: 'Si adoras los móviles adorarás esta promoción'
+        }
+    }, {
+        background_image: 'https://dummyimage.com/600x400/000/fff&text=4',
+        title: 'Ya contamos con más de 180.000 puntos de Euskaltel WiFi',
+        subtitle: 'Para conectarse gratis con tu móvil en las calles de Euskadi.',
+        cta_title: 'Descubre la App',
+        cta_url: '/',
+        nav_item: {
+            label: 'Renueva smartphone'
+        }
+    }])
+    }}
+
+    {% include '@Euskaltel/layouts/icon_cards_aside.html.twig' with {
+        header_title: 'clientes',
+        title: 'Para tí, que ya eres cliente',
+        subtitle: 'Si adoras los móviles adorarás esta oferta:',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam',
+        cards: [{
+            icon: 'sale',
+            title: 'Oferta del mes'
+        }, {
+            icon: 'smartphone_renew',
+            title: 'Renueva tu móvil'
+        }, {
+            icon: 'invoice',
+            title: 'Facturas y consumo'
+        }, {
+            icon: 'speed_test',
+            title: 'Test de velocidad'
+        }]
+    } %}
+
+    {% embed '@Euskaltel/compositions/two_columns_banner.html.twig' with {
+        image: 'https://dummyimage.com/600x400/000/fff&text=banner%20image'
+    } %}
+        {% block banner_content %}
+            {% embed '@Euskaltel/components/section_description.html.twig' with {
+            modifier: 'alt',
+            title: 'Hola Xiber, tenemos ofertas interesantes para tí'
+            } %}
+                {% block section_description_content %}
+                    {{ buttons.linkWhite('Ver ofertas', '#') }}
+                    <p>¿No eres <strong>Xiber</strong>? {{ links.underlinedWhite('Cierra sesión desde aquí', '#', '_self') }}.</p>
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+{% endblock %}
+
+{% block footer %}
+    {% include '@Euskaltel/layouts/footer.html.twig' with {
+        featured_links: [{
+            content: 'Contacta con nosotros',
+            target: '_self',
+            url: '#',
+            icon: 'sale'
+        }, {
+            content: 'Contacta con nosotros',
+            target: '_self',
+            url: '#',
+            icon: 'sale'
+        }, {
+            content: 'Atención al cliente <strong>1717</strong>',
+            icon: 'sale'
+        }],
+        primary_links: [{
+            title: 'Ofertas',
+            links: [{
+                content: 'Packs',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Móviles',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Televisión',
+                target: '_self',
+                url: '#',
+            }]
+        }, {
+            title: 'Servicios',
+            links: [{
+                content: 'Packs',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Móviles',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Televisión',
+                target: '_self',
+                url: '#',
+            }]
+        }, {
+            title: 'Ayuda',
+            links: [{
+                content: 'Packs',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Móviles',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Televisión',
+                target: '_self',
+                url: '#',
+            }]
+        }, {
+            title: 'Cliente',
+            links: [{
+                content: 'Packs',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Móviles',
+                target: '_self',
+                url: '#',
+            }, {
+                content: 'Televisión',
+                target: '_self',
+                url: '#',
+            }]
+        }],
+        net_links: [{
+            content: 'Contacto',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Tiendas',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Conócenos',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Accionistas',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Blog',
+            target: '_self',
+            url: '#'
+        }],
+        social_links: [{
+            content: 'facebook',
+            target: '_blank',
+            url: '#',
+            icon: 'facebook'
+        }, {
+            content: 'twitter',
+            target: '_blank',
+            url: '#',
+            icon: 'twitter'
+        }, {
+            content: 'youtube',
+            target: '_blank',
+            url: '#',
+            icon: 'youtube'
+        }, {
+            content: 'google+',
+            target: '_blank',
+            url: '#',
+            icon: 'google_plus'
+        }, {
+            content: 'linkedin',
+            target: '_blank',
+            url: '#',
+            icon: 'linkedin'
+        }, {
+            content: 'RSS',
+            target: '_blank',
+            url: '#',
+            icon: 'rss'
+        }],
+        copy: '2017 © Euskaltel, S.A. Todos los derechos reservados',
+        legal_links: [{
+            content: 'Tarifas y Condiciones',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Política de Cookies',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Aviso Legal',
+            target: '_self',
+            url: '#'
+        }],
+        related_links: [{
+            content: 'Calidad del servicio',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Ayúdanos a mejorar',
+            target: '_self',
+            url: '#'
+        }, {
+            content: 'Trabaja con nosotros',
+            target: '_self',
+            url: '#'
+        }]
+    } %}
+{% endblock %}

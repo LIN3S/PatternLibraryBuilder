@@ -1,0 +1,43 @@
+{#
+    --------------------------------------------------------------------------------------------
+    SECTION SINGLE COLUMN LAYOUT
+    --------------------------------------------------------------------------------------------
+
+    This is a single column section layout.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    modifiers
+
+
+    EMBED
+    ============================================================================================
+
+    background
+    content
+#}
+
+{% set content %}
+    {% block content %}{% endblock %}
+{% endset %}
+
+{% set background %}
+    {% block background %}{% endblock %}
+{% endset %}
+
+<section class="section section--single-column{{ modifiers_implode('section', modifiers) }}">
+    <div class="section__column">
+        {% if background is not empty %}
+            <div class="section__column-background">
+                {{- background -}}
+            </div>
+        {% endif %}
+        {% if content is not empty %}
+            <div class="section__column-content">
+                {{- content -}}
+            </div>
+        {% endif %}
+    </div>
+</section>

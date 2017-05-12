@@ -1,0 +1,22 @@
+{#
+    --------------------------------------------------------------------------------------------
+    ICON_CARD COLLECTION
+    --------------------------------------------------------------------------------------------
+
+    This component will display a collection of icon_card components.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    cards                                                                               required
+#}
+
+<div class="icon-cards">
+    {% for card in cards %}
+        {% include '@Euskaltel/components/icon_card.html.twig' with {
+            icon: card.icon,
+            title: card.title
+        } %}
+    {% endfor %}
+</div>

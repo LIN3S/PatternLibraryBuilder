@@ -1,0 +1,27 @@
+{#
+    --------------------------------------------------------------------------------------------
+    LINK ATOM
+    --------------------------------------------------------------------------------------------
+
+    This is a generic picture component implementation taking into account the ARIA
+    accessibility recommendations.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    picture_class
+    image_class
+    src                                                                                 required
+    alt
+
+#}
+
+<picture {% if picture_class is not empty %}class="{{ picture_class }}"{% endif %}>
+    {#<source media="(max-width: 320px)" srcset="{{ src | resize( resizeSmall is defined ? resizeSmall : 480 ) }}">#}
+    {#<source media="(max-width: 768px)" srcset="{{ src | resize( resizeLarge is defined ? resizeLarge : 768 ) }}">#}
+    {#<source media="(max-width: 1024px)" srcset="{{ src | resize( resizeXlarge is defined ? resizeXlarge : 1024 ) }}">#}
+    {#<img class="{{ image_class }}" src="{{ src | resize( resizeFull is defined ? resizeFull : 1280 ) }}" alt="{{ image.caption }}"/>#}
+
+    <img {% if image_class is not empty %}class="{{ image_class }}"{% endif %} {% if alt is not empty %}alt="{{ image_alt }}"{% endif %} src="{{ src }}"/>
+</picture>

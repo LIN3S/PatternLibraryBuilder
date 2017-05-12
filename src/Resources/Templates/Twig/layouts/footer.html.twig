@@ -1,0 +1,139 @@
+{#
+    --------------------------------------------------------------------------------------------
+    FOOTER LAYOUT
+    --------------------------------------------------------------------------------------------
+
+    This layout will display the page's footer
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    featured_links                                                                      required
+    priamry_links                                                                       required
+    copy                                                                                required
+    legal_links                                                                         required
+    related_links                                                                       required
+#}
+
+{% import '@Euskaltel/atoms/macro/links_with_icon.html.twig' as linksWithIcon %}
+
+<footer class="footer">
+
+    {% include '@Euskaltel/atoms/picture.html.twig' with {
+        picture_class: 'footer__background-picture',
+        image_class: 'footer__background-image',
+        src: '/images/footer-background-plant.png'
+    }%}
+
+    {% embed '@Euskaltel/layouts/section_single_column.html.twig' with {
+        modifiers: ['full', 'footer-featured-links']
+    } %}
+        {% block content %}
+            <nav class="footer__featured-links-nav">
+                <ul class="footer__featured-links-list">
+                    {% for link in featured_links %}
+                        <li class="footer__featured-link">
+                            {% if link.url is not empty %}
+                                {{ linksWithIcon.black(link.content, link.url, link.target, link.icon) }}
+                            {% else %}
+                                {% embed '@Euskaltel/atoms/link_with_icon.html.twig' with {
+                                    tag: 'span',
+                                    icon: link.icon
+                                } %}
+                                    {% block link_content %}
+                                        {{- link.content|safe_raw -}}
+                                    {% endblock %}
+                                {% endembed %}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        {% endblock %}
+    {% endembed %}
+
+
+    {% embed '@Euskaltel/layouts/section_two_columns.html.twig' with {
+        modifiers: ['full'],
+        layout_modifier: '7-5'
+    } %}
+        {% block left_column_background %}
+            <div class="footer__primary-links-left-background"></div>
+        {% endblock %}
+
+        {% block left_column_content %}
+            <div class="footer__primary-links">
+                {% for group in primary_links %}
+                    <div class="links-group">
+                        <h3 class="links-group__title">{{ group.title }}</h3>
+                        {% include '@Euskaltel/atoms/collections/links.html.twig' with {
+                            links: group.links,
+                            link_modifier: 'black',
+                            modifier: 'list'
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endblock %}
+
+        {% block right_column_background %}
+            <div class="footer__primary-links-right-background"></div>
+        {% endblock %}
+
+        {% block right_column_content %}
+            <div class="footer__social-related-links">
+                {% include '@Euskaltel/svg/euskaltel.svg.twig' %}
+
+                <div class="footer__net-links">
+                    {% for link in net_links %}
+                        {{ links.white(link.content, link.url, link.target) }}
+                    {% endfor %}
+                </div>
+
+                <div class="footer__social-links">
+                    {% for link in social_links %}
+                        {% embed '@Euskaltel/atoms/link.html.twig' with {
+                            href: link.url,
+                            modifier: 'underlined-white',
+                            target: link.target
+                        } %}
+                            {% block link_content %}
+                                {{ link.content }}
+                                <span class="footer__social-icon">
+                                    {% include '@Euskaltel/svg/sale.svg.twig' %}
+                                </span>
+                            {% endblock %}
+                        {% endembed %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+
+
+    {% embed '@Euskaltel/layouts/section_two_columns.html.twig' with {
+        modifiers: ['full', 'footer-secondary-links'],
+        layout_modifier: '7-5'
+    } %}
+        {% block left_column_content %}
+            <span class="footer__copy">{{ copy }}</span>
+            {% if legal_links is not empty %}
+                |
+                {% include '@Euskaltel/atoms/collections/links.html.twig' with {
+                    links: legal_links,
+                    link_modifier: 'white'
+                } %}
+            {% endif %}
+        {% endblock %}
+
+        {% block right_column_content %}
+            {% include '@Euskaltel/atoms/collections/links.html.twig' with {
+                links: related_links,
+                link_modifier: 'white'
+            } %}
+        {% endblock %}
+    {% endembed %}
+
+</footer>

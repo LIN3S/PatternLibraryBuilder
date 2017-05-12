@@ -1,0 +1,65 @@
+{% extends '@Euskaltel/styleguide.html.twig' %}
+
+{% block content %}
+    {% embed '@Euskaltel/layouts/aside_left_sticky.html.twig' %}
+        {% block aside %}
+            {% include '@Euskaltel/pages/styleguide/aside.html.twig' with {
+                menu: menu,
+                breadcrumbs: breadcrumbs
+            } %}
+        {% endblock %}
+
+        {% block article %}
+
+            <p class="architecture-breadcrumbs">
+            {% for breadcrumb in breadcrumbs %}
+                {% if not loop.last %}
+                    {{ breadcrumb }}
+                    <span class="architecture--breadcrumbs__separator">/</span>
+                {% else %}
+                    </p>
+                    <h1 class="architecture-title">{{ breadcrumb|replace({'-': ' '}) }}</h1>
+                {% endif %}
+            {% endfor %}
+
+            <div class="architecture-description">
+                {{ item.description|safe_raw }}
+            </div>
+
+            {% for params in item.preview_parameters %}
+
+                {% set item_preview = include(item.twig, params) %}
+                {% set item_twig %}
+                    {{ '<pre><code class="language-twig">' -}}
+
+                    {{- '{% include "' ~ item.twig ~ '" with {' }}
+{# This block must be with no indentation #}
+{% for key, value in params %}
+    {{ key }}: '{{ value }}'{% if not loop.last %},{% endif %}<br/>
+{% endfor %}
+{# This block must be with no indentation #}
+                    {{- '} %}' -}}
+
+                    {{- '</code></pre>' -}}
+                {% endset %}
+                {% set item_html = '<pre><code class="language-html"><xmp>' ~ item_preview ~ '</xmp></code></pre>' %}
+
+                {% include '@Euskaltel/components/tabbed.html.twig' with {
+                    tabs: [{
+                        content: item_preview,
+                        title: 'Preview'
+                    }, {
+                        content: item_twig,
+                        title: 'Twig'
+                    }, {
+                        content: item_html,
+                        title: 'Html'
+                    }]
+                } %}
+            {% endfor %}
+
+
+
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{#
+    --------------------------------------------------------------------------------------------
+    LINK ATOM COLLECTION
+    --------------------------------------------------------------------------------------------
+
+    Link atom collection.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    modifier
+    link_modifier
+    links                                                                               required
+#}
+
+{% set display_list = modifier == 'list' %}
+{% set modifier = modifier is not empty ? ' links--' ~ modifier : null %}
+
+<div class="links{{ modifier }}">
+    {% if display_list %}
+        <ul>
+    {% endif %}
+
+        {% for link in links %}
+            {% if display_list %}
+                <li>
+            {% elseif not loop.first %}
+                |
+            {% endif %}
+                {% include '@Euskaltel/atoms/link.html.twig' with {
+                    modifier: link_modifier,
+                    url: link.url,
+                    content: link.content,
+                    target: link.target
+                } %}
+            {% if display_list %}
+                </li>
+            {% endif %}
+        {% endfor %}
+
+    {% if display_list %}
+        </ul>
+    {% endif %}
+</div>

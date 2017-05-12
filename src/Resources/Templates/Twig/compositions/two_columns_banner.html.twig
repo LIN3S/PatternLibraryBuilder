@@ -1,0 +1,52 @@
+{#
+    --------------------------------------------------------------------------------------------
+    TWO_COLUMNS_BANNER COMPOSITION
+    --------------------------------------------------------------------------------------------
+
+    This composition is used to represent a two-cols section.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    image                                                                               required
+    image_alt
+    modifiers                               []
+
+
+    EMBED
+    ============================================================================================
+
+    banner_content
+
+#}
+
+{% set right_column %}
+    {%- block banner_content -%}{%- endblock -%}
+{% endset %}
+
+{% embed '@Euskaltel/layouts/section_two_columns.html.twig' with {
+    modifiers: modifiers|default([])|merge(['full'])
+} %}
+
+    {% block left_column_background %}
+        {% include '@Euskaltel/atoms/picture.html.twig' with {
+            picture_class: 'two-cols-banner__picture',
+            image_class: 'two-cols-banner__image',
+            src: image,
+            alt: image_alt,
+            role: 'presentation'
+        } %}
+    {% endblock %}
+
+    {% block right_column_background %}
+        <div class="two-columns-banner__orange-background"></div>
+    {% endblock %}
+
+    {% block right_column_content %}
+        <div class="two-cols-banner__content">
+            {{ right_column }}
+        </div>
+    {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,38 @@
+{#
+    --------------------------------------------------------------------------------------------
+    HERO COMPONENT
+    --------------------------------------------------------------------------------------------
+
+    Hero component.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    background_image
+    title                                                                               required
+    subtitle                                                                            required
+    cta_title                                                                           required
+    cta_url                                                                             required
+#}
+
+{% import '@Euskaltel/atoms/macro/buttons.html.twig' as buttons %}
+
+<article class="hero">
+    {% if background_image is not empty %}
+        {% include '@Euskaltel/atoms/picture.html.twig' with {
+            picture_class: 'hero__background-picture',
+            image_class: 'hero__background-image',
+            src: background_image,
+            alt: title,
+            role: 'presentation'
+        } %}
+    {% endif %}
+    <div class="hero__content">
+        <div class="hero__content-inner">
+            <h2 class="hero__title">{{ title }}</h2>
+            <h3 class="hero__subtitle">{{ subtitle }}</h3>
+            {{ buttons.linkOrange(cta_title, cta_url) }}
+        </div>
+    </div>
+</article>

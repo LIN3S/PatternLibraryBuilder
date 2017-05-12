@@ -1,0 +1,53 @@
+{#
+    --------------------------------------------------------------------------------------------
+    SECTION_DESCRIPTION COMPONENT
+    --------------------------------------------------------------------------------------------
+
+    This component is used to represent each section's description
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    modifier
+    title
+    subtitle
+    description
+
+
+    EMBED
+    ============================================================================================
+
+    title
+    subtitle
+    description
+    section_description_content
+#}
+
+<div class="section-description{% if modifier is not empty %} section-description--{{ modifier }}{% endif %}">
+    {%- block title -%}
+        {% if title is not empty %}
+            <h2 class="section-description__title">
+                {{ title }}
+            </h2>
+        {% endif %}
+    {%- endblock -%}
+
+    {%- block subtitle -%}
+        {% if subtitle is not empty %}
+            <p class="section-description__subtitle">
+                {{ subtitle }}
+            </p>
+        {% endif %}
+    {%- endblock -%}
+
+    {%- block description -%}
+        {% if description is not empty %}
+            <p class="section-description__description">
+                {{ description }}
+            </p>
+        {% endif %}
+    {%- endblock -%}
+
+    {%- block section_description_content -%}{%- endblock -%}
+</div>

@@ -1,0 +1,27 @@
+{#
+    --------------------------------------------------------------------------------------------
+    ICON CARD COMPONENT
+    --------------------------------------------------------------------------------------------
+
+    This component will display a card, composed by an icon and a title.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+    href                                                                                required
+    icon                                                                                required
+    target                                  _blank
+    title                                                                               required
+
+#}
+
+<a class="icon-card" href="{{ href }}" target="{{ target|default('_blank') }}">
+    <div class="icon-card__content">
+        <div class="icon-card__icon">
+            {% include '@Euskaltel/svg/' ~ icon ~ '.svg.twig' %}
+        </div>
+        <div class="icon-card__title">
+            {{ title }}
+        </div>
+    </div>
+</a>

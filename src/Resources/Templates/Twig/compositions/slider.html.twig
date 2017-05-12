@@ -1,0 +1,94 @@
+{#
+    --------------------------------------------------------------------------------------------
+    SLIDER COMPOSITION
+    --------------------------------------------------------------------------------------------
+
+    This is a generic slider implementation taking into account the ARIA accessibility
+    recommendations.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    id                                                                                  required
+    aria_label                                                                          required
+    slide_component_type                                                                required
+    nav_item_component_type                                                             required
+    modifier
+    nav_item_css_class
+    has_nav_list                            false
+    has_nav_buttons                         false
+    slides                                                                              required
+
+ #}
+
+{% set slide_component_type = '@Euskaltel/components/' ~ slide_component_type ~ '.html.twig' %}
+{% set nav_item_component_type = '@Euskaltel/components/' ~ nav_item_component_type ~ '.html.twig' %}
+
+<section
+        class="slider {{ modifier is not empty ? 'slider--' ~ modifier : '' }} {{ has_nav_list ? 'slider--has-nav-list' : '' }} {{ has_nav_buttons ? 'slider--has-nav-buttons' : '' }}"
+        role="complementary"
+        aria-label="{{ aria_label }}">
+    {% if slides is not empty %}
+        <div
+                id="{{ id }}"
+                class="swiper-wrapper slider__content">
+            {% for slide in slides %}
+
+                {% set aria_hidden = loop.first ? false : true %}
+                {% set aria_labeled_by = has_nav_list ? id ~ '-tab-' ~ loop.index0 : '' %}
+
+                <div
+                        id="{{ id }}-panel-{{ loop.index0 }}"
+                        class="swiper-slide slider__slide"
+                        role="tabpanel"
+                        {% if aria_labeled_by is not empty %}aria-labelledby="{{ aria_labeled_by }}"{% endif %}
+                        aria-hidden="{{ aria_hidden }}">
+
+                    {% set slide_key_values = {} %}
+                    {% for key, value in slide %}
+                        {% set slide_key_values = slide_key_values|merge({(key): (value)}) %}
+                    {% endfor %}
+
+                    {% include slide_component_type with slide_key_values %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if has_nav_list %}
+            <nav
+                    class="slider__nav"
+                    aria-label="{{ aria_label }} nav">
+                <ul
+                        class="slider__nav-list"
+                        role="tablist">
+                    {% for slide in slides %}
+
+                        {% set aria_tab_index = loop.first ? 0 : -1 %}
+
+                        <li
+                                id="{{ id }}-tab-{{ loop.index0 }}"
+                                class="slider__nav-item {{ nav_item_css_class|default('') }}"
+                                role="tab"
+                                aria-controls="{{ id }}-panel-{{ loop.index0 }}"
+                                aria-selected="{{ loop.first }}"
+                                tabindex="{{ aria_tab_index }}">
+
+                            {% set nav_item_key_values = {} %}
+                            {% for key, value in slide.nav_item %}
+                                {% set nav_item_key_values = nav_item_key_values|merge({(key): (value)}) %}
+                            {% endfor %}
+
+                            {% include nav_item_component_type with nav_item_key_values %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        {% endif %}
+
+        {% if has_nav_buttons %}
+            <button class="slider__nav-button slider__nav-button--prev">previous</button>
+            <button class="slider__nav-button slider__nav-button--next">next</button>
+        {% endif %}
+    {% endif %}
+</section>

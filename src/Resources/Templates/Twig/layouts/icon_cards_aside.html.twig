@@ -1,0 +1,58 @@
+{#
+    --------------------------------------------------------------------------------------------
+    ICON_CARDS_ASIDE COMPOSITION
+    --------------------------------------------------------------------------------------------
+
+    This composition is used to represent a section with an icon cards list. (positioned on the
+    side)
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    header_title                                                                        required
+    title
+    subtitle
+    description
+    cards                                                                               required
+    modifiers                               []
+#}
+
+
+{% set right_column %}
+    {%- block banner_content -%}{%- endblock -%}
+{% endset %}
+
+{% embed '@Euskaltel/layouts/section.html.twig' with {
+    className: 'icon-cards-aside',
+    modifiers: modifiers|default([])
+} %}
+    {% block columns %}
+
+        {% embed '@Euskaltel/layouts/section_column.html.twig' with { modifiers: '4' } %}
+            {% block content %}
+                <div class="icon-cards-aside__content">
+                    {% include '@Euskaltel/components/section_header.html.twig' with {
+                        title: header_title
+                    } %}
+                    {% include '@Euskaltel/components/section_description.html.twig' with {
+                        title: title,
+                        subtitle: subtitle,
+                        description: description
+                    } %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+        {% embed '@Euskaltel/layouts/section_column.html.twig' with { modifiers: '8' } %}
+            {% block content %}
+                <div class="icon-cards-aside__description">
+                    {% include '@Euskaltel/components/collections/icon_cards.html.twig' with {
+                        cards: cards
+                    } %}
+                </div>
+            {% endblock %}
+        {% endembed %}
+
+    {% endblock %}
+{% endembed %}
