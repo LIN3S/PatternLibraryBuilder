@@ -1,0 +1,8 @@
+{% set modifier = modifier is not empty ? ' link--' ~ modifier : null %}
+{% set tag = tag|default('a') %}
+
+<{{ tag }}{% if tag == 'a' %} href="{{ href|default('#') }}" target="{{ target|default('_blank') }}"{% endif %} class="link{{ modifier }}">
+{%- block link_content -%}
+    {{ content }}
+{%- endblock -%}
+</{{ tag }}>

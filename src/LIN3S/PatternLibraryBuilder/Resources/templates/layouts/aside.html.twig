@@ -1,0 +1,71 @@
+{% macro accordion_menu(children, breadcrumbs) %}
+    {% import _self as macros %}
+
+    {% set items = [] %}
+    {% for item in children %}
+
+        {% set modifiers = [] %}
+        {% for breadcrumb in breadcrumbs %}
+            {% if breadcrumb == item.title %}
+                {% set modifiers = ['opened'] %}
+            {% endif %}
+        {% endfor %}
+
+        {% if item.children is not empty %}
+            {% set accordion_item_title %}
+                {{ item.title|replace({'-': ' '}) }}
+                {% include '@lin3s_pattern_library_builder/svg/icon_plus.svg.twig' %}
+            {% endset %}
+            {% set accordion_item_content = macros.accordion_menu(item.children, breadcrumbs) %}
+        {% else %}
+            {% set accordion_item_title %}
+                <div class="styleguide__menu-link">
+                    {% embed '@lin3s_pattern_library_builder/components/link.html.twig' with {
+                        url: item.slug,
+                        target: '_self'
+                    } %}
+                        {%- block link_content -%}
+                            {% set status_level = item.status %}
+
+                            {% set status = 'done' %}
+                            {% if status_level == 0 %}
+                                {% set status = 'todo' %}
+                            {% elseif status_level == 1 %}
+                                {% set status = 'doing' %}
+                            {% elseif status_level == 2 %}
+                                {% set status = 'pending-review' %}
+                            {% endif %}
+
+                            <span class="status status--{{- status -}}">{{ status|replace({'-': ' '}) }}</span>
+                            {{ item.title|replace({'-': ' '}) }}
+                        {%- endblock -%}
+                    {% endembed %}
+                </div>
+            {% endset %}
+
+            {% set modifiers = modifiers|merge(['leaf']) %}
+        {% endif %}
+
+        {% set items = items|merge([{
+            header: accordion_item_title,
+            content: accordion_item_content,
+            modifiers: modifiers
+        }]) %}
+    {% endfor %}
+
+    {% include '@lin3s_pattern_library_builder/components/accordion.html.twig' with {
+        items: items,
+        modifier: modifier
+    } %}
+{% endmacro %}
+
+{% import _self as aside %}
+
+<div class="styleguide__header">
+    {% block logo %}{% endblock %}
+    <p>Design System</p>
+    <p>v0.1.0</p>
+</div>
+<div class="styleguide__menu">
+    {{ aside.accordion_menu(menu, breadcrumbs) }}
+</div>

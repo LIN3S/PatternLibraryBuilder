@@ -1,0 +1,8 @@
+status: 2
+twig: 'atoms/link.html.twig'
+preview_parameters:
+    -
+        content: Hola
+        href: /test
+description: '<p>This is the link atom description.</p>'
+menu: ''

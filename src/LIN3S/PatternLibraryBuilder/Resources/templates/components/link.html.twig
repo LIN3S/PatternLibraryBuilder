@@ -1,0 +1,20 @@
+{##
+    PROPERTY                REQUIRED                DEFFAULT VALUE
+    ===============================================================
+
+    modifier
+    tag                                             a
+    url                                             #
+    options                                         null
+    content                 required
+    target                                          _blank
+#}
+
+{% set modifier = modifier is not empty ? ' link--' ~ modifier : null %}
+{% set tag = tag|default('a') %}
+
+<{{ tag }}{% if tag == 'a' %} href="{{ url|default('#') }}" target="{{ target|default('_blank') }}"{% endif %} class="link{{ modifier }}" {{ options|default(null) }}>
+{%- block link_content -%}
+    {{ content }}
+{%- endblock -%}
+</{{ tag }}>

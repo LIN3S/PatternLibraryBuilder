@@ -1,0 +1,19 @@
+{% set modifier = modifier is not empty ? ' button--' ~ modifier : null %}
+{% set target = target is not empty ? ' target=' ~ target : null %}
+{% set type = type is not empty ? ' type=' ~ type : null %}
+{% set js_class = jsClass is not empty ? ' ' ~  jsClass : null%}
+
+{% if href is not empty %}
+    {% set action = tag|default('button') == 'button' ? ' formaction=' : ' href='  %}
+    {% set action = action ~ href  %}
+{% endif %}
+
+<{{- tag|default('button') }} class="button{{ modifier }}{{ js_class|default(null) }}"
+{{- action|default(null) }}
+    {{- target|default(null) }}
+    {{- type|default(null) }}
+    {{- button_options|default('') }}>
+{%- block button_content -%}
+    {{ content }}
+{%- endblock -%}
+</{{- tag|default('button') -}}>

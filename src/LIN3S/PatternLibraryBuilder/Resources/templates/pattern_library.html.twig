@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+{% spaceless %}
+
+<html lang="{{ app.request.locale|default('en') }}">
+
+{% block head %}
+<head>
+    <meta charset="{{ _charset }}">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{%- block title -%}{{ title }}{%- endblock -%}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block head_styles %}
+        <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
+    {% endblock %}
+    <style>
+
+    </style>
+</head>
+{% endblock %}
+
+<body class="styleguide">
+{% block body %}
+    {% block header %}{% endblock %}
+
+    {% block content %}
+        {% embed '@lin3s_pattern_library_builder/layouts/main.html.twig' %}
+            {% block aside %}
+                {% include '@lin3s_pattern_library_builder/layouts/aside.html.twig' with {
+                    menu: menu,
+                    breadcrumbs: breadcrumbs
+                } %}
+            {% endblock %}
+
+            {% block article %}
+                {% include '@lin3s_pattern_library_builder/layouts/article.html.twig' with {
+                    items: items,
+                    breadcrumbs: breadcrumbs
+                } %}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+
+    {% block footer %}{% endblock %}
+
+    {% block body_end_before_js %}{% endblock %}
+
+    {% block foot_script %}
+        <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
+    {% endblock %}
+
+{% endblock %}
+</body>
+</html>
+
+{% endspaceless %}

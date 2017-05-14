@@ -1,0 +1,8 @@
+status: 0
+twig: 'components/icon_card.html.twig'
+preview_parameters:
+    -
+        href: /test
+        title: Test
+description: '<p>This is the icon card component description.</p>'
+menu: ''

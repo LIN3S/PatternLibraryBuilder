@@ -1,0 +1,27 @@
+# This file is part of the Pattern Library Builder project.
+#
+# Copyright (c) 2017-present LIN3S <info@lin3s.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#
+# @author Beñat Espiña <benatespina@gmail.com>
+
+lin3s_pattern_library_builder_home:
+    path: /design-system
+    defaults:
+        _controller: "lin3s.pattern_library_builder.controller.index_controller:__invoke"
+
+lin3s_pattern_library_builder_page:
+    path: /design-system/{slug}
+    defaults:
+        _controller: "lin3s.pattern_library_builder.controller.index_controller:__invoke"
+    requirements:
+        slug: ".*"
+
+lin3s_pattern_library_builder_page_fallback:
+    path: /design-system/{slug}/
+    defaults:
+        _controller: "lin3s.pattern_library_builder.controller.index_controller:__invoke"
+    requirements:
+        slug: ".*"

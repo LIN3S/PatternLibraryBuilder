@@ -1,0 +1,41 @@
+{##
+    PROPERTY                REQUIRED
+    =================================
+
+    items *                 required
+    modifier
+
+    * each item must be like
+        {
+            header,
+            content,
+            modifiers
+        }
+#}
+
+{% set modifier = modifier is not empty ? ' accordion--' ~ modifier : null %}
+
+{% set item_modifiers = ' ' %}
+
+{% for item_modifier in item.modifiers %}
+    {% set item_modifiers = item_modifiers ~ ' accordion-item--' ~ item_modifier %}
+{% endfor %}
+
+<div class="accordion js-accordion{{ modifier }}">
+    <nav class="accordion__nav">
+        <ul class="accordion__list">
+            {% for item in items %}
+                <li class="accordion-item{{ item_modifiers }}">
+                    <div class="accordion-item__header">
+                        {{- item.header|raw -}}
+                    </div>
+                    {% if item.content is not empty %}
+                        <div class="accordion-item__content">
+                            {{- item.content|raw -}}
+                        </div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</div>

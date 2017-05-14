@@ -1,0 +1,40 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../../node_modules/foundation-sites/scss/grid/flex-grid';
+@import './../../node_modules/foundation-sites/scss/global';
+@import './../../node_modules/foundation-sites/scss/grid/grid';
+@import './../../node_modules/foundation-sites/scss/util/util';
+
+@import './../_variables/grid';
+@import './../_variables/transitions';
+
+@mixin row(
+  $behavior: null,
+  $size: $grid-row-width,
+  $columns: null,
+  $base: true,
+  $wrap: true,
+  $gutters: $grid-column-gutter
+) {
+  @include flex-grid-row($behavior, $size, $columns, $base, $wrap, $gutters);
+}
+
+@mixin column(
+  $columns: expand,
+  $gutters: $grid-column-gutter
+) {
+  @include flex-grid-column($columns, $gutters);
+}
+
+@mixin media($value) {
+  @include breakpoint($value) {
+    @content
+  }
+}

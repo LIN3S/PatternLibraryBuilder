@@ -1,0 +1,127 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/transitions';
+@import './../_variables/typography';
+
+$link-font-family: $font-family--proxima-nova;
+$link-font-size: $font-size-18;
+$link-font-weight: $font-weight-regular--proxima-nova;
+$link-line-height: $line-height-for-font-size-18;
+$link-transition: $transition-color;
+
+$link-indicator-transition: $transition-transform;
+
+$link-text-color--black: $color-mine-shaft;
+$link-text-color--white: $color-white;
+$link-text-color--orange: $color-trinidad;
+$link-indicator-background-color--black: rgba($color-mine-shaft, .4);
+$link-indicator-background-color--white: rgba($color-white, .4);
+$link-indicator-background-color--orange: rgba($color-trinidad, .4);
+
+@mixin link(
+  $text-color,
+  $text-color-over
+) {
+  color: $text-color;
+
+  &:hover {
+    color: $text-color-over;
+  }
+}
+
+@mixin underlined-link(
+  $text-color,
+  $text-color-over,
+  $line-color,
+  $line-color-over
+) {
+  color: $text-color;
+  position: relative;
+
+  &:before,
+  &:after {
+    bottom: -1px;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transition: $link-indicator-transition;
+    width: 100%;
+  }
+
+  &:before {
+    background-color: $line-color;
+    z-index: 0;
+  }
+
+  &:after {
+    background-color: $line-color-over;
+    transform: scaleX(0);
+    transform-origin: left center;
+    z-index: 10;
+  }
+
+  &:hover {
+    color: $text-color-over;
+
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.link {
+  display: inline-block;
+  font-family: $link-font-family;
+  font-size: $link-font-size;
+  font-weight: $link-font-weight;
+  line-height: $link-line-height;
+  transition: $link-transition;
+}
+
+.link--black {
+  $text-color: rgba($link-text-color--black, .8);
+  $text-color-over: $link-text-color--black;
+  @include link($text-color, $text-color-over);
+}
+
+.link--orange {
+  $text-color: rgba($link-text-color--orange, .8);
+  $text-color-over: $link-text-color--orange;
+  @include link($text-color, $text-color-over);
+}
+
+.link--white {
+  $text-color: rgba($link-text-color--white, .8);
+  $text-color-over: $link-text-color--white;
+  @include link($text-color, $text-color-over);
+}
+
+.link--underlined-black {
+  $text-color: $link-text-color--black;
+  $indicator-color: $link-indicator-background-color--black;
+  @include underlined-link($text-color, $text-color, $indicator-color, $indicator-color);
+}
+
+.link--underlined-orange {
+  $text-color: $link-text-color--orange;
+  $indicator-color: $link-indicator-background-color--orange;
+  @include underlined-link($text-color, $text-color, $indicator-color, $indicator-color);
+}
+
+.link--underlined-white {
+  $text-color: $link-text-color--white;
+  $indicator-color: $link-indicator-background-color--white;
+  @include underlined-link($text-color, $text-color, $indicator-color, $indicator-color);
+}

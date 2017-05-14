@@ -1,0 +1,91 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/transitions';
+
+$tab-background-color: $color-white;
+$tab-content-background-color: $color-aqua-haze;
+$tab-border-color: $color-alto;
+$tab-transition: $transition-background-color;
+
+$tab-indicator-transition: $transition-transform;
+$tab-indicator-background-color: $color-blaze-orange;
+
+.tabbed {
+  margin-top: 60px;
+}
+
+.tabbed__nav {
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 10;
+}
+
+.tabbed__nav-list {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tabbed__nav-item {
+  background-color: $tab-background-color;
+  border-bottom: 1px solid $tab-border-color;
+  border-left: 1px solid $tab-border-color;
+  border-top: 1px solid $tab-border-color;
+  cursor: pointer;
+  padding: 18px 40px;
+  position: relative;
+  transition: $tab-transition;
+
+  &:last-child {
+    border-right: 1px solid $tab-border-color;
+  }
+
+  &:after {
+    background-color: $tab-indicator-background-color;
+    content: '';
+    height: 2px;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    transform: scaleY(0);
+    transition: $tab-indicator-transition;
+    width: calc(100% + 2px);
+    z-index: 10;
+  }
+}
+
+.tabbed__nav-item--active {
+  background-color: $tab-content-background-color;
+  border-bottom: 1px solid $tab-content-background-color;
+
+  &:after {
+    transform: scaleY(1);
+  }
+}
+
+.tabbed__content {
+  background-color: $tab-content-background-color;
+  border: 1px solid $tab-border-color;
+  padding: 18px;
+  position: relative;
+  z-index: 0;
+}
+
+.tabbed__tab {
+  display: none;
+}
+
+.tabbed__tab--active {
+  display: block;
+  z-index: 10;
+}

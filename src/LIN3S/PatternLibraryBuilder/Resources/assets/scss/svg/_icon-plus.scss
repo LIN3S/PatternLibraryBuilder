@@ -1,0 +1,35 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/transitions';
+
+$icon-plus-color: $color-blaze-orange;
+$icon-plus-transition: $transition-transform;
+
+.icon-plus {
+  fill: $icon-plus-color;
+  height: 14px;
+  width: 14px;
+}
+
+.icon-plus--opened {
+  .icon-plus__line--first {
+    transform: rotate(180deg);
+  }
+
+  .icon-plus__line--last {
+    transform: rotate(270deg);
+  }
+}
+
+.icon-plus__line {
+  transition: $icon-plus-transition;
+  transform-origin: center center;
+}

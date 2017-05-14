@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<!--
+
+ This file is part of the Pattern Library Builder project.
+
+ Copyright (c) 2017-present LIN3S <info@lin3s.com>
+
+ For the full copyright and license information, please view the LICENSE
+ file that was distributed with this source code.
+
+ @author Beñat Espiña <benatespina@gmail.com>
+
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+
+        <service id="lin3s.pattern_library_builder.controller.index_controller"
+                 class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
+            <argument>%kernel.root_dir%/../src/App/Resources/PatternLibrary</argument>
+            <argument type="service" id="twig"/>
+            <argument>@Lin3sPatternLibraryBuilder/pattern_library.html.twig</argument>
+        </service>
+    </services>
+</container>

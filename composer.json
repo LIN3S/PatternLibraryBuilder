@@ -1,0 +1,50 @@
+{
+    "name": "lin3s/pattern-library-builder",
+    "description": "Library that provides an elegant and easy way to develop a pattern library for your front-end components",
+    "type": "library",
+    "keywords": [
+        "css",
+        "pattern-library",
+        "design-system",
+        "twig",
+        "symfony"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "LIN3S",
+            "email": "info@lin3s.com",
+            "homepage": "http://lin3s.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "symfony/framework-bundle": "^3.0",
+        "symfony/templating": "^3.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.3",
+        "phpspec/phpspec": "^3.3",
+        "symfony/asset": "^3.2",
+        "symfony/console": "^3.2",
+        "symfony/twig-bundle": "^3.2",
+        "symfony/var-dumper": "^3.2",
+        "symfony/yaml": "^3.2"
+    },
+    "scripts": {
+        "cs": [
+            "php-cs-fixer fix --config=.php_cs",
+            "php-cs-fixer fix --config=.phpspec_cs"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "LIN3S\\PatternLibraryBuilder\\": "src/LIN3S/PatternLibraryBuilder"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\LIN3S\\PatternLibraryBuilder\\": "tests/Application/app"
+        }
+    }
+}

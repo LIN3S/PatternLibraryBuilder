@@ -1,0 +1,178 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/typography';
+@import './../_variables/transitions';
+
+$accordion-item-transition: $transition-background-color;
+$accordion-item-icon-size: 14px;
+
+$accordion-item-font-family: $font-family--avant-garde;
+$accordion-item-font-weight: $font-weight-demi--avant-garde;
+$accordion-item-font-weight--nested: $font-weight-medium--avant-garde;
+$accordion-item-font-size: $font-size-16;
+$accordion-item-font-size--nested: $font-size-14;
+$accordion-item-font-size--leaf: $font-size-15;
+$accordion-item-text-color: $color-mine-shaft;
+$accordion-item-text-color--nested: $color-emperor;
+$accordion-item-text-color--over: darken($color-mine-shaft, 10%);
+$accordion-item-text-color--over--nested: darken($color-emperor, 10%);
+
+$accordion-item-border-color: $color-alto;
+$accordion-item-border-color--nested: $color-mercury-lighter;
+$accordion-item-background-color--selected: $color-mercury-lightest;
+$accordion-item-background-color--selected--nested: $color-aqua-haze;
+
+$accordion-item-indicator-background-color: $color-blaze-orange;
+$accordion-item-indicator-transition: $transition-transform;
+
+@mixin accordion-item(
+  $background-color,
+  $border-color,
+  $header-padding,
+  $font-size,
+  $font-weight,
+  $text-color,
+  $text-color--over,
+  $type: null
+) {
+  color: $text-color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+
+  &:hover {
+    color: $text-color--over;
+  }
+
+  &.accordion-item--opened {
+    background-color: $background-color;
+  }
+
+  .accordion-item__header {
+    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    padding: $header-padding;
+  }
+
+  .link {
+    color: $text-color;
+    display: block;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: 1rem;
+
+    &:hover {
+      color: $text-color--over;
+    }
+  }
+
+  @if($type == 'leaf') {
+    .accordion-item__header {
+      padding: 0;
+    }
+
+    .link {
+      padding: $header-padding;
+    }
+  }
+}
+
+.accordion-item {
+  @include accordion-item(
+    $accordion-item-background-color--selected,
+    $accordion-item-border-color,
+    20px 30px,
+    $accordion-item-font-size,
+    $accordion-item-font-weight,
+    $accordion-item-text-color,
+    $accordion-item-text-color--over
+  );
+
+  cursor: pointer;
+  font-family: $accordion-item-font-family;
+  margin-top: -1px;
+  position: relative;
+  transition: $accordion-item-transition;
+
+  .accordion-item {
+    @include accordion-item(
+      $accordion-item-background-color--selected--nested,
+      $accordion-item-border-color--nested,
+      20px 30px,
+      $accordion-item-font-size--nested,
+      $accordion-item-font-weight,
+      $accordion-item-text-color--nested,
+      $accordion-item-text-color--over--nested
+    );
+  }
+
+  .accordion-item--leaf {
+    @include accordion-item(
+      $accordion-item-background-color--selected--nested,
+      transparent,
+      15px 30px,
+      $accordion-item-font-size--leaf,
+      $accordion-item-font-weight--nested,
+      $accordion-item-text-color--nested,
+      $accordion-item-text-color--over--nested,
+    'leaf'
+    );
+  }
+}
+
+.accordion-item--opened {
+  > .accordion-item__header {
+    .icon-plus__line--first {
+      transform: rotate(180deg);
+    }
+
+    .icon-plus__line--last {
+      transform: rotate(270deg);
+    }
+
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+
+  > .accordion-item__content {
+    display: block;
+  }
+}
+
+.accordion-item__header {
+  position: relative;
+  text-transform: capitalize;
+
+  .icon-plus {
+    height: $accordion-item-icon-size;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    width: $accordion-item-icon-size;
+  }
+
+  &:after {
+    background-color: $accordion-item-indicator-background-color;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: $accordion-item-indicator-transition;
+    width: 2px;
+  }
+}
+
+.accordion-item__content {
+  display: none;
+}
