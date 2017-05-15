@@ -13,15 +13,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% block head_styles %}
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"/>
         <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
     {% endblock %}
     <style>
+        /*.accordion-item {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item:hover {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item.accordion-item--opened {*/
+            /*background-color: #fff;*/
+        /*}*/
+        /*.accordion-item .accordion-item__header {*/
+             /*border-color: #fff;*/
+         /*}*/
+        /*.accordion-item .link {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item .link:hover {*/
+            /*color: #fff;*/
+        /*}*/
 
+        /*.accordion-item .accordion-item {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item .accordion-item:hover {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item .accordion-item.accordion-item--opened {*/
+            /*background-color: #fff;*/
+        /*}*/
+        /*.accordion-item .accordion-item .accordion-item__header {*/
+            /*border-color: #fff;*/
+        /*}*/
+        /*.accordion-item .accordion-item .link {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item .accordion-item .link:hover {*/
+            /*color: #fff;*/
+        /*}*/
+
+        /*.accordion-item--leaf .accordion-item {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item--leaf .accordion-item:hover {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item--leaf .accordion-item.accordion-item--opened {*/
+            /*background-color: #fff;*/
+        /*}*/
+        /*.accordion-item--leaf .accordion-item .accordion-item__header {*/
+            /*border-color: #fff;*/
+        /*}*/
+        /*.accordion-item--leaf .accordion-item .link {*/
+            /*color: #fff;*/
+        /*}*/
+        /*.accordion-item--leaf .accordion-item .link:hover {*/
+            /*color: #fff;*/
+        /*}*/
+
+        /*.tabbed__nav-item::after {*/
+            /*background-color: #fff;*/
+        /*}*/
+        /*.main__aside {*/
+            /*background-color: #fff;*/
+        /*}*/
+        /*.main__article {*/
+            /*background-color: #fff;*/
+        /*}*/
+        /*.icon-plus {*/
+            /*fill: '';*/
+        /*}*/
     </style>
 </head>
 {% endblock %}
 
-<body class="styleguide">
+<body class="body">
 {% block body %}
     {% block header %}{% endblock %}
 

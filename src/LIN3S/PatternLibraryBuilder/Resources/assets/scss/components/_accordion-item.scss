@@ -11,27 +11,25 @@
 @import './../_variables/typography';
 @import './../_variables/transitions';
 
-$accordion-item-transition: $transition-background-color;
-$accordion-item-icon-size: 14px;
-
-$accordion-item-font-family: $font-family--avant-garde;
-$accordion-item-font-weight: $font-weight-demi--avant-garde;
-$accordion-item-font-weight--nested: $font-weight-medium--avant-garde;
-$accordion-item-font-size: $font-size-16;
-$accordion-item-font-size--nested: $font-size-14;
-$accordion-item-font-size--leaf: $font-size-15;
 $accordion-item-text-color: $color-mine-shaft;
-$accordion-item-text-color--nested: $color-emperor;
-$accordion-item-text-color--over: darken($color-mine-shaft, 10%);
-$accordion-item-text-color--over--nested: darken($color-emperor, 10%);
-
 $accordion-item-border-color: $color-alto;
-$accordion-item-border-color--nested: $color-mercury-lighter;
-$accordion-item-background-color--selected: $color-mercury-lightest;
-$accordion-item-background-color--selected--nested: $color-aqua-haze;
+$accordion-item-text-color-nested: lighten($accordion-item-text-color, 10%);
+$accordion-item-text-color-over: darken($accordion-item-text-color, 5%);
+$accordion-item-text-color-over-nested: darken($accordion-item-text-color-nested, 5%);
+$accordion-item-border-color-nested: lighten($accordion-item-border-color, 5%);
+$accordion-item-background-color-selected: lighten($accordion-item-border-color-nested, 5%);
+$accordion-item-background-color-selected-nested: lighten($accordion-item-background-color-selected, 5%);
 
-$accordion-item-indicator-background-color: $color-blaze-orange;
+$accordion-item-font-family: $font-family-open-sans;
+$accordion-item-font-weight: $font-weight-light;
+$accordion-item-font-weight-nested: $font-weight-regular;
+
+$accordion-item-icon-size: 14px;
+$accordion-item-font-size: $font-size-16;
+$accordion-item-font-size-nested: $font-size-14;
+$accordion-item-font-size-leaf: $font-size-15;
 $accordion-item-indicator-transition: $transition-transform;
+$accordion-item-transition: $transition-background-color;
 
 @mixin accordion-item(
   $background-color,
@@ -40,8 +38,7 @@ $accordion-item-indicator-transition: $transition-transform;
   $font-size,
   $font-weight,
   $text-color,
-  $text-color--over,
-  $type: null
+  $text-color--over
 ) {
   color: $text-color;
   font-size: $font-size;
@@ -56,8 +53,10 @@ $accordion-item-indicator-transition: $transition-transform;
   }
 
   .accordion-item__header {
-    border-bottom: 1px solid $border-color;
-    border-top: 1px solid $border-color;
+    border-bottom: 1px solid;
+    border-bottom-color: $border-color;
+    border-top: 1px solid;
+    border-top-color: $border-color;
     padding: $header-padding;
   }
 
@@ -72,27 +71,17 @@ $accordion-item-indicator-transition: $transition-transform;
       color: $text-color--over;
     }
   }
-
-  @if($type == 'leaf') {
-    .accordion-item__header {
-      padding: 0;
-    }
-
-    .link {
-      padding: $header-padding;
-    }
-  }
 }
 
 .accordion-item {
   @include accordion-item(
-    $accordion-item-background-color--selected,
+    $accordion-item-background-color-selected,
     $accordion-item-border-color,
     20px 30px,
     $accordion-item-font-size,
     $accordion-item-font-weight,
     $accordion-item-text-color,
-    $accordion-item-text-color--over
+    $accordion-item-text-color-over
   );
 
   cursor: pointer;
@@ -103,27 +92,34 @@ $accordion-item-indicator-transition: $transition-transform;
 
   .accordion-item {
     @include accordion-item(
-      $accordion-item-background-color--selected--nested,
-      $accordion-item-border-color--nested,
+      $accordion-item-background-color-selected-nested,
+      $accordion-item-border-color-nested,
       20px 30px,
-      $accordion-item-font-size--nested,
+      $accordion-item-font-size-nested,
       $accordion-item-font-weight,
-      $accordion-item-text-color--nested,
-      $accordion-item-text-color--over--nested
+      $accordion-item-text-color-nested,
+      $accordion-item-text-color-over-nested
     );
   }
 
   .accordion-item--leaf {
     @include accordion-item(
-      $accordion-item-background-color--selected--nested,
+      $accordion-item-background-color-selected-nested,
       transparent,
       15px 30px,
-      $accordion-item-font-size--leaf,
-      $accordion-item-font-weight--nested,
-      $accordion-item-text-color--nested,
-      $accordion-item-text-color--over--nested,
-    'leaf'
+      $accordion-item-font-size-leaf,
+      $accordion-item-font-weight-nested,
+      $accordion-item-text-color-nested,
+      $accordion-item-text-color-over-nested
     );
+
+    .accordion-item__header {
+      padding: 0;
+    }
+
+    .link {
+      padding: 15px 30px;
+    }
   }
 }
 
@@ -160,7 +156,6 @@ $accordion-item-indicator-transition: $transition-transform;
   }
 
   &:after {
-    background-color: $accordion-item-indicator-background-color;
     content: '';
     height: 100%;
     left: 0;

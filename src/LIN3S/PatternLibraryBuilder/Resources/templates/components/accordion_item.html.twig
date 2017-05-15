@@ -1,0 +1,22 @@
+{##
+    PROPERTY                REQUIRED                 DEFAULT VALUE
+    ===============================================================
+
+    tag                                              div
+    modifier                                         null
+    header                  required
+    content                 required
+#}
+
+{% set tag = tag|default('div') %}
+
+<{{ tag }} class="accordion-item{{ modifier|default(null) }}">
+    <div class="accordion-item__header">
+        {{- header|raw -}}
+    </div>
+    {% if item.content is not empty %}
+        <div class="accordion-item__content">
+            {{- content|raw -}}
+        </div>
+    {% endif %}
+</{{ tag }}>

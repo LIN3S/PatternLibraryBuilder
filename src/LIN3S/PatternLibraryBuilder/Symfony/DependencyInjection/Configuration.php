@@ -27,7 +27,10 @@ class Configuration implements ConfigurationInterface
 
         $treeBuilder->root('lin3s_pattern_library_builder')
             ->children()
-                ->scalarNode('default_parameters_resolver')
+                ->scalarNode('title')
+                    ->isRequired()
+                ->end()
+                ->scalarNode('description')
                     ->defaultValue('')
                 ->end()
             ->end();

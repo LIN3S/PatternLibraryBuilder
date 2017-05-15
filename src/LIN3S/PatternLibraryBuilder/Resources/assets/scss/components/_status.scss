@@ -1,0 +1,50 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/transitions';
+@import './../_variables/typography';
+
+$status-transition: $transition-transform;
+$status-font-family: $font-family-open-sans;
+$status-font-size: 10px;
+$status-font-weight: $font-weight-bold;
+
+$status-color-todo: #f14133;
+$status-color-doing: #fba30a;
+$status-color-pending-review: #16a5ba;
+$status-color-done: #598d09;
+
+.status {
+  display: block;
+  font-family: $status-font-family;
+  font-size: $status-font-size;
+  font-weight: $status-font-weight;
+  letter-spacing: 1px;
+  line-height: $status-font-size;
+  text-transform: none;
+}
+
+.status--todo {
+  color: $status-color-todo;
+}
+
+.status--doing {
+  color: $status-color-doing;
+}
+
+.status--pending-review {
+  color: $status-color-pending-review;
+}
+
+.status--done {
+  color: $status-color-done;
+}

@@ -1,0 +1,20 @@
+{##
+    PROPERTY                REQUIRED                DEFAULT VALUE
+    ==============================================================
+
+    level                   required
+    tag                                             div
+#}
+
+{% set status = 'done' %}
+{% if level == 0 %}
+    {% set status = 'todo' %}
+{% elseif level == 1 %}
+    {% set status = 'doing' %}
+{% elseif level == 2 %}
+    {% set status = 'pending-review' %}
+{% endif %}
+
+{% set tag = tag|default('div') %}
+
+<{{ tag }} class="status status--{{- status -}}">{{ status|replace({'-': ' '}) }}</{{ tag }}>

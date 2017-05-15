@@ -5,28 +5,20 @@
 // For the full copyright and license information, please view the LICENSE
 // file that was distributed with this source code.
 //
-// @author Mikel Tuesta <mikeltuesta@gmail.com>
+// @author Beñat Espiña <benatespina@gmail.com>
 
-$font-name--avant-garde: 'ITC Avant Garde Pro Md';
-$font-name--proxima-nova: 'Proxima Nova';
+$font-family-open-sans: 'Open Sans', sans-serif;
 
-$font-family--avant-garde: $font-name--avant-garde, sans-serif;
-$font-family--proxima-nova: $font-name--proxima-nova, sans-serif;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
 
-$font-weight-thin--proxima-nova: 200;
-$font-weight-light--proxima-nova: 300;
-$font-weight-book--avant-garde: 300;
-$font-weight-regular--proxima-nova: 400;
-$font-weight-medium--avant-garde: 400;
-$font-weight-demi--avant-garde: 600;
-$font-weight-semibold--proxima-nova: 700;
-$font-weight-bold--avant-garde: 700;
-$font-weight-bold--proxima-nova: 800;
-
-$font-size-46: 46px;
 $font-size-36: 36px;
+$font-size-32: 32px;
 $font-size-28: 28px;
+$font-size-26: 26px;
 $font-size-24: 24px;
+$font-size-22: 22px;
 $font-size-20: 20px;
 $font-size-18: 18px;
 $font-size-16: 16px;
@@ -34,13 +26,11 @@ $font-size-15: 15px;
 $font-size-14: 14px;
 $font-size-12: 12px;
 
-$line-height-for-font-size-46: 54px;
-$line-height-for-font-size-36: 42px;
-$line-height-for-font-size-28: 32px;
-$line-height-for-font-size-24: 28px;
-$line-height-for-font-size-20: 24px;
-$line-height-for-font-size-18: 24px;
-$line-height-for-font-size-16: 20px;
-$line-height-for-font-size-15: 18px;
-$line-height-for-font-size-14: 18px;
-$line-height-for-font-size-12: 14px;
+$line-height-open-sans-font-size-32: 38px;
+$line-height-open-sans-font-size-24: 30px;
+$line-height-open-sans-font-size-20: 26px;
+$line-height-open-sans-font-size-18: 24px;
+$line-height-open-sans-font-size-16: 22px;
+$line-height-open-sans-font-size-15: 18px;
+$line-height-open-sans-font-size-14: 18px;
+$line-height-open-sans-font-size-12: 16px;

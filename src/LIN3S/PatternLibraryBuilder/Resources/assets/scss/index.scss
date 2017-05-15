@@ -13,12 +13,13 @@
 @import './../node_modules/lin3s-front-foundation/src/scss/base/common';
 @import './../node_modules/prismjs/themes/prism-okaidia.css';
 
-@import 'main-styles';
-
-@import 'components/accordion';
+@import 'components/accordion-item';
 @import 'components/link';
+@import 'components/status';
 @import 'components/tabbed';
 
 @import 'svg/icon-plus';
 
+@import 'layouts/article';
+@import 'layouts/aside';
 @import 'layouts/main';

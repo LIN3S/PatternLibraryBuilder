@@ -1,0 +1,43 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/transitions';
+@import './../_variables/typography';
+
+$aside-header-background-color: $color-mercury;
+$aside-header-font-family: $font-family-open-sans;
+$aside-header-font-size: $font-size-16;
+$aside-header-font-weight: $font-weight-bold;
+$aside-header-line-height: $line-height-open-sans-font-size-16;
+$aside-header-text-color: $color-white;
+
+.aside__header {
+  background-color: $aside-header-background-color;
+  color: $aside-header-text-color;
+  font-family: $aside-header-font-family;
+  font-size: $aside-header-font-size;
+  font-weight: $aside-header-font-weight;
+  line-height: $aside-header-line-height;
+  padding: 30px;
+
+  .logo {
+    height: auto;
+    margin-bottom: 10px;
+    max-width: 170px;
+    width: 100%;
+  }
+}
+
+.aside__content {
+  overflow: hidden;
+  padding: 65px 0;
+}

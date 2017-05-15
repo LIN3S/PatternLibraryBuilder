@@ -18,19 +18,19 @@
             }
 #}
 
-<article>
-    <p class="architecture-breadcrumbs">
-    {% for breadcrumb in breadcrumbs %}
-        {% if not loop.last %}
-            {{ breadcrumb }}
-            <span class="architecture--breadcrumbs__separator">/</span>
-        {% else %}
-            </p>
-            <h1 class="architecture-title">{{ breadcrumb|replace({'-': ' '}) }}</h1>
-        {% endif %}
-    {% endfor %}
+<article class="article">
+    <p class="article__breadcrumbs">
+{% for breadcrumb in breadcrumbs %}
+    {% if not loop.last %}
+        {{ breadcrumb }}
+        <span class="article__breadcrumbs-separator">/</span>
+    {% else %}
+    </p>
+    <h1 class="article__title">{{ breadcrumb|replace({'-': ' '}) }}</h1>
+    {% endif %}
+{% endfor %}
 
-    <div class="architecture-description">
+    <div class="article__description">
         {{ item.description|raw }}
     </div>
 

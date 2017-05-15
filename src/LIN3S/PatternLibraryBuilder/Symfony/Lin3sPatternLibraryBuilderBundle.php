@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace LIN3S\PatternLibraryBuilder\Symfony;
 
+use LIN3S\PatternLibraryBuilder\Symfony\DependencyInjection\Compiler\AddConfigurationValuesToGlobalTwigVariablesPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -28,6 +29,8 @@ class Lin3sPatternLibraryBuilderBundle extends Bundle
                 $this->basePath() . '/templates' => 'lin3s_pattern_library_builder',
             ],
         ]);
+
+        $container->addCompilerPass(new AddConfigurationValuesToGlobalTwigVariablesPass());
     }
 
     private function basePath()
