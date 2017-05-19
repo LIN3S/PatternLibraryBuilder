@@ -1,13 +1,8 @@
 <a class="icon-card" href="{{ href }}" target="{{ target|default('_blank') }}">
     <div class="icon-card__content">
         <div class="icon-card__icon">
-            <svg class="icon icon-plus" x="0px" y="0px" viewBox="0 0 14 14">
-                <rect class="icon-plus__line icon-plus__line--first" width="10" height="2" x="2" y="6"></rect>
-                <rect class="icon-plus__line icon-plus__line--last" width="2" height="10" x="6" y="2"></rect>
-            </svg>
+            {% include 'svg/icon_plus.svg.twig' %}
         </div>
-        <div class="icon-card__title">
-            {{ title }}
-        </div>
+        <div class="icon-card__title">{{ title }}</div>
     </div>
 </a>
