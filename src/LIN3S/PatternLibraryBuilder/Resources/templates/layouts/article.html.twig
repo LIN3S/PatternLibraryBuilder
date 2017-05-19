@@ -20,15 +20,15 @@
 
 <article class="article">
     <p class="article__breadcrumbs">
-{% for breadcrumb in breadcrumbs %}
-    {% if not loop.last %}
-        {{ breadcrumb }}
-        <span class="article__breadcrumbs-separator">/</span>
-    {% else %}
+    {% for breadcrumb in breadcrumbs %}
+        {% if not loop.last %}
+            {{ breadcrumb }}
+            <span class="article__breadcrumbs-separator">/</span>
+        {% else %}
     </p>
-    <h1 class="article__title">{{ breadcrumb|replace({'-': ' '}) }}</h1>
-    {% endif %}
-{% endfor %}
+            <h1 class="article__title">{{ breadcrumb|replace({'-': ' '}) }}</h1>
+        {% endif %}
+    {% endfor %}
 
     <div class="article__description">
         {{ item.description|raw }}
@@ -50,7 +50,7 @@
             {{- '</code></pre>' -}}
         {% endset %}
 
-        {% set item_html = '<pre><code class="language-html"><xmp>' ~ item_preview ~ '</xmp></code></pre>' %}
+        {% set item_html = '<pre><code class="language-html">' ~ item_preview|nl2br ~ '</code></pre>' %}
 
         {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
             tabs: [{
