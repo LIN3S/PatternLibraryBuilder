@@ -60,6 +60,23 @@ class AppKernel extends Kernel
         ])->loadFromExtension('lin3s_pattern_library_builder', [
             'title' => 'Test pattern library',
             'description' => 'This is the testing purposes pattern library',
+            'theme' => [
+                'accordion' => [
+                    'default' => '',
+                    'hover' => '',
+                    'open' => '',
+                    'link' => [
+                        'default' => '',
+                        'hover' => ''
+                    ],
+                    'icon' => ''
+                ],
+                'tab' => '',
+                'main' => [
+                    'aside' => '',
+                    'article' => ''
+                ]
+            ]
         ]);
 
     }
