@@ -23,5 +23,12 @@
             <argument type="service" id="twig"/>
             <argument>@Lin3sPatternLibraryBuilder/pattern_library.html.twig</argument>
         </service>
+
+        <service id="lin3s.pattern_library_builder.twig.tidy_extension"
+                 public="false"
+                 class="LIN3S\PatternLibraryBuilder\Twig\TidyExtension">
+            <tag name="twig.extension"/>
+        </service>
+
     </services>
 </container>

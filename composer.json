@@ -19,6 +19,7 @@
     ],
     "require": {
         "php": "^7.1",
+        "ext-tidy": "*",
         "symfony/framework-bundle": "^3.0",
         "symfony/templating": "^3.0"
     },

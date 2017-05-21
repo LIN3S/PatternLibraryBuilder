@@ -50,7 +50,7 @@
             {{- '</code></pre>' -}}
         {% endset %}
 
-        {% set item_html = '<pre><code class="language-html">' ~ item_preview|nl2br ~ '</code></pre>' %}
+        {% set item_html = '<pre><code class="language-html">' ~ item_preview|tidy|nl2br ~ '</code></pre>' %}
 
         {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
             tabs: [{
