@@ -17,6 +17,24 @@
                 params
             }
 #}
+{%- macro tab(tab_level) -%}
+{% for level in 0..tab_level %}{{ '&#9' }}{% endfor %}
+{%- endmacro -%}
+
+{%- macro print_param_value(param_value, tab_level) -%}
+{% import _self as macros %}
+{% if param_value is iterable %}
+{% for key, value in param_value %}
+{% if value is iterable %}
+{{-macros.tab(tab_level)-}}{{- key -}}: [{% for k, v in value %}{&#10{{- macros.print_param_value(v, tab_level + 1) -}}&#10{{-macros.tab(tab_level)-}}}{% if not loop.last %},{% endif %}{% endfor %}]{% else %}{{-macros.tab(tab_level)-}}{{- key -}}: '{{- value -}}'{% if not loop.last %},&#10{% endif %}
+{% endif %}
+{% endfor %}
+{% else %}
+{{- param_value -}}
+{% endif %}
+{%- endmacro -%}
+
+{% import _self as macros %}
 
 <article class="article">
     <p class="article__breadcrumbs">
@@ -31,23 +49,18 @@
     {% endfor %}
 
     <div class="article__description">
+        {{ macros.tab(3) }}
         {{ item.description|raw }}
     </div>
 
     {% for params in item.preview_parameters %}
         {% set item_preview = include(item.twig, params) %}
         {% set item_twig %}
-            {{ '<pre><code class="language-twig">' -}}
-
-            {{- '{% include "' ~ item.twig ~ '" with {' }}
-{# This block must be with no indentation #}
-{% for key, value in params %}
-    {{ key }}: '{{ value }}'{% if not loop.last %},{% endif %}<br/>
-{% endfor %}
-{# This block must be with no indentation #}
-            {{- '} %}' -}}
-
-            {{- '</code></pre>' -}}
+<pre><code class="language-twig">
+{{- '{% include "' ~ item.twig ~ '" with {' -}}
+&#10{{- macros.print_param_value(params, 0) -}}&#10
+{{- '} %}' -}}
+</code></pre>
         {% endset %}
 
         {% set item_html = '<pre><code class="language-html">' ~ item_preview|tidy|nl2br ~ '</code></pre>' %}
