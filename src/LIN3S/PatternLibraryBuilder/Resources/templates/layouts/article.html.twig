@@ -57,7 +57,7 @@
         {% set item_preview = include(item.twig, params) %}
         {% set item_twig %}
 <pre><code class="language-twig">
-{{- '{% include "' ~ item.twig ~ '" with {' -}}
+{{- '{% include \'' ~ item.twig ~ '\' with {' -}}
 &#10{{- macros.print_param_value(params, 0) -}}&#10
 {{- '} %}' -}}
 </code></pre>
