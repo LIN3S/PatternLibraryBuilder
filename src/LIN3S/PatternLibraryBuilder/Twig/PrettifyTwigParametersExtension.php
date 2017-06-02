@@ -11,6 +11,15 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of the Pattern Library Builder project.
+ *
+ * Copyright (c) 2017-present LIN3S <info@lin3s.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace LIN3S\PatternLibraryBuilder\Twig;
 
 /**
@@ -25,19 +34,18 @@ final class PrettifyTwigParametersExtension extends \Twig_Extension
         ];
     }
 
-    public function prettifyTwigParameters($parameters)
+    public function prettifyTwigParameters($parameters): string
     {
         return $this->prettifyParameters($parameters) . $this->newLine();
     }
 
-    private function prettifyParameters($parameters, $str = '', $indentationLevel = 1)
+    private function prettifyParameters($parameters, string $str = '', int $indentationLevel = 1): string
     {
         if (is_array($parameters)) {
             $parameterIndex = 0;
             $parametersCount = count($parameters);
 
             foreach ($parameters as $key => $value) {
-
                 if (!is_numeric($key)) {
                     $str .= $this->newLine() . $this->indent($indentationLevel) . $key . ': ';
                 }
@@ -48,10 +56,10 @@ final class PrettifyTwigParametersExtension extends \Twig_Extension
                     $str = $this->prettifyParameters($value, $str, $isAssociative ? $indentationLevel + 1 : $indentationLevel);
                     $str .= $isAssociative ? $this->newLine() . $this->indent($indentationLevel) . '}' : ']';
                 } else {
-                    $str .= '\''.$value.'\'';
+                    $str .= '\'' . $value . '\'';
                 }
 
-                $parameterIndex++;
+                ++$parameterIndex;
                 if ($parameterIndex !== $parametersCount) {
                     $str .= ',';
                 }
@@ -63,25 +71,29 @@ final class PrettifyTwigParametersExtension extends \Twig_Extension
         return $str;
     }
 
-    private function isAssociative(array $arr)
+    private function isAssociative(array $arr): bool
     {
-        if (array() === $arr) return false;
+        if (array() === $arr) {
+            return false;
+        }
+
         return array_keys($arr) !== range(0, count($arr) - 1);
     }
 
-    private function newLine()
+    private function newLine(): string
     {
         return "\n";
     }
 
-    private function indent($indentationLevel)
+    private function indent(int $indentationLevel): string
     {
-        $indentationStr = "";
+        $indentationStr = '';
         $indentationIterations = 0;
         while ($indentationIterations < $indentationLevel) {
             $indentationStr .= "\t";
-            $indentationIterations++;
+            ++$indentationIterations;
         }
+
         return $indentationStr;
     }
 }

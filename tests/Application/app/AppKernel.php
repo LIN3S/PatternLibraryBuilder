@@ -58,27 +58,26 @@ class AppKernel extends Kernel
                 __DIR__ . '/../templates' => '__main__',
             ],
         ])->loadFromExtension('lin3s_pattern_library_builder', [
-            'title' => 'Test pattern library',
+            'title'       => 'Test pattern library',
             'description' => 'This is the testing purposes pattern library',
-            'theme' => [
+            'theme'       => [
                 'accordion' => [
                     'default' => '',
-                    'hover' => '',
-                    'open' => '',
-                    'link' => [
+                    'hover'   => '',
+                    'open'    => '',
+                    'link'    => [
                         'default' => '',
-                        'hover' => ''
+                        'hover'   => '',
                     ],
-                    'icon' => ''
+                    'icon' => '',
                 ],
-                'tab' => '',
+                'tab'  => '',
                 'main' => [
-                    'aside' => '',
-                    'article' => ''
-                ]
-            ]
+                    'aside'   => '',
+                    'article' => '',
+                ],
+            ],
         ]);
-
     }
 
     protected function configureRoutes(RouteCollectionBuilder $routes)

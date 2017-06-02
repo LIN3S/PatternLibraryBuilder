@@ -11,6 +11,15 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of the Pattern Library Builder project.
+ *
+ * Copyright (c) 2017-present LIN3S <info@lin3s.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace LIN3S\PatternLibraryBuilder\Controller;
 
 use Symfony\Component\Finder\Finder;
@@ -42,7 +51,7 @@ class IndexController
         $this->twigFile = $twigFile;
     }
 
-    public function __invoke(string $slug = '') : Response
+    public function __invoke(string $slug = ''): Response
     {
         if (!$slug) {
             return new Response($this->twig->render($this->twigFile, [
@@ -64,12 +73,12 @@ class IndexController
         ]));
     }
 
-    private function item(array $slugs) : ?array
+    private function item(array $slugs): ?array
     {
         return Yaml::parse(@file_get_contents($this->itemsPath . '/' . implode('/', $slugs) . '.yml'));
     }
 
-    private function menu() : array
+    private function menu(): array
     {
         $finder = new Finder();
         $dir = $finder->directories()->in($this->itemsPath)->depth(0);
@@ -78,7 +87,7 @@ class IndexController
         return $items;
     }
 
-    private function getDirectoryContent(Finder $dir, string $slug, array $dirItems = []) : array
+    private function getDirectoryContent(Finder $dir, string $slug, array $dirItems = []): array
     {
         /** @var File $subDir */
         foreach ($dir as $subDir) {
