@@ -19,7 +19,6 @@
     <nav class="accordion__nav">
         <ul class="accordion__list">
             {% for item in items %}
-
                 {% set item_modifiers = ' ' %}
                 {% for item_modifier in item.modifiers %}
                     {% set item_modifiers = item_modifiers ~ ' accordion-item--' ~ item_modifier %}
@@ -29,7 +28,9 @@
                     tag: 'li',
                     modifier: item_modifiers,
                     header: item.header,
-                    content: item.content
+                    content: item.content,
+                    class_name: item.class_name,
+                    finder_value: item.finder_value
                 } %}
             {% endfor %}
         </ul>

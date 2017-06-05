@@ -30,6 +30,8 @@ $article-description-font-weight: $font-weight-regular;
 $article-description-line-height: $line-height-open-sans-font-size-16;
 $article-description-text-color: $color-tundora;
 
+$article-twig-output-font-size: $font-size-12;
+
 .article__breadcrumbs {
   color: $breadcrumbs-text-color;
   font-family: $breadcrumbs-font-family;
@@ -60,4 +62,8 @@ $article-description-text-color: $color-tundora;
   font-size: $article-description-font-size;
   font-weight: $article-description-font-weight;
   line-height: $article-description-line-height;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  font-size: $article-twig-output-font-size;
 }

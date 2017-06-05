@@ -61,21 +61,21 @@ class AppKernel extends Kernel
             'title'       => 'Test pattern library',
             'description' => 'This is the testing purposes pattern library',
             'theme'       => [
-                'accordion' => [
-                    'default' => '',
-                    'hover'   => '',
-                    'open'    => '',
-                    'link'    => [
-                        'default' => '',
-                        'hover'   => '',
-                    ],
-                    'icon' => '',
-                ],
-                'tab'  => '',
-                'main' => [
-                    'aside'   => '',
-                    'article' => '',
-                ],
+//                'accordion' => [
+//                    'default' => '',
+//                    'hover'   => '',
+//                    'open'    => '',
+//                    'link'    => [
+//                        'default' => '',
+//                        'hover'   => '',
+//                    ],
+//                    'icon' => '',
+//                ],
+//                'tab'  => '',
+//                'main' => [
+//                    'aside'   => '',
+//                    'article' => '',
+//                ],
             ],
         ]);
     }

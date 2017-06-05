@@ -1,0 +1,29 @@
+{% set preview_styles = item.preview_styles ? item.preview_styles : '' %}
+
+{% for params in item.preview_parameters %}
+    {% set item_preview = include(item.twig, params) %}
+
+    {% set item_twig %}
+<pre><code class="language-twig">
+{{- '{% include \'' ~ item.twig ~ '\' with {' -}}
+{{ prettify_twig_parameters(params) }}
+{{- '} %}' -}}
+</code></pre>
+    {% endset %}
+
+    {% set item_html = '<pre><code class="language-html"><xmp>' ~ item_preview ~ '</xmp></code></pre>' %}
+
+    {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
+        modifier: loop.index in item.preview_invert_background ? 'inverted-background' : '',
+        tabs: [{
+            content: '<div style="' ~ preview_styles ~'">' ~ item_preview ~ '</div>',
+            title: 'Preview'
+        }, {
+            content: item_twig,
+            title: 'Twig'
+        }, {
+            content: item_html,
+            title: 'Html'
+        }]
+    } %}
+{% endfor %}

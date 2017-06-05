@@ -1,0 +1,32 @@
+{#
+    --------------------------------------------------------------------------------------------
+    FINDER LAYOUT
+    --------------------------------------------------------------------------------------------
+
+    This layout will display a form_group component associated with a list of subject elements
+    that will be filtered while typing on the form_group input.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    finder_id                               null
+    label_title                                                                         required
+    input_placeholder                                                                   required
+
+#}
+
+<div class="finder js-finder">
+    <div class="finder__header">
+        {% include '@lin3s_pattern_library_builder/components/form_group.html.twig' with {
+            id: finder_id,
+            label_title: finder_label_title,
+            input_class_name: 'finder__input',
+            input_placeholder: finder_placeholder,
+            input_type: 'text'
+        } %}
+    </div>
+    <div class="finder__subjects">
+        {% block finder_subjects %}{% endblock %}
+    </div>
+</div>

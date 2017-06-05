@@ -38,6 +38,9 @@ class Lin3sPatternLibraryBuilderBundle extends Bundle
             'paths' => [
                 $this->basePath() . '/templates' => 'lin3s_pattern_library_builder',
             ],
+            'globals' => [
+                'assets_path' => '/bundles/lin3spatternlibrarybuilder',
+            ],
         ]);
 
         $container->addCompilerPass(new AddConfigurationValuesToGlobalTwigVariablesPass());

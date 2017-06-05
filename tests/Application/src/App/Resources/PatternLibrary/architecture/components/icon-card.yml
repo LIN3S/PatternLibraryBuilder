@@ -1,0 +1,39 @@
+status: 0
+twig: 'components/icon_card.html.twig'
+preview_parameters:
+    -
+        header_title: 'relacionado'
+        title: '¿Quieres más?'
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+        card_prices:
+            -
+                card:
+                    icon: 'tech_tv_old'
+                    title: 'Televisión'
+                price: '<img src="/images/fixtures/card-product-with-icon-price.png"/>'
+                cta_title: 'Lo quiero'
+                cta_url: '/'
+            -
+                card:
+                    icon: 'ui_phone_call'
+                    title: 'Teléfono fijo'
+                price: '<img src="/images/fixtures/card-product-with-icon-price.png"/>'
+                cta_title: 'Lo quiero'
+                cta_url: '/'
+            -
+                card:
+                    icon: 'tech_wifi'
+                    title: 'Internet'
+                price: '<img src="/images/fixtures/card-product-with-icon-price.png"/>'
+                cta_title: 'Lo quiero'
+                cta_url: '/'
+            -
+                card:
+                    icon: 'tech_mobile_button'
+                    title: 'Móvil'
+                price: '<img src="/images/fixtures/card-product-with-icon-price.png"/>'
+                cta_title: 'Lo quiero'
+                cta_url: '/'
+
+description: '<p>This is the icon card component description.</p>'
+menu: ''

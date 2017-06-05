@@ -3,9 +3,9 @@
     =================================
 
     breadcrumbs             required
-    items *                 required
+    items                   required
 
-    * each item must be like
+    * provided item must be like
         {
             description,
             twig,
@@ -35,29 +35,5 @@
         {{ item.description|raw }}
     </div>
 
-    {% for params in item.preview_parameters %}
-        {% set item_preview = include(item.twig, params) %}
-        {% set item_twig %}
-<pre><code class="language-twig">
-{{- '{% include \'' ~ item.twig ~ '\' with {' -}}
-{{ prettify_twig_parameters(params) }}
-{{- '} %}' -}}
-</code></pre>
-        {% endset %}
-
-        {% set item_html = '<pre><code class="language-html">' ~ item_preview|tidy|nl2br ~ '</code></pre>' %}
-
-        {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
-            tabs: [{
-                content: item_preview,
-                title: 'Preview'
-            }, {
-                content: item_twig,
-                title: 'Twig'
-            }, {
-                content: item_html,
-                title: 'Html'
-            }]
-        } %}
-    {% endfor %}
+    {%- block article_content -%}{%- endblock -%}
 </article>

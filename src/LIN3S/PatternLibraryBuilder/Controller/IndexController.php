@@ -42,7 +42,7 @@ class IndexController
     public function __construct(
         string $itemsPath,
         \Twig_Environment $twig,
-        string $twigFile = '@lin3s_pattern_library_builder/pattern_library.html.twig',
+        string $twigFile = '@lin3s_pattern_library_builder/pages/architecture.html.twig',
         string $prefixPath = '/design-system'
     ) {
         $this->itemsPath = $itemsPath;
@@ -66,7 +66,9 @@ class IndexController
             throw new NotFoundHttpException();
         }
 
-        return new Response($this->twig->render($this->twigFile, [
+        $twigTemplate = isset($item['template']) ? '@lin3s_pattern_library_builder/pages/' . $item['template'] . '.html.twig' : $this->twigFile;
+
+        return new Response($this->twig->render($twigTemplate, [
             'item'        => $item,
             'menu'        => $this->menu(),
             'breadcrumbs' => $slugs,
