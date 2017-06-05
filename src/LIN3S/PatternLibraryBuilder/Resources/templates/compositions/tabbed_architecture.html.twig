@@ -11,7 +11,7 @@
 </code></pre>
     {% endset %}
 
-    {% set item_html = '<pre><code class="language-html"><xmp>' ~ item_preview ~ '</xmp></code></pre>' %}
+    {% set item_html = '<pre><code class="language-html">' ~ item_preview|dindent ~ '</code></pre>' %}
 
     {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
         modifier: loop.index in item.preview_invert_background ? 'inverted-background' : '',
