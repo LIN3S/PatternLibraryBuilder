@@ -1,0 +1,30 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikel@lin3s.com>
+
+@import './../_variables/colors';
+@import './../_variables/typography';
+
+$form-label-text-color: $color-mine-shaft;
+$form-label-text-color-required: $color-primary;
+$form-label-font-family: $font-family-open-sans;
+$form-label-font-size: $font-size-14;
+$form-label-font-weight: $font-weight-bold;
+$form-label-line-height: $line-height-open-sans-font-size-14;
+
+.form-label {
+  color: $form-label-text-color;
+  font-family: $form-label-font-family;
+  font-size: $form-label-font-size;
+  font-weight: $form-label-font-weight;
+  line-height: $form-label-line-height;
+}
+
+.form-label__required {
+  color: $form-label-text-color-required;
+}

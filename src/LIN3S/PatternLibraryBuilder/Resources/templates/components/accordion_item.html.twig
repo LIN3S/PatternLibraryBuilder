@@ -6,15 +6,17 @@
     modifier                                         null
     header                  required
     content                 required
+    class_name
+    finder_value
 #}
 
 {% set tag = tag|default('div') %}
 
-<{{ tag }} class="accordion-item{{ modifier|default(null) }}">
+<{{ tag }} class="accordion-item{{ modifier|default(null) }}{% if class_name|default %} {{ class_name }}{% endif %}"{% if finder_value|default %} data-finder="{{ finder_value }}{% endif %}">
     <div class="accordion-item__header">
         {{- header|raw -}}
     </div>
-    {% if item.content is not empty %}
+    {% if content is not empty %}
         <div class="accordion-item__content">
             {{- content|raw -}}
         </div>

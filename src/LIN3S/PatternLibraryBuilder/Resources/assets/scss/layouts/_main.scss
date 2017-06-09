@@ -21,14 +21,14 @@ $sticky-aside-background-color: $color-mercury;
 }
 
 .main__aside {
-  @include column(2, 0);
+  @include column(3, 0);
 
   background-color: $sticky-aside-background-color;
   padding: 0;
 }
 
 .main__article {
-  @include column(10, 0);
+  @include column(9, 0);
 
   padding: 80px 60px;
 }

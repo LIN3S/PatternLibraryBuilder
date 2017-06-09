@@ -1,0 +1,43 @@
+// This file is part of the Pattern Library Builder project.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/typography';
+
+$finder-input-font-size: $font-size-16;
+
+$finder-tip-font-family: $font-family-open-sans;
+$finder-tip-font-size: $font-size-16;
+
+.finder__header {
+  max-width: 400px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.finder__input {
+  font-size: $finder-input-font-size;
+  width: 100%;
+}
+
+.finder__subject {
+  display: block;
+}
+
+.finder__subject--hidden {
+  display: none;
+}
+
+.finder__tip {
+  font-family: $finder-tip-font-family;
+  font-size: $finder-tip-font-size;
+  margin-bottom: 30px;
+}

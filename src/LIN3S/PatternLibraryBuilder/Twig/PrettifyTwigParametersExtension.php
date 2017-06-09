@@ -18,7 +18,7 @@ namespace LIN3S\PatternLibraryBuilder\Twig;
  */
 final class PrettifyTwigParametersExtension extends \Twig_Extension
 {
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new \Twig_SimpleFunction('prettify_twig_parameters', [$this, 'prettifyTwigParameters']),

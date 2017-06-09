@@ -4,6 +4,9 @@
     {% set items = [] %}
     {% for item in children %}
 
+        {% set item_class_name = null %}
+        {% set item_title = item.title|replace({'-': ' '}) %}
+
         {% set modifiers = [] %}
         {% for breadcrumb in breadcrumbs %}
             {% if breadcrumb == item.title %}
@@ -13,7 +16,7 @@
 
         {% if item.children is not empty %}
             {% set accordion_item_title %}
-                {{ item.title|replace({'-': ' '}) }}
+                {{ item_title }}
                 {% include '@lin3s_pattern_library_builder/svg/icon_plus.svg.twig' %}
             {% endset %}
             {% set accordion_item_content = macros.accordion_menu(item.children, breadcrumbs) %}
@@ -28,18 +31,21 @@
                             level: item.status,
                             tag: 'span'
                         } %}
-                        {{ item.title|replace({'-': ' '}) }}
+                        {{ item_title }}
                     {%- endblock -%}
                 {% endembed %}
             {% endset %}
 
             {% set modifiers = modifiers|merge(['leaf']) %}
+            {% set item_class_name = 'finder__subject' %}
         {% endif %}
 
         {% set items = items|merge([{
             header: accordion_item_title,
             content: accordion_item_content,
-            modifiers: modifiers
+            modifiers: modifiers,
+            class_name: item_class_name,
+            finder_value: item_title
         }]) %}
     {% endfor %}
 
@@ -49,8 +55,6 @@
     } %}
 {% endmacro %}
 
-{% import _self as aside %}
-
 <aside class="aside">
     <div class="aside__header">
         {% block logo %}{% endblock %}
@@ -58,6 +62,15 @@
         <p>{{ description }}</p>
     </div>
     <div class="aside__content">
-        {{ aside.accordion_menu(menu, breadcrumbs) }}
+        {% embed '@lin3s_pattern_library_builder/layouts/finder.html.twig' with {
+            finder_id: 'styleguide-finder',
+            finder_placeholder: 'type to filter by name...',
+            finder_label_title: 'Search'
+        } %}
+            {% block finder_subjects %}
+                {% import '@lin3s_pattern_library_builder/layouts/aside.html.twig' as aside %}
+                {{ aside.accordion_menu(menu, breadcrumbs) }}
+            {% endblock %}
+        {% endembed %}
     </div>
 </aside>

@@ -31,7 +31,7 @@ $tab-indicator-background-color: $color-mine-shaft;
 }
 
 .tabbed__nav-list {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   justify-content: flex-start;
 }
@@ -45,6 +45,11 @@ $tab-indicator-background-color: $color-mine-shaft;
   padding: 18px 40px;
   position: relative;
   transition: $tab-transition;
+
+  .patternlibrary-icon {
+    height: 30px;
+    width: 30px;
+  }
 
   &:last-child {
     border-right: 1px solid $tab-border-color;

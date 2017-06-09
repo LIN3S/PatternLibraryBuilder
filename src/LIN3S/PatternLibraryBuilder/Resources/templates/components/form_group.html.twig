@@ -1,0 +1,41 @@
+{#
+    --------------------------------------------------------------------------------------------
+    FORM_GROUP COMPONENT
+    --------------------------------------------------------------------------------------------
+
+    This component will display an @atoms/form_label and an @atoms/form_input.
+
+
+    PROPERTY                                DEFAULT VALUE                               REQUIRED
+    ============================================================================================
+
+    required                                false
+    id                                      null
+
+    label_class_name
+    label_modifiers
+    label_title                                                                         required
+
+    input_class_name
+    input_modifiers
+    input_placeholder                                                                   required
+    input_type
+
+#}
+
+<div class="form-group">
+    {% include '@lin3s_pattern_library_builder/atoms/form_label.html.twig' with {
+        for: id,
+        required: required,
+        class_name: label_class_name,
+        modifiers: label_modifiers,
+        title: label_title
+    } %}
+    {% include '@lin3s_pattern_library_builder/atoms/form_input.html.twig' with {
+        type: input_type,
+        id: id,
+        class_name: input_class_name,
+        modifiers: input_modifiers,
+        placeholder: input_placeholder
+    } %}
+</div>

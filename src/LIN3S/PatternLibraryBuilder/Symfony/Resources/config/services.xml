@@ -21,18 +21,18 @@
                  class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
             <argument>%kernel.root_dir%/../src/App/Resources/PatternLibrary</argument>
             <argument type="service" id="twig"/>
-            <argument>@Lin3sPatternLibraryBuilder/pattern_library.html.twig</argument>
-        </service>
-
-        <service id="lin3s.pattern_library_builder.twig.tidy_extension"
-                 public="false"
-                 class="LIN3S\PatternLibraryBuilder\Twig\TidyExtension">
-            <tag name="twig.extension"/>
+            <argument>@lin3s_pattern_library_builder/pages/architecture.html.twig</argument>
         </service>
 
         <service id="lin3s.pattern_library_builder.twig.prettify_twig_parameters_extension"
                  public="false"
                  class="LIN3S\PatternLibraryBuilder\Twig\PrettifyTwigParametersExtension">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.twig.dindent_extension"
+                 public="false"
+                 class="LIN3S\PatternLibraryBuilder\Twig\DindentExtension">
             <tag name="twig.extension"/>
         </service>
     </services>

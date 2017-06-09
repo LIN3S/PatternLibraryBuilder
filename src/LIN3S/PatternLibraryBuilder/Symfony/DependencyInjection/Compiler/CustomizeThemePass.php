@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Pattern Library Builder project.
- *
- * Copyright (c) 2017-present LIN3S <info@lin3s.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare(strict_types=1);
 
 /*
@@ -36,34 +27,34 @@ class CustomizeThemePass implements CompilerPassInterface
             return;
         }
 
-        $config = $container->getParameter('lin3s_pattern_library_builder.config');
-        $themeData = $config['theme'];
-
-        $theme = sprintf(
-            self::THEME,
-            $themeData['accordion']['default'],
-            $themeData['accordion']['hover'],
-            $themeData['accordion']['open'],
-            $themeData['accordion']['header'],
-            $themeData['accordion']['link']['default'],
-            $themeData['accordion']['link']['hover'],
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            $themeData['tab'],
-            $themeData['main']['aside'],
-            $themeData['main']['article'],
-            $themeData['accordion']['icon']
-        );
-
-        $container->getDefinition('twig')->addMethodCall('addGlobal', ['theme_styles', $theme]);
+//        $config = $container->getParameter('lin3s_pattern_library_builder.config');
+//        $themeData = $config['theme'];
+//
+//        $theme = sprintf(
+//            self::THEME,
+//            $themeData['accordion']['default'],
+//            $themeData['accordion']['hover'],
+//            $themeData['accordion']['open'],
+//            $themeData['accordion']['header'],
+//            $themeData['accordion']['link']['default'],
+//            $themeData['accordion']['link']['hover'],
+//            '',
+//            '',
+//            '',
+//            '',
+//            '',
+//            '',
+//            '',
+//            '',
+//            '',
+//            '',
+//            $themeData['tab'],
+//            $themeData['main']['aside'],
+//            $themeData['main']['article'],
+//            $themeData['accordion']['icon']
+//        );
+//
+//        $container->getDefinition('twig')->addMethodCall('addGlobal', ['theme_styles', $theme]);
     }
 
     const THEME = '.accordion-item{color:%s}.accordion-item:hover{color:%s}' .

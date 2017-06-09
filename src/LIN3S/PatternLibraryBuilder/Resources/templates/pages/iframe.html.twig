@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width={%- block viewport_meta_device_width -%}{%- endblock -%}, height={%- block viewport_meta_device_height -%}{%- endblock -%}, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"/>
+        <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
+    </head>
+<body>
+    {% set current_parameters = [] %}
+    {% for key, params in item.preview_parameters %}
+        {% if key == params_id %}
+            {% set current_parameters = params %}
+        {% endif %}
+    {% endfor %}
+    {{ include(item.twig, current_parameters) }}
+    <div class="js-bengor-cookies"></div> {#Prevent bengor-cookies console errors#}
+    <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
+</body>
+</html>

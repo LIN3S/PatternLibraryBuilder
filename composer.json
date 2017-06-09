@@ -19,8 +19,8 @@
     ],
     "require": {
         "php": "^7.1",
-        "ext-tidy": "*",
-        "symfony/framework-bundle": "^3.0",
+        "gajus/dindent": "^2.3",
+        "symfony/framework-bundle": "^3.2",
         "symfony/templating": "^3.0"
     },
     "require-dev": {

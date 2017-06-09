@@ -5,24 +5,28 @@
 <html lang="{{ app.request.locale|default('en') }}">
 
 {% block head %}
-<head>
-    <meta charset="{{ _charset }}">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{%- block title -%}{{ title }}{%- endblock -%}</title>
-    <meta name="description" content="{{ description }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="{{ _charset }}">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>{%- block title -%}{{ title }}{%- endblock -%}</title>
+        <meta name="description" content="{{ description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% block head_styles %}
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"/>
-        <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
-    {% endblock %}
-    <style>{{ theme_styles }}</style>
-</head>
+        {% block head_styles %}
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"/>
+            <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
+        {% endblock %}
+        <style>{{ theme_styles }}</style>
+    </head>
 {% endblock %}
 
 <body class="body">
 {% block body %}
     {% block header %}{% endblock %}
+
+    {% set styleguide_content %}
+        {%- block styleguide_content -%}{%- endblock -%}
+    {% endset %}
 
     {% block content %}
         {% embed '@lin3s_pattern_library_builder/layouts/main.html.twig' %}
@@ -34,10 +38,14 @@
             {% endblock %}
 
             {% block article %}
-                {% include '@lin3s_pattern_library_builder/layouts/article.html.twig' with {
+                {% embed '@lin3s_pattern_library_builder/layouts/article.html.twig' with {
                     items: items,
                     breadcrumbs: breadcrumbs
                 } %}
+                    {% block article_content %}
+                        {{ styleguide_content }}
+                    {% endblock %}
+                {% endembed %}
             {% endblock %}
         {% endembed %}
     {% endblock %}
@@ -46,9 +54,9 @@
 
     {% block body_end_before_js %}{% endblock %}
 
-    {% block foot_script %}
-        <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
-    {% endblock %}
+{% block foot_script %}
+    <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
+{% endblock %}
 
 {% endblock %}
 </body>
