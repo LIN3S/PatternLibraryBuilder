@@ -1,9 +1,9 @@
 status: 2
 twig: 'atoms/button.html.twig'
 preview_parameters:
-    -
+    primary:
         content: Hola
-    -
+    link:
         content: Hola 2
         modifier: orange
         href: test

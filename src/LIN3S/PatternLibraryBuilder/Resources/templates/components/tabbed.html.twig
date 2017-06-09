@@ -19,7 +19,7 @@
         <ul class="tabbed__nav-list">
             {% for tab in tabs %}
                 <li class="tabbed__nav-item{% if loop.first %} tabbed__nav-item--active{% endif %}">
-                    {{- tab.title -}}
+                    {{- tab.title|raw -}}
                 </li>
             {% endfor %}
         </ul>

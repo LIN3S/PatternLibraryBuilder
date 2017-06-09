@@ -24,6 +24,7 @@ namespace LIN3S\PatternLibraryBuilder\Controller;
 
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Yaml\Yaml;
@@ -51,7 +52,7 @@ class IndexController
         $this->twigFile = $twigFile;
     }
 
-    public function __invoke(string $slug = ''): Response
+    public function __invoke(Request $request, string $slug = ''): Response
     {
         if (!$slug) {
             return new Response($this->twig->render($this->twigFile, [
@@ -64,6 +65,17 @@ class IndexController
         $item = $this->item($slugs);
         if (!$item) {
             throw new NotFoundHttpException();
+        }
+
+        $media = $request->query->get('media');
+        $paramsId = $request->query->get('id');
+
+        if ($media) {
+            return new Response($this->twig->render(
+                sprintf('@lin3s_pattern_library_builder/pages/iframe/%s.html.twig', $media), [
+                'item'      => $item,
+                'params_id' => $paramsId,
+            ]));
         }
 
         $twigTemplate = isset($item['template']) ? '@lin3s_pattern_library_builder/pages/' . $item['template'] . '.html.twig' : $this->twigFile;

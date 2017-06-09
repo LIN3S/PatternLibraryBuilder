@@ -1,6 +1,6 @@
 {% set preview_styles = item.preview_styles ? item.preview_styles : '' %}
 
-{% for params in item.preview_parameters %}
+{% for key, params in item.preview_parameters %}
     {% set item_preview = include(item.twig, params) %}
 
     {% set item_twig %}
@@ -13,17 +13,25 @@
 
     {% set item_html = '<pre><code class="language-html">' ~ item_preview|dindent ~ '</code></pre>' %}
 
+    {% set preview_tabs = [] %}
+    {% for media in ['mobile', 'tablet_portrait', 'tablet_landscape', 'desktop'] %}
+        {% set preview_tabs = preview_tabs|merge([{
+            content: include('@lin3s_pattern_library_builder/components/preview.html.twig', {
+                preview_media: media,
+                preview_params_key: key
+            }),
+            title: include('@lin3s_pattern_library_builder/svg/' ~ media ~ '.svg')
+        }]) %}
+    {% endfor %}
+
     {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
         modifier: loop.index in item.preview_invert_background ? 'inverted-background' : '',
-        tabs: [{
-            content: '<div style="' ~ preview_styles ~'">' ~ item_preview ~ '</div>',
-            title: 'Preview'
-        }, {
+        tabs: preview_tabs|merge([{
             content: item_twig,
             title: 'Twig'
         }, {
             content: item_html,
             title: 'Html'
-        }]
+        }])
     } %}
 {% endfor %}
