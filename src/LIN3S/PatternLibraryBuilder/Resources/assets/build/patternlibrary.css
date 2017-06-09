@@ -437,6 +437,10 @@ code[class*="language-"], pre[class*="language-"] {
 .aside__content {
   overflow: hidden;
   padding: 65px 0; }
+  .aside__content .finder__header {
+    max-width: none;
+    padding: 34px 30px 30px;
+    width: 100%; }
 
 .finder__header {
   max-width: 400px;

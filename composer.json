@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "gajus/dindent": "dev-master",
+        "gajus/dindent": "^2.3",
         "symfony/framework-bundle": "^3.2",
         "symfony/templating": "^3.0"
     },

@@ -16,5 +16,7 @@ import './../scss/index.scss';
 import 'prismjs';
 import 'prismjs/components/prism-twig';
 
+import './layouts/Finder/init';
+
 import './components/Tabbed/init';
 import './components/Accordion/init';
