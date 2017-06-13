@@ -166,7 +166,7 @@ em {
   .form-input:focus, .form-input:active {
     outline: none; }
   .form-input:focus {
-    border: 1px solid #ff8600; }
+    border: 1px solid #0099ff; }
   .form-input::-webkit-input-placeholder {
     color: rgba(68, 68, 68, 0.8); }
   .form-input:-ms-input-placeholder {
@@ -188,7 +188,7 @@ em {
   line-height: 18px; }
 
 .form-label__required {
-  color: #ff8600; }
+  color: #0099ff; }
 
 .accordion-item {
   color: #222;
