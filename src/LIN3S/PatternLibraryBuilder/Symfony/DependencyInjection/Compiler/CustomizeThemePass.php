@@ -27,66 +27,43 @@ class CustomizeThemePass implements CompilerPassInterface
             return;
         }
 
-//        $config = $container->getParameter('lin3s_pattern_library_builder.config');
-//        $themeData = $config['theme'];
-//
-//        $theme = sprintf(
-//            self::THEME,
-//            $themeData['accordion']['default'],
-//            $themeData['accordion']['hover'],
-//            $themeData['accordion']['open'],
-//            $themeData['accordion']['header'],
-//            $themeData['accordion']['link']['default'],
-//            $themeData['accordion']['link']['hover'],
-//            '',
-//            '',
-//            '',
-//            '',
-//            '',
-//            '',
-//            '',
-//            '',
-//            '',
-//            '',
-//            $themeData['tab'],
-//            $themeData['main']['aside'],
-//            $themeData['main']['article'],
-//            $themeData['accordion']['icon']
-//        );
+        $config = $container->getParameter('lin3s_pattern_library_builder.config');
 
-        $colorPrimary = '#0099ff';
-        $fontFamilyPrimary = 'ITC Avant Garde Gothic Pro';
-        $fontFamilySecondary = 'Roboto';
-        $articleBackgroundColor = '#fefefe';
-        $asideBackgroundColor = '#e1e1e1';
-        $asideHeaderBackgroundColor = $colorPrimary;
-        $asideHeaderTextColor = '#fff';
-        $accordionItemLevel1TextColor = '#333';
-        $accordionItemLevel1TextColorHover = '#545454';
-        $accordionItemLevel1BackgroundColorOpened = '#ececec';
-        $accordionItemLevel1HeaderBorderColor = '#d1d1d1';
-        $accordionItemLevel2TextColor = '#666';
-        $accordionItemLevel2TextColorHover = '#999';
-        $accordionItemLevel2BackgroundColorOpened = '#f8fbfb';
-        $accordionItemLevel2HeaderBorderColor = '#e5e5e5';
-        $accordionItemLevel3TextColor = '#999';
-        $accordionItemLevel3TextColorHover = '#a3a3a3';
-        $accordionItemLevel3BackgroundColor = '#fff';
-        $statusTextColorTodo = '#f14133';
-        $statusTextColorDoing = '#fba30a';
-        $statusTextColorPendingReview = '#16a5ba';
-        $statusTextColorDone = '#598d09';
-        $tabbedBackgroundColor = '';
-        $tabbedBorderColor = '';
-        $tabbedContentBackgroundColor = '';
-        $tabbedContentBorderColor = '';
-        $breadcrumbsTextColor = '#b6b6b6';
-        $titleTextColor = $colorPrimary;
-        $descriptionTextColor = '#444';
-        $formInputBorderColor = '#b0b0b0';
-        $formInputBorderColorHover = $colorPrimary;
-        $formLabelTextColor = '#444';
-        $iconFillColor = $colorPrimary;
+        $themeData = $config['theme'];
+
+        $colorPrimary = $themeData['color_primary'];
+        $fontFamilyPrimary = $themeData['font_family_primary'];
+        $fontFamilySecondary = $themeData['font_family_secondary'];
+        $articleBackgroundColor = $themeData['article_background_color'];
+        $asideBackgroundColor = $themeData['aside_background_color'];
+        $asideHeaderBackgroundColor = $themeData['aside_header_background_color'];
+        $asideHeaderTextColor = $themeData['aside_header_text_color'];
+        $accordionItemLevel1TextColor = $themeData['accordion_item_level1_text_color'];
+        $accordionItemLevel1TextColorHover = $themeData['accordion_item_level1_text_color_hover'];
+        $accordionItemLevel1BackgroundColorOpened = $themeData['accordion_item_level1_background_color_opened'];
+        $accordionItemLevel1HeaderBorderColor = $themeData['accordion_item_level1_header_border_color'];
+        $accordionItemLevel2TextColor = $themeData['accordion_item_level2_text_color'];
+        $accordionItemLevel2TextColorHover = $themeData['accordion_item_level2_text_color_hover'];
+        $accordionItemLevel2BackgroundColorOpened = $themeData['accordion_item_level2_background_color_opened'];
+        $accordionItemLevel2HeaderBorderColor = $themeData['accordion_item_level2_header_border_color'];
+        $accordionItemLevel3TextColor = $themeData['accordion_item_level3_text_color'];
+        $accordionItemLevel3TextColorHover = $themeData['accordion_item_level3_text_color_hover'];
+        $accordionItemLevel3BackgroundColor = $themeData['accordion_item_level3_background_color'];
+        $statusTextColorTodo = $themeData['status_text_color_todo'];
+        $statusTextColorDoing = $themeData['status_text_color_doing'];
+        $statusTextColorPendingReview = $themeData['status_text_color_pending_review'];
+        $statusTextColorDone = $themeData['status_text_color_done'];
+        $tabbedBackgroundColor = $themeData['tabbed_background_color'];
+        $tabbedBorderColor = $themeData['tabbed_border_color'];
+        $tabbedContentBackgroundColor = $themeData['tabbed_content_background_color'];
+        $tabbedContentBorderColor = $themeData['tabbed_content_border_color'];
+        $breadcrumbsTextColor = $themeData['breadcrumbs_text_color'];
+        $titleTextColor = $themeData['title_text_color'];
+        $descriptionTextColor = $themeData['description_text_color'];
+        $formInputBorderColor = $themeData['form_input_border_color'];
+        $formInputBorderColorHover = $themeData['form_input_border_color_hover'];
+        $formLabelTextColor = $themeData['form_label_text_color'];
+        $iconFillColor = $themeData['icon_fill_color'];
 
         $theme = sprintf(
             self::THEME,
