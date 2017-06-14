@@ -5,6 +5,21 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"/>
         <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
     </head>
+    <style type="text/css">
+        html {
+            box-sizing: content-box;
+            height: 100%;
+            overflow: hidden;
+            padding-right: 20px;
+            width: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    </style>
 <body>
     {% set current_parameters = [] %}
     {% for key, params in item.preview_parameters %}
