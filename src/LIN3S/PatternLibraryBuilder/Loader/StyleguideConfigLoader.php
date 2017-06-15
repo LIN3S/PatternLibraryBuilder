@@ -11,16 +11,7 @@
 
 declare(strict_types=1);
 
-/*
- * This file is part of the Pattern Library Builder project.
- *
- * Copyright (c) 2017-present LIN3S <info@lin3s.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-namespace LIN3S\PatternLibraryBuilder\Symfony\Loader;
+namespace LIN3S\PatternLibraryBuilder\Loader;
 
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\File\File;
@@ -37,36 +28,35 @@ class StyleguideConfigLoader
         $this->itemsPath = $itemsPath;
         $this->prefixPath = $prefixPath;
         $this->config = $this->loadConfig();
-
     }
 
-    public function allInHierarchy(): array
+    public function allInHierarchy() : array
     {
         return $this->config;
     }
 
-    public function allInPlain(): array
+    public function allInPlain() : array
     {
         return $this->findAllItemsRecursively($this->config);
     }
 
-    public function get($slug): array
+    public function get($slug) : array
     {
         return $this->findBySlugRecursively($slug, $this->config)['config'];
     }
 
-    private function findBySlugRecursively($slug, $config): ?array
+    private function findBySlugRecursively($slug, $config) : ?array
     {
-        foreach($config as $child) {
-            if(isset($child['slug'])) {
-                if($child['slug'] === $this->prefixPath . '/' . $slug) {
+        foreach ($config as $child) {
+            if (isset($child['slug'])) {
+                if ($child['slug'] === $this->prefixPath . '/' . $slug) {
                     return $child;
                 }
             }
 
-            if(isset($child['children'])) {
+            if (isset($child['children'])) {
                 $children = $this->findBySlugRecursively($slug, $child['children']);
-                if($children) {
+                if ($children) {
                     return $children;
                 }
             }
@@ -75,14 +65,14 @@ class StyleguideConfigLoader
         return null;
     }
 
-    private function findAllItemsRecursively($config, $items = []): array
+    private function findAllItemsRecursively($config, $items = []) : array
     {
-        foreach($config as $child) {
-            if(isset($child['config'])) {
+        foreach ($config as $child) {
+            if (isset($child['config'])) {
                 $items[] = $child;
             }
 
-            if(isset($child['children'])) {
+            if (isset($child['children'])) {
                 $items = array_merge($items, $this->findAllItemsRecursively($child['children'], $items));
             }
         }
@@ -90,7 +80,7 @@ class StyleguideConfigLoader
         return $items;
     }
 
-    private function loadConfig(): array
+    private function loadConfig() : array
     {
         $finder = new Finder();
         $dir = $finder->directories()->in($this->itemsPath)->depth(0);
@@ -99,7 +89,7 @@ class StyleguideConfigLoader
         return $items;
     }
 
-    private function getDirectoryContent(Finder $dir, string $slug, array $dirItems = []): array
+    private function getDirectoryContent(Finder $dir, string $slug, array $dirItems = []) : array
     {
         /** @var File $subDir */
         foreach ($dir as $subDir) {
@@ -124,8 +114,8 @@ class StyleguideConfigLoader
 
                 $dirItems[$subDir->getBasename()]['title'] = $subDir->getBasename();
                 $dirItems[$subDir->getBasename()]['children'][] = [
-                    'title' => $filename,
-                    'slug' => $slug . '/' . $subDir->getBasename() . '/' . $filename,
+                    'title'  => $filename,
+                    'slug'   => $slug . '/' . $subDir->getBasename() . '/' . $filename,
                     'config' => $itemConfig,
                     'status' => $itemConfig['status'],
                 ];

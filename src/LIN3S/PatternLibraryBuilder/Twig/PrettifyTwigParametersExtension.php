@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of the Pattern Library Builder project.
  *
@@ -11,26 +9,28 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace LIN3S\PatternLibraryBuilder\Twig;
 
 /**
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
-final class PrettifyTwigParametersExtension extends \Twig_Extension
+class PrettifyTwigParametersExtension extends \Twig_Extension
 {
-    public function getFunctions(): array
+    public function getFunctions() : array
     {
         return [
             new \Twig_SimpleFunction('prettify_twig_parameters', [$this, 'prettifyTwigParameters']),
         ];
     }
 
-    public function prettifyTwigParameters($parameters): string
+    public function prettifyTwigParameters($parameters) : string
     {
         return $this->prettifyParameters($parameters) . $this->newLine();
     }
 
-    private function prettifyParameters($parameters, string $str = '', int $indentationLevel = 1): string
+    private function prettifyParameters($parameters, string $str = '', int $indentationLevel = 1) : string
     {
         if (is_array($parameters)) {
             $parameterIndex = 0;
@@ -44,7 +44,13 @@ final class PrettifyTwigParametersExtension extends \Twig_Extension
                 if (is_array($value)) {
                     $isAssociative = $this->isAssociative($value);
                     $str .= $isAssociative ? '{' : '[';
-                    $str = $this->prettifyParameters($value, $str, $isAssociative ? $indentationLevel + 1 : $indentationLevel);
+                    $str = $this->prettifyParameters(
+                        $value,
+                        $str,
+                        $isAssociative
+                            ? $indentationLevel + 1
+                            : $indentationLevel
+                    );
                     $str .= $isAssociative ? $this->newLine() . $this->indent($indentationLevel) . '}' : ']';
                 } else {
                     $str .= '\'' . $value . '\'';
@@ -62,21 +68,21 @@ final class PrettifyTwigParametersExtension extends \Twig_Extension
         return $str;
     }
 
-    private function isAssociative(array $arr): bool
+    private function isAssociative(array $arr) : bool
     {
-        if (array() === $arr) {
+        if ([] === $arr) {
             return false;
         }
 
         return array_keys($arr) !== range(0, count($arr) - 1);
     }
 
-    private function newLine(): string
+    private function newLine() : string
     {
         return "\n";
     }
 
-    private function indent(int $indentationLevel): string
+    private function indent(int $indentationLevel) : string
     {
         $indentationStr = '';
         $indentationIterations = 0;
