@@ -5,11 +5,9 @@
 # For the full copyright and license information, please view the LICENSE
 # file that was distributed with this source code.
 
-/.php_cs.cache
-/composer.lock
-/src/LIN3S/PatternLibraryBuilder/Resources/assets/node_modules
-/tests/Application/var/cache/
-!/tests/Application/var/cache/.gitkeep
-/tests/Application/var/logs/
-!/tests/Application/var/logs/.gitkeep
-/vendor
+suites:
+    app:
+        spec_path: tests/
+        spec_prefix: spec
+        namespace: LIN3S
+        src_path: src/

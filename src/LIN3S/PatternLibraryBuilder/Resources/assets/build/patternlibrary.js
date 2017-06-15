@@ -10366,7 +10366,7 @@ module.exports = g;
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -10406,7 +10406,7 @@ var initAccordions = function initAccordions() {
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -10442,7 +10442,7 @@ var initTabbeds = function initTabbeds() {
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -11342,7 +11342,7 @@ Prism.languages.js = Prism.languages.javascript;
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -11420,7 +11420,7 @@ exports.default = Accordion;
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -11523,7 +11523,7 @@ exports.default = AccordionItem;
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -11603,7 +11603,7 @@ exports.default = Tabbed;
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -12075,7 +12075,7 @@ module.exports = debounce;
 
 "use strict";
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *

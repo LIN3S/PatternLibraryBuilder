@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -9,44 +9,21 @@
  * file that was distributed with this source code.
  */
 
-use PhpCsFixer\Config;
-use PhpCsFixer\Finder;
-use PhpCsFixer\Fixer\Comment\HeaderCommentFixer;
+declare(strict_types=1);
 
-$header = <<<'EOF'
-This file is part of the Pattern Library Builder project.
+use LIN3S\PhpCsFixerConfig\Lin3sConfig;
 
-Copyright (c) 2017-present LIN3S <info@lin3s.com>
+$config = new Lin3sConfig('Pattern Library Builder', '2017', 'library');
+$config->getFinder()->in([
+    __DIR__ . '/src',
+    __DIR__ . '/tests/Application/app',
+    __DIR__ . '/tests/Application/bin',
+    __DIR__ . '/tests/Application/src',
+    __DIR__ . '/tests/Application/web',
+]);
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
-EOF;
+$cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
 
-return Config::create()
-    ->setRiskyAllowed(true)
-    ->setFinder(
-        Finder::create()
-            ->in([
-                __DIR__ . '/src',
-                __DIR__ . '/tests/Application/app',
-                __DIR__ . '/tests/Application/bin',
-                __DIR__ . '/tests/Application/web',
-            ])
-    )
-    ->setRules([
-        '@Symfony'                              => true,
-        '@Symfony:risky'                        => true,
-        'binary_operator_spaces'                => [
-            'align_double_arrow' => true,
-        ],
-        'concat_space'                          => ['spacing' => 'one'],
-        'header_comment'                        => [
-            'header'      => $header,
-            'commentType' => HeaderCommentFixer::HEADER_COMMENT,
-        ],
-        'no_unreachable_default_argument_value' => false,
-        'ordered_imports'                       => true,
-        'phpdoc_order'                          => true,
-        'phpdoc_annotation_without_dot'         => false,
-        'strict_param'                          => true,
-    ]);
+$config->setCacheFile($cacheDir . '/.php_cs.cache');
+
+return $config;

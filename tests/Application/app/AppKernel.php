@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -9,12 +9,15 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Tests\LIN3S\PatternLibraryBuilder;
 
 use LIN3S\PatternLibraryBuilder\Symfony\Lin3sPatternLibraryBuilderBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symfony\Bundle\WebServerBundle\WebServerBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
@@ -29,11 +32,17 @@ class AppKernel extends Kernel
 
     public function registerBundles()
     {
-        return [
+        $bundles = [
             new Lin3sPatternLibraryBuilderBundle(),
             new FrameworkBundle(),
             new TwigBundle(),
         ];
+
+        if ('dev' === $this->getEnvironment()) {
+            $bundles[] = new WebServerBundle();
+        }
+
+        return $bundles;
     }
 
     public function getCacheDir()
@@ -103,7 +112,6 @@ class AppKernel extends Kernel
                 'form_input_border_color_hover'                 => '#0099ff',
                 'form_label_text_color'                         => '#444',
                 'icon_fill_color'                               => '#0099ff',
-
             ],
         ]);
     }

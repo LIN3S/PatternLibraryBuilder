@@ -1,5 +1,5 @@
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
