@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Pattern Library Builder project.
+ * This file is part of the Pattern Library Builder library.
  *
  * Copyright (c) 2017-present LIN3S <info@lin3s.com>
  *
@@ -20,14 +20,14 @@ use Gajus\Dindent\Indenter;
  */
 class DindentExtension extends \Twig_Extension
 {
-    public function getFilters(): array
+    public function getFilters() : array
     {
         return [
             new \Twig_SimpleFilter('dindent', [$this, 'dindent']),
         ];
     }
 
-    public function dindent(string $html): string
+    public function dindent(string $html) : string
     {
         $indenter = new Indenter();
 

@@ -19,19 +19,19 @@
     ],
     "require": {
         "php": "^7.1",
-        "gajus/dindent": "^2.3",
+        "gajus/dindent": "dev-master",
         "symfony/framework-bundle": "^3.0",
         "symfony/templating": "^3.0"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.3",
+        "lin3s/php-cs-fixer-config": "^1.0",
         "phpspec/phpspec": "^3.3",
         "symfony/asset": "^3.3",
         "symfony/console": "^3.3",
         "symfony/twig-bundle": "^3.3",
         "symfony/var-dumper": "^3.3",
-        "symfony/yaml": "^3.3",
-        "symfony/web-server-bundle": "^3.3"
+        "symfony/web-server-bundle": "^3.3",
+        "symfony/yaml": "^3.3"
     },
     "scripts": {
         "cs": [
