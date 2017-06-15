@@ -19,6 +19,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use Symfony\Bundle\WebServerBundle\WebServerBundle;
 
 /**
  * @author Beñat Espiña <benatespina@gmail.com>
@@ -29,11 +30,17 @@ class AppKernel extends Kernel
 
     public function registerBundles()
     {
-        return [
+        $bundles = [
             new Lin3sPatternLibraryBuilderBundle(),
             new FrameworkBundle(),
             new TwigBundle(),
         ];
+
+        if ('dev' === $this->getEnvironment()) {
+            $bundles[] = new WebServerBundle();
+        }
+
+        return $bundles;
     }
 
     public function getCacheDir()

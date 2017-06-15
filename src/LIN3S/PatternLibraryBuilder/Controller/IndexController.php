@@ -22,12 +22,9 @@ declare(strict_types=1);
 
 namespace LIN3S\PatternLibraryBuilder\Controller;
 
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\File\File;
+use LIN3S\PatternLibraryBuilder\Symfony\Loader\StyleguideConfigLoader;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
@@ -35,19 +32,17 @@ use Symfony\Component\Yaml\Yaml;
  */
 class IndexController
 {
-    private $itemsPath;
-    private $prefixPath;
+    private $loader;
     private $twig;
     private $twigFile;
 
     public function __construct(
-        string $itemsPath,
+        StyleguideConfigLoader $loader,
         \Twig_Environment $twig,
-        string $twigFile = '@lin3s_pattern_library_builder/pages/architecture.html.twig',
-        string $prefixPath = '/design-system'
-    ) {
-        $this->itemsPath = $itemsPath;
-        $this->prefixPath = $prefixPath;
+        string $twigFile = '@lin3s_pattern_library_builder/pages/architecture.html.twig'
+    )
+    {
+        $this->loader = $loader;
         $this->twig = $twig;
         $this->twigFile = $twigFile;
     }
@@ -55,84 +50,54 @@ class IndexController
     public function __invoke(Request $request, string $slug = ''): Response
     {
         if (!$slug) {
-            return new Response($this->twig->render($this->twigFile, [
-                'menu' => $this->menu(),
-            ]));
+            return $this->renderHomepage();
         }
 
-        $slugs = explode('/', rtrim($slug, '/'));
+        $itemConfig = $this->loader->get($slug);
 
-        $item = $this->item($slugs);
-        if (!$item) {
+        if (!$itemConfig) {
             throw new NotFoundHttpException();
         }
 
         $media = $request->query->get('media');
-        $paramsId = $request->query->get('id');
 
         if ($media) {
-            return new Response($this->twig->render(
-                sprintf('@lin3s_pattern_library_builder/pages/iframe/%s.html.twig', $media), [
-                'item'      => $item,
-                'params_id' => $paramsId,
-            ]));
+            $paramsId = $request->query->get('id');
+            return $this->renderIFrame($media, $itemConfig, $paramsId);
         }
 
-        $twigTemplate = isset($item['template']) ? '@lin3s_pattern_library_builder/pages/' . $item['template'] . '.html.twig' : $this->twigFile;
+        return $this->renderItemPage($itemConfig, $slug);
+    }
 
-        return new Response($this->twig->render($twigTemplate, [
-            'item'        => $item,
-            'menu'        => $this->menu(),
-            'breadcrumbs' => $slugs,
+    private function renderHomepage(): Response
+    {
+        return new Response($this->twig->render($this->twigFile, [
+            'menu' => $this->loader->allInHierarchy(),
         ]));
     }
 
-    private function item(array $slugs): ?array
+    private function renderIFrame($media, $item, $paramsId): Response
     {
-        return Yaml::parse(@file_get_contents($this->itemsPath . '/' . implode('/', $slugs) . '.yml'));
+        return new Response($this->twig->render(
+            sprintf('@lin3s_pattern_library_builder/pages/iframe/%s.html.twig', $media), [
+            'item' => $item,
+            'params_id' => $paramsId,
+        ]));
     }
 
-    private function menu(): array
+    private function renderItemPage($item, string $slug): Response
     {
-        $finder = new Finder();
-        $dir = $finder->directories()->in($this->itemsPath)->depth(0);
-        $items = $this->getDirectoryContent($dir, $this->prefixPath);
+        $twigTemplate = isset($item['template']) ? '@lin3s_pattern_library_builder/pages/' . $item['template'] . '.html.twig' : $this->twigFile;
 
-        return $items;
+        return new Response($this->twig->render($twigTemplate, [
+            'item' => $item,
+            'menu' => $this->loader->allInHierarchy(),
+            'breadcrumbs' => $this->generateBreadcrumbs($slug),
+        ]));
     }
 
-    private function getDirectoryContent(Finder $dir, string $slug, array $dirItems = []): array
+    private function generateBreadcrumbs($slug)
     {
-        /** @var File $subDir */
-        foreach ($dir as $subDir) {
-            $finder = new Finder();
-            $newDir = $finder->directories()->in($subDir->getPathname())->depth(0);
-
-            if (count($newDir) > 0) {
-                $dirItems[$subDir->getBasename()]['children'] = $this->getDirectoryContent(
-                    $newDir,
-                    $slug . '/' . $subDir->getBasename(),
-                    $dirItems
-                );
-                $dirItems[$subDir->getBasename()]['title'] = $subDir->getBasename();
-
-                continue;
-            }
-
-            /** @var File $file */
-            foreach ($newDir->files() as $file) {
-                $filename = pathinfo($file->getFilename(), PATHINFO_FILENAME);
-                $itemConfig = Yaml::parse(file_get_contents($file->getRealPath()));
-
-                $dirItems[$subDir->getBasename()]['title'] = $subDir->getBasename();
-                $dirItems[$subDir->getBasename()]['children'][] = [
-                    'title'  => $filename,
-                    'slug'   => $slug . '/' . $subDir->getBasename() . '/' . $filename,
-                    'status' => $itemConfig['status'],
-                ];
-            }
-        }
-
-        return $dirItems;
+        return $slugs = explode('/', rtrim($slug, '/'));
     }
 }

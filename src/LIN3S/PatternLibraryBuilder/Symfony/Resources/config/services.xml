@@ -19,7 +19,7 @@
 
         <service id="lin3s.pattern_library_builder.controller.index_controller"
                  class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
-            <argument>%kernel.root_dir%/../src/App/Resources/PatternLibrary</argument>
+            <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
             <argument type="service" id="twig"/>
             <argument>@lin3s_pattern_library_builder/pages/architecture.html.twig</argument>
         </service>
@@ -34,6 +34,11 @@
                  public="false"
                  class="LIN3S\PatternLibraryBuilder\Twig\DindentExtension">
             <tag name="twig.extension"/>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.loader.styleguide_config_loader"
+                 class="LIN3S\PatternLibraryBuilder\Symfony\Loader\StyleguideConfigLoader">
+            <argument>%kernel.root_dir%/../src/App/Resources/PatternLibrary</argument>
         </service>
     </services>
 </container>
