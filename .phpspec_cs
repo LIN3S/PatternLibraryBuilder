@@ -15,7 +15,7 @@ use LIN3S\PhpCsFixerConfig\Lin3sConfig;
 
 $config = new Lin3sConfig('Pattern Library Builder', '2017', 'library');
 $config->getFinder()
-    ->in(__DIR__ . '/spec')
+    ->in(__DIR__ . '/tests/spec')
     ->name('*Spec.php');
 
 $cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;

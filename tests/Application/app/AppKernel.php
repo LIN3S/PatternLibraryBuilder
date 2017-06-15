@@ -17,11 +17,11 @@ use LIN3S\PatternLibraryBuilder\Symfony\Lin3sPatternLibraryBuilderBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symfony\Bundle\WebServerBundle\WebServerBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
-use Symfony\Bundle\WebServerBundle\WebServerBundle;
 
 /**
  * @author Beñat Espiña <benatespina@gmail.com>
@@ -112,7 +112,6 @@ class AppKernel extends Kernel
                 'form_input_border_color_hover'                 => '#0099ff',
                 'form_label_text_color'                         => '#444',
                 'icon_fill_color'                               => '#0099ff',
-
             ],
         ]);
     }
