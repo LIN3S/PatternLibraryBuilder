@@ -36,6 +36,9 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('description')
                     ->defaultValue('')
                 ->end()
+                ->scalarNode('templates_config_files_path')
+                    ->isRequired()
+                ->end()
                 ->append($this->themeProperties($themeArrayNode))
             ->end();
 
