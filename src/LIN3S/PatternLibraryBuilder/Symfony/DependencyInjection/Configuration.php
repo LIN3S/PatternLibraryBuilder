@@ -39,6 +39,12 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('templates_config_files_path')
                     ->isRequired()
                 ->end()
+                ->arrayNode('iconography')
+                    ->children()
+                        ->scalarNode('path')->end()
+                        ->scalarNode('twig_namespace')->end()
+                    ->end()
+                ->end()
                 ->append($this->themeProperties($themeArrayNode))
             ->end();
 

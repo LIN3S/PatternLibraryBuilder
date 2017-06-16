@@ -151,6 +151,62 @@ em {
   transition: transform 0.2s ease-in-out;
   transform-origin: center center; }
 
+.icons {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
+.icons__icon {
+  background-color: #fff;
+  border: 1px solid #eee;
+  cursor: copy;
+  margin-left: -1px;
+  margin-top: -1px;
+  position: relative;
+  transition: background-color 0.2s ease-in-out;
+  width: 20%; }
+  .icons__icon > svg {
+    height: 64px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 64px; }
+  .icons__icon::before {
+    content: '';
+    display: block;
+    height: 0;
+    padding-bottom: 100%;
+    width: 100%; }
+  .icons__icon:hover {
+    background-color: #eee; }
+    .icons__icon:hover .icons__icon-name {
+      background-color: #eee; }
+  .icons__icon:active {
+    background-color: #d1d1d1;
+    cursor: context-menu; }
+    .icons__icon:active .icons__icon-name {
+      background-color: #d1d1d1; }
+
+.icons__icon-name {
+  background-color: #fff;
+  bottom: 5px;
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  width: 90%; }
+
+@media screen and (min-width: 64em) {
+  .icons__icon {
+    width: 10%; } }
+
 .form-input {
   -webkit-appearance: none;
      -moz-appearance: none;

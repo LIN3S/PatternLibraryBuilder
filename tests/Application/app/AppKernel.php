@@ -70,15 +70,10 @@ class AppKernel extends Kernel
             'title'                       => 'Test pattern library',
             'description'                 => 'This is the testing purposes pattern library',
             'templates_config_files_path' => __DIR__ . '/../src/App/Resources/PatternLibrary',
-//            'iconography' => [
-//                'paths'      => [
-//                    __DIR__ . '/../templates/svg',
-//                ],
-//                'extensions' => [
-//                    'svg',
-//                    'svg.twig',
-//                ],
-//            ],
+            'iconography'                 => [
+                'path' => __DIR__ . '/../templates/svg',
+                'twig_namespace' => 'svg'
+            ],
             'theme'                       => [
                 'color_primary'                                 => '#0099ff',
                 'font_family_primary'                           => 'ITC Avant Garde Gothic Pro',
