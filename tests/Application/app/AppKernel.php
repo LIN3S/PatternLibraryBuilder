@@ -67,8 +67,9 @@ class AppKernel extends Kernel
                 __DIR__ . '/../templates' => '__main__',
             ],
         ])->loadFromExtension('lin3s_pattern_library_builder', [
-            'title'       => 'Test pattern library',
-            'description' => 'This is the testing purposes pattern library',
+            'title'                       => 'Test pattern library',
+            'description'                 => 'This is the testing purposes pattern library',
+            'templates_config_files_path' => __DIR__ . '/../src/App/Resources/PatternLibrary',
 //            'iconography' => [
 //                'paths'      => [
 //                    __DIR__ . '/../templates/svg',
@@ -78,7 +79,7 @@ class AppKernel extends Kernel
 //                    'svg.twig',
 //                ],
 //            ],
-            'theme'       => [
+            'theme'                       => [
                 'color_primary'                                 => '#0099ff',
                 'font_family_primary'                           => 'ITC Avant Garde Gothic Pro',
                 'font_family_secondary'                         => 'Roboto',

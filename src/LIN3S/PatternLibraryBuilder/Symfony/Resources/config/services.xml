@@ -37,8 +37,8 @@
         </service>
 
         <service id="lin3s.pattern_library_builder.loader.styleguide_config_loader"
-                 class="LIN3S\PatternLibraryBuilder\Symfony\Loader\StyleguideConfigLoader">
-            <argument>%kernel.root_dir%/../src/App/Resources/PatternLibrary</argument>
+                 class="LIN3S\PatternLibraryBuilder\Loader\StyleguideConfigLoader">
+            <argument>null</argument>
         </service>
     </services>
 </container>
