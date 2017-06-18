@@ -24,7 +24,7 @@ $ vendor/bin/phpspec run -fpretty
 ```
 Also, you can easily start a simple application to test the features that the bundle provides.
 ```bash
-$ tests/Application/bin/console server:start
+$ cd tests/Application && bin/console server:start --docroot=web
 $ open http://127.0.0.1:8000
 ```
 
