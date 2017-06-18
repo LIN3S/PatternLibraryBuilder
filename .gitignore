@@ -12,4 +12,5 @@
 !/tests/Application/var/cache/.gitkeep
 /tests/Application/var/logs/
 !/tests/Application/var/logs/.gitkeep
+/tests/Application/.web-server-pid
 /vendor
