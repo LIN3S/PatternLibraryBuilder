@@ -27,6 +27,9 @@
             {% set current_parameters = params %}
         {% endif %}
     {% endfor %}
+    {% if current_parameters == [] %}
+         {% set current_parameters = item.preview_parameters|first %}
+    {% endif %}
     {{ include(item.twig, current_parameters) }}
     <div class="js-bengor-cookies"></div> {#Prevent bengor-cookies console errors#}
     <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
