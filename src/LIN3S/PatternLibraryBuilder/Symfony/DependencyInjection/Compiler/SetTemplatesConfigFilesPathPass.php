@@ -31,6 +31,6 @@ class SetTemplatesConfigFilesPathPass implements CompilerPassInterface
         $templateConfigFilesPath = $config['templates_config_files_path'];
 
         $container->getDefinition('lin3s.pattern_library_builder.loader.styleguide_config_loader')
-            ->setArgument(0, $templateConfigFilesPath);
+            ->setArguments([$templateConfigFilesPath]);
     }
 }
