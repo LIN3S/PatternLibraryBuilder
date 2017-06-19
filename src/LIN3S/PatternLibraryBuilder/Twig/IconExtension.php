@@ -27,14 +27,14 @@ final class IconExtension extends \Twig_Extension
         $this->twigNamespace = $config['iconography']['twig_namespace'];
     }
 
-    public function getFunctions()
+    public function getFunctions() : array
     {
         return [
             new \Twig_SimpleFunction('icon', [$this, 'renderIcon'], ['is_safe' => ['html']]),
         ];
     }
 
-    public function renderIcon(string $icon = '', array $modifiers = [])
+    public function renderIcon(string $icon = '', array $modifiers = []) : ?string
     {
         try {
             return $this->twig->render(

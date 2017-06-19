@@ -30,14 +30,14 @@ final class IconFinderExtension extends \Twig_Extension
         $this->iconsPath = $config['iconography']['path'];
     }
 
-    public function getFunctions()
+    public function getFunctions() : array
     {
         return [
             new \Twig_SimpleFunction('find_icons', [$this, 'findIcons']),
         ];
     }
 
-    public function findIcons(): array
+    public function findIcons() : array
     {
         $finder = new Finder();
         $files = $finder->directories()->in($this->iconsPath)->files();
@@ -50,7 +50,7 @@ final class IconFinderExtension extends \Twig_Extension
         return $icons;
     }
 
-    private function iconName(SplFileInfo $file)
+    private function iconName(SplFileInfo $file) : string
     {
         $svgFileName = pathinfo($file->getFilename(), PATHINFO_FILENAME);
 
