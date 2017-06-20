@@ -1,0 +1,97 @@
+// This file is part of the Euskaltel project.
+//
+// Copyright (c) 2017 LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikel@lin3s.com>
+
+@import './../../_variables/colors';
+@import './../../_variables/typography';
+@import './../../_variables/transitions';
+
+@import './../../_helpers/mixins';
+
+$icons-icon-name-font-family: $font-family-open-sans;
+$icons-icon-name-font-size: $font-size-12;
+$icons-icon-name-font-weight: $font-weight-regular;
+$icons-icon-name-background-color: $color-white;
+$icons-icon-name-transition: $transition-background-color, $transition-color;
+$icons-icon-side: 64px;
+$icons-icon-border: 1px solid $color-gallery;
+$icons-icon-background-color: $color-white;
+$icons-icon-background-color-hover: $color-gallery;
+$icons-icon-background-color-active: $color-alto;
+$icons-icon-transition: $transition-background-color;
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icons__icon {
+  background-color: $icons-icon-background-color;
+  border: $icons-icon-border;
+  cursor: copy;
+  margin-left: -1px;
+  margin-top: -1px;
+  position: relative;
+  transition: $icons-icon-transition;
+  width: 20%;
+
+  > svg {
+    height: $icons-icon-side;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: $icons-icon-side;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    padding-bottom: 100%;
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: $icons-icon-background-color-hover;
+
+    .icons__icon-name {
+      background-color: $icons-icon-background-color-hover;
+    }
+  }
+
+  &:active {
+    background-color: $icons-icon-background-color-active;
+    cursor: context-menu;
+
+    .icons__icon-name {
+      background-color: $icons-icon-background-color-active;
+    }
+  }
+}
+
+.icons__icon-name {
+  background-color: $icons-icon-background-color;
+  bottom: 5px;
+  display: block;
+  font-family: $icons-icon-name-font-family;
+  font-size: $icons-icon-name-font-size;
+  font-weight: $icons-icon-name-font-weight;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  transition: $icons-icon-name-transition;
+  width: 90%;
+}
+
+@include media(large up) {
+  .icons__icon {
+    width: 10%;
+  }
+}

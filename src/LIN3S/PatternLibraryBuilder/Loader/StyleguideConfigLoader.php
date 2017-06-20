@@ -40,12 +40,12 @@ class StyleguideConfigLoader
         return $this->findAllItemsRecursively($this->config);
     }
 
-    public function get($slug) : array
+    public function get(string $slug) : array
     {
         return $this->findBySlugRecursively($slug, $this->config)['config'];
     }
 
-    private function findBySlugRecursively($slug, $config) : ?array
+    private function findBySlugRecursively(string $slug, array $config) : ?array
     {
         foreach ($config as $child) {
             if (isset($child['slug'])) {
@@ -65,7 +65,7 @@ class StyleguideConfigLoader
         return null;
     }
 
-    private function findAllItemsRecursively($config, $items = []) : array
+    private function findAllItemsRecursively(array $config, array $items = []) : array
     {
         foreach ($config as $child) {
             if (isset($child['config'])) {

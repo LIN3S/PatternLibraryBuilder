@@ -30,7 +30,7 @@ class AppKernel extends Kernel
 {
     use MicroKernelTrait;
 
-    public function registerBundles()
+    public function registerBundles() : array
     {
         $bundles = [
             new Lin3sPatternLibraryBuilderBundle(),
@@ -45,17 +45,17 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
-    public function getCacheDir()
+    public function getCacheDir() : string
     {
         return __DIR__ . '/../var/cache/' . $this->getEnvironment();
     }
 
-    public function getLogDir()
+    public function getLogDir() : string
     {
         return __DIR__ . '/../var/logs';
     }
 
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
+    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader) : void
     {
         $container->loadFromExtension('framework', [
             'secret'     => 'sd87cb6cb49c248cn3cnn439cn498ds0210sad2',
@@ -70,18 +70,13 @@ class AppKernel extends Kernel
             'title'                       => 'Test pattern library',
             'description'                 => 'This is the testing purposes pattern library',
             'templates_config_files_path' => __DIR__ . '/../src/App/Resources/PatternLibrary',
-//            'iconography' => [
-//                'paths'      => [
-//                    __DIR__ . '/../templates/svg',
-//                ],
-//                'extensions' => [
-//                    'svg',
-//                    'svg.twig',
-//                ],
-//            ],
+            'iconography'                 => [
+                'path'           => __DIR__ . '/../templates/svg',
+                'twig_namespace' => 'svg',
+            ],
             'theme'                       => [
                 'color_primary'                                 => '#0099ff',
-                'font_family_primary'                           => 'ITC Avant Garde Gothic Pro',
+                'font_family_primary'                           => 'Open Sans',
                 'font_family_secondary'                         => 'Roboto',
                 'article_background_color'                      => '#fefefe',
                 'aside_background_color'                        => '#e1e1e1',
@@ -117,7 +112,7 @@ class AppKernel extends Kernel
         ]);
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routes)
+    protected function configureRoutes(RouteCollectionBuilder $routes) : void
     {
         $routes->import(__DIR__ . '/../../../src/LIN3S/PatternLibraryBuilder/Symfony/Resources/config/routing.yml');
     }
