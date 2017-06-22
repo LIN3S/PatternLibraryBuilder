@@ -16,6 +16,9 @@ namespace spec\LIN3S\PatternLibraryBuilder\Twig;
 use LIN3S\PatternLibraryBuilder\Twig\IndentHtmlCodeExtension;
 use PhpSpec\ObjectBehavior;
 
+/**
+ * @author Beñat Espiña <benatespina@gmail.com>
+ */
 class IndentHtmlCodeExtensionSpec extends ObjectBehavior
 {
     public function it_gets_filters()
