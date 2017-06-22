@@ -1,23 +1,3 @@
-{##
-    PROPERTY                REQUIRED
-    =================================
-
-    breadcrumbs             required
-    items                   required
-
-    * provided item must be like
-        {
-            description,
-            twig,
-            preview_parameters **
-        }
-
-        ** each preview_parameter must be like
-            {
-                params
-            }
-#}
-
 <article class="article">
     <p class="article__breadcrumbs">
     {% for breadcrumb in breadcrumbs %}
@@ -31,7 +11,6 @@
     {% endfor %}
 
     <div class="article__description">
-        {{ macros.tab(3) }}
         {{ item.description|raw }}
     </div>
 

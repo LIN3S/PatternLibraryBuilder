@@ -61,9 +61,11 @@ class IndexController
 
     private function renderHomepage() : Response
     {
-        return new Response($this->twig->render($this->twigFile, [
-            'menu' => $this->loader->allInHierarchy(),
-        ]));
+        return new Response(
+            $this->twig->render('@lin3s_pattern_library_builder/pages/home.html.twig', [
+                'menu' => $this->loader->allInHierarchy(),
+            ])
+        );
     }
 
     private function renderIFrame($media, $item, $paramsId) : Response

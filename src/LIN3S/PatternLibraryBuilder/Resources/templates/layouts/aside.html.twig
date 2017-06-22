@@ -14,7 +14,7 @@
             {% endif %}
         {% endfor %}
 
-        {% if item.children is not empty %}
+        {% if item.children is defined and item.children is not empty %}
             {% set accordion_item_title %}
                 {{ item_title }}
                 {% include '@lin3s_pattern_library_builder/svg/icon_plus.svg.twig' %}
@@ -42,7 +42,7 @@
 
         {% set items = items|merge([{
             header: accordion_item_title,
-            content: accordion_item_content,
+            content: accordion_item_content|default,
             modifiers: modifiers,
             class_name: item_class_name,
             finder_value: item_title
@@ -51,7 +51,7 @@
 
     {% include '@lin3s_pattern_library_builder/components/accordion.html.twig' with {
         items: items,
-        modifier: modifier
+        modifier: modifier|default
     } %}
 {% endmacro %}
 

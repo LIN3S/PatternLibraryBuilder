@@ -13,7 +13,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% block head_styles %}
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"/>
             <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
         {% endblock %}
         <style>{{ theme_styles }}</style>
@@ -39,7 +38,7 @@
 
             {% block article %}
                 {% embed '@lin3s_pattern_library_builder/layouts/article.html.twig' with {
-                    items: items,
+                    items: items|default([]),
                     breadcrumbs: breadcrumbs
                 } %}
                     {% block article_content %}

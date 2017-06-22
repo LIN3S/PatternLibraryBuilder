@@ -1,4 +1,4 @@
-{% set preview_styles = item.preview_styles ? item.preview_styles : '' %}
+{% set preview_styles = item.preview_styles ?? '' %}
 
 {% for key, params in item.preview_parameters %}
     {% set item_preview = include(item.twig, params) %}
@@ -25,7 +25,7 @@
     {% endfor %}
 
     {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
-        modifier: loop.index in item.preview_invert_background ? 'inverted-background' : '',
+        modifier: item.preview_invert_background is defined and loop.index in item.preview_invert_background ? 'inverted-background' : '',
         tabs: preview_tabs|merge([{
             content: item_twig,
             title: 'Twig'

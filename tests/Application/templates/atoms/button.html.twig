@@ -1,9 +1,9 @@
-{% set modifier = modifier is not empty ? ' button--' ~ modifier : null %}
-{% set target = target is not empty ? ' target=' ~ target : null %}
-{% set type = type is not empty ? ' type=' ~ type : null %}
-{% set js_class = jsClass is not empty ? ' ' ~  jsClass : null%}
+{% set modifier = modifier|default is not empty ? ' button--' ~ modifier : null %}
+{% set target = target|default is not empty ? ' target=' ~ target : null %}
+{% set type = type|default is not empty ? ' type=' ~ type : null %}
+{% set js_class = jsClass|default is not empty ? ' ' ~  jsClass : null%}
 
-{% if href is not empty %}
+{% if href|default is not empty %}
     {% set action = tag|default('button') == 'button' ? ' formaction=' : ' href='  %}
     {% set action = action ~ href  %}
 {% endif %}

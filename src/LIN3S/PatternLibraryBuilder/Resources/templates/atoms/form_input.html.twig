@@ -1,22 +1,3 @@
-{#
-    --------------------------------------------------------------------------------------------
-    FORM_INPUT ATOM
-    --------------------------------------------------------------------------------------------
-
-    This atom will display a form input.
-
-
-    PROPERTY                                DEFAULT VALUE                               REQUIRED
-    ============================================================================================
-
-    type                                    'text'
-    class_name
-    placeholder                                                                         required
-    modifiers
-    id                                      null
-
-#}
-
 {% set form_input_modifiers = ' ' %}
 {% for modifier in modifiers %}
     {% set form_input_modifiers = form_input_modifiers ~ ' form-input--' ~ modifier %}

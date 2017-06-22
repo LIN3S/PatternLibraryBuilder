@@ -63,7 +63,9 @@ class AppKernel extends Kernel
                 'engines' => ['twig'],
             ],
         ])->loadFromExtension('twig', [
-            'paths' => [
+            'debug'            => true,
+            'strict_variables' => true,
+            'paths'            => [
                 __DIR__ . '/../templates' => '__main__',
             ],
         ])->loadFromExtension('lin3s_pattern_library_builder', [

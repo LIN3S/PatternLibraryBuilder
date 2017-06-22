@@ -1,0 +1,14 @@
+{% extends '@lin3s_pattern_library_builder/pattern_library.html.twig' %}
+
+{% block content %}
+    {% embed '@lin3s_pattern_library_builder/layouts/main.html.twig' %}
+        {% block aside %}
+            {% include '@lin3s_pattern_library_builder/layouts/aside.html.twig' with {
+                menu: menu,
+                breadcrumbs: []
+            } %}
+        {% endblock %}
+
+        {% block article %}{% endblock %}
+    {% endembed %}
+{% endblock %}

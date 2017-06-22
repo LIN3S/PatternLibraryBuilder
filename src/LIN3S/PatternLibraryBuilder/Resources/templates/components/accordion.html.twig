@@ -1,18 +1,3 @@
-{##
-    PROPERTY                REQUIRED
-    =================================
-
-    items *                 required
-    modifier
-
-    * each item must be like
-        {
-            header,
-            content,
-            modifiers
-        }
-#}
-
 {% set modifier = modifier is not empty ? ' accordion--' ~ modifier : null %}
 
 <div class="accordion js-accordion{{ modifier }}">
