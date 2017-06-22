@@ -6,12 +6,12 @@
     {% set item_twig %}
 <pre><code class="language-twig">
 {{- '{% include \'' ~ item.twig ~ '\' with {' -}}
-{{ prettify_twig_parameters(params) }}
+{{ indent_twig_parameters(params) }}
 {{- '} %}' -}}
 </code></pre>
     {% endset %}
 
-    {% set item_html = '<pre><code class="language-html">' ~ item_preview|dindent ~ '</code></pre>' %}
+    {% set item_html = '<pre><code class="language-html">' ~ item_preview|indent_html ~ '</code></pre>' %}
 
     {% set preview_tabs = [] %}
     {% for media in ['mobile', 'tablet_portrait', 'tablet_landscape', 'desktop'] %}
@@ -25,7 +25,9 @@
     {% endfor %}
 
     {% include '@Lin3sPatternLibraryBuilder/components/tabbed.html.twig' with {
-        modifier: item.preview_invert_background is defined and loop.index in item.preview_invert_background ? 'inverted-background' : '',
+        modifier: item.preview_invert_background is defined and loop.index in item.preview_invert_background
+            ? 'inverted-background'
+            : '',
         tabs: preview_tabs|merge([{
             content: item_twig,
             title: 'Twig'

@@ -16,16 +16,16 @@ namespace LIN3S\PatternLibraryBuilder\Twig;
 /**
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
-class PrettifyTwigParametersExtension extends \Twig_Extension
+final class IndentTwigCodeExtension extends \Twig_Extension
 {
     public function getFunctions() : array
     {
         return [
-            new \Twig_SimpleFunction('prettify_twig_parameters', [$this, 'prettifyTwigParameters']),
+            new \Twig_SimpleFunction('indent_twig_parameters', [$this, 'indent']),
         ];
     }
 
-    public function prettifyTwigParameters($parameters) : string
+    public function indent($parameters) : string
     {
         return $this->prettifyParameters($parameters) . $this->newLine();
     }
@@ -38,7 +38,7 @@ class PrettifyTwigParametersExtension extends \Twig_Extension
 
             foreach ($parameters as $key => $value) {
                 if (!is_numeric($key)) {
-                    $str .= $this->newLine() . $this->indent($indentationLevel) . $key . ': ';
+                    $str .= $this->newLine() . $this->doIndent($indentationLevel) . $key . ': ';
                 }
 
                 if (is_array($value)) {
@@ -51,7 +51,7 @@ class PrettifyTwigParametersExtension extends \Twig_Extension
                             ? $indentationLevel + 1
                             : $indentationLevel
                     );
-                    $str .= $isAssociative ? $this->newLine() . $this->indent($indentationLevel) . '}' : ']';
+                    $str .= $isAssociative ? $this->newLine() . $this->doIndent($indentationLevel) . '}' : ']';
                 } else {
                     $str .= '\'' . $value . '\'';
                 }
@@ -82,7 +82,7 @@ class PrettifyTwigParametersExtension extends \Twig_Extension
         return "\n";
     }
 
-    private function indent(int $indentationLevel) : string
+    private function doIndent(int $indentationLevel) : string
     {
         $indentationStr = '';
         $indentationIterations = 0;

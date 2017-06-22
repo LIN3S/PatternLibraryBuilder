@@ -18,19 +18,24 @@ use Gajus\Dindent\Indenter;
 /**
  * @author Beñat Espiña <benatespina@gmail.com>
  */
-class DindentExtension extends \Twig_Extension
+final class IndentHtmlCodeExtension extends \Twig_Extension
 {
+    private $indenter;
+
+    public function __construct()
+    {
+        $this->indenter = new Indenter();
+    }
+
     public function getFilters() : array
     {
         return [
-            new \Twig_SimpleFilter('dindent', [$this, 'dindent']),
+            new \Twig_SimpleFilter('indent_html', [$this, 'indent']),
         ];
     }
 
-    public function dindent(string $html) : string
+    public function indent(string $html) : string
     {
-        $indenter = new Indenter();
-
-        return htmlspecialchars($indenter->indent($html));
+        return htmlspecialchars($this->indenter->indent($html));
     }
 }

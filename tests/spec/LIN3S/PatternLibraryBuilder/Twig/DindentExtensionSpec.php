@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace spec\LIN3S\PatternLibraryBuilder\Twig;
 
-use LIN3S\PatternLibraryBuilder\Twig\DindentExtension;
+use LIN3S\PatternLibraryBuilder\Twig\IndentHtmlCodeExtension;
 use PhpSpec\ObjectBehavior;
 
 class DindentExtensionSpec extends ObjectBehavior
 {
     public function it_gets_filters()
     {
-        $this->shouldHaveType(DindentExtension::class);
+        $this->shouldHaveType(IndentHtmlCodeExtension::class);
         $this->shouldHaveType(\Twig_Extension::class);
 
         $this->getFilters()->shouldBeArray();
