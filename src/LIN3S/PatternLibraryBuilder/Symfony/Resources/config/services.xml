@@ -24,15 +24,15 @@
             <argument>@Lin3sPatternLibraryBuilder/pages/architecture.html.twig</argument>
         </service>
 
-        <service id="lin3s.pattern_library_builder.twig.prettify_twig_parameters_extension"
+        <service id="lin3s.pattern_library_builder.twig.indent_twig_code_extension"
                  public="false"
-                 class="LIN3S\PatternLibraryBuilder\Twig\PrettifyTwigParametersExtension">
+                 class="LIN3S\PatternLibraryBuilder\Twig\IndentTwigCodeExtension">
             <tag name="twig.extension"/>
         </service>
 
-        <service id="lin3s.pattern_library_builder.twig.dindent_extension"
+        <service id="lin3s.pattern_library_builder.twig.indent_html_code_extension"
                  public="false"
-                 class="LIN3S\PatternLibraryBuilder\Twig\DindentExtension">
+                 class="LIN3S\PatternLibraryBuilder\Twig\IndentHtmlCodeExtension">
             <tag name="twig.extension"/>
         </service>
 

@@ -42,6 +42,9 @@
         "sort-packages": true
     },
     "autoload": {
+        "files": [
+            "src/LIN3S/PatternLibraryBuilder/Dindent/Dindent.php"
+        ],
         "psr-4": {
             "LIN3S\\PatternLibraryBuilder\\": "src/LIN3S/PatternLibraryBuilder"
         }

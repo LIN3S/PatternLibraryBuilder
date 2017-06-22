@@ -1,7 +1,19 @@
 <?php
 
 /*
- * @link https://github.com/gajus/dintent for the canonical source repository
+ * This file is part of the Pattern Library Builder library.
+ *
+ * Copyright (c) 2017-present LIN3S <info@lin3s.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+/**
+ * @see https://github.com/gajus/dintent for the canonical source repository
+ *
  * @license https://github.com/gajus/dintent/blob/master/LICENSE BSD 3-Clause
  *
  * The following code is a Gajus' Dindent library.
@@ -9,7 +21,7 @@
  * Because there are some troubles related with the last versions publication,
  * we move the source code from dependency to the PatternLibraryBuilder itself.
  *
- * @link https://github.com/gajus/dindent
+ * @see https://github.com/gajus/dindent
  */
 
 namespace Gajus\Dindent;
@@ -62,7 +74,7 @@ class Indenter
     {
         if ($type === static::ELEMENT_TYPE_BLOCK) {
             $this->inline_elements = array_diff($this->inline_elements, [$element_name]);
-        } else if ($type === static::ELEMENT_TYPE_INLINE) {
+        } elseif ($type === static::ELEMENT_TYPE_INLINE) {
             $this->inline_elements[] = $element_name;
         } else {
             throw new InvalidArgumentException('Unrecognized element type.');
@@ -146,12 +158,11 @@ class Indenter
                     }
 
                     if ($rule === static::MATCH_INDENT_NO) {
-
-                    } else if ($rule === static::MATCH_INDENT_DECREASE) {
-                        $next_line_indentation_level--;
-                        $indentation_level--;
+                    } elseif ($rule === static::MATCH_INDENT_DECREASE) {
+                        --$next_line_indentation_level;
+                        --$indentation_level;
                     } else {
-                        $next_line_indentation_level++;
+                        ++$next_line_indentation_level;
                     }
 
                     if ($indentation_level < 0) {

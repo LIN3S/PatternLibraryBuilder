@@ -16,7 +16,7 @@ namespace spec\LIN3S\PatternLibraryBuilder\Twig;
 use LIN3S\PatternLibraryBuilder\Twig\IndentHtmlCodeExtension;
 use PhpSpec\ObjectBehavior;
 
-class DindentExtensionSpec extends ObjectBehavior
+class IndentHtmlCodeExtensionSpec extends ObjectBehavior
 {
     public function it_gets_filters()
     {
@@ -28,7 +28,7 @@ class DindentExtensionSpec extends ObjectBehavior
 
     public function it_uses_dindent()
     {
-        $this->dindent('<div><span>This is</span><span>a test!</span></div>')->shouldReturn(
+        $this->indent('<div><span>This is</span><span>a test!</span></div>')->shouldReturn(
             '&lt;div&gt;&lt;span&gt;This is&lt;/span&gt;&lt;span&gt;a test!&lt;/span&gt;&lt;/div&gt;'
         );
     }
