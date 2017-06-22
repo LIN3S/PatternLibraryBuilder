@@ -14,7 +14,7 @@
 
         {% block head_styles %}
             <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
-            {% include '@lin3s_pattern_library_builder/partials/stylesheets.html.twig' %}
+            {% include '@Lin3sPatternLibraryBuilder/partials/stylesheets.html.twig' %}
         {% endblock %}
         <style>{{ theme_styles }}</style>
     </head>
@@ -29,16 +29,16 @@
     {% endset %}
 
     {% block content %}
-        {% embed '@lin3s_pattern_library_builder/layouts/main.html.twig' %}
+        {% embed '@Lin3sPatternLibraryBuilder/layouts/main.html.twig' %}
             {% block aside %}
-                {% include '@lin3s_pattern_library_builder/layouts/aside.html.twig' with {
+                {% include '@Lin3sPatternLibraryBuilder/layouts/aside.html.twig' with {
                     menu: menu,
                     breadcrumbs: breadcrumbs
                 } %}
             {% endblock %}
 
             {% block article %}
-                {% embed '@lin3s_pattern_library_builder/layouts/article.html.twig' with {
+                {% embed '@Lin3sPatternLibraryBuilder/layouts/article.html.twig' with {
                     items: items|default([]),
                     breadcrumbs: breadcrumbs
                 } %}
@@ -56,7 +56,7 @@
 
 {% block foot_script %}
     <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
-    {% include '@lin3s_pattern_library_builder/partials/javascripts.html.twig' %}
+    {% include '@Lin3sPatternLibraryBuilder/partials/javascripts.html.twig' %}
 {% endblock %}
 
 {% endblock %}

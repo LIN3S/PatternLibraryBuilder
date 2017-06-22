@@ -24,11 +24,11 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class Lin3sPatternLibraryBuilderBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container) : void
     {
         $container->loadFromExtension('twig', [
-            'paths' => [
-                $this->basePath() . '/templates' => 'lin3s_pattern_library_builder',
+            'paths'   => [
+                $this->basePath() . '/templates' => 'Lin3sPatternLibraryBuilder',
             ],
             'globals' => [
                 'assets_path' => '/bundles/lin3spatternlibrarybuilder',
@@ -40,7 +40,7 @@ class Lin3sPatternLibraryBuilderBundle extends Bundle
         $container->addCompilerPass(new CustomizeThemePass());
     }
 
-    private function basePath()
+    private function basePath() : string
     {
         $directory = dirname((new \ReflectionClass(self::class))->getFileName());
 

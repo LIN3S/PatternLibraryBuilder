@@ -1,9 +1,9 @@
-{% extends '@lin3s_pattern_library_builder/pattern_library.html.twig' %}
+{% extends '@Lin3sPatternLibraryBuilder/pattern_library.html.twig' %}
 
 {% block content %}
-    {% embed '@lin3s_pattern_library_builder/layouts/main.html.twig' %}
+    {% embed '@Lin3sPatternLibraryBuilder/layouts/main.html.twig' %}
         {% block aside %}
-            {% include '@lin3s_pattern_library_builder/layouts/aside.html.twig' with {
+            {% include '@Lin3sPatternLibraryBuilder/layouts/aside.html.twig' with {
                 menu: menu,
                 breadcrumbs: []
             } %}

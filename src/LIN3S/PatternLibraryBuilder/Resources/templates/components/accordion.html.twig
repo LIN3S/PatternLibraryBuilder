@@ -9,7 +9,7 @@
                     {% set item_modifiers = item_modifiers ~ ' accordion-item--' ~ item_modifier %}
                 {% endfor %}
 
-                {% include '@lin3s_pattern_library_builder/components/accordion_item.html.twig' with {
+                {% include '@Lin3sPatternLibraryBuilder/components/accordion_item.html.twig' with {
                     tag: 'li',
                     modifier: item_modifiers,
                     header: item.header,

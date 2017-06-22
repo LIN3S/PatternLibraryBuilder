@@ -21,7 +21,7 @@
                  class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
             <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
             <argument type="service" id="twig"/>
-            <argument>@lin3s_pattern_library_builder/pages/architecture.html.twig</argument>
+            <argument>@Lin3sPatternLibraryBuilder/pages/architecture.html.twig</argument>
         </service>
 
         <service id="lin3s.pattern_library_builder.twig.prettify_twig_parameters_extension"

@@ -16,15 +16,15 @@
     {% set preview_tabs = [] %}
     {% for media in ['mobile', 'tablet_portrait', 'tablet_landscape', 'desktop'] %}
         {% set preview_tabs = preview_tabs|merge([{
-            content: include('@lin3s_pattern_library_builder/components/preview.html.twig', {
+            content: include('@Lin3sPatternLibraryBuilder/components/preview.html.twig', {
                 preview_media: media,
                 preview_params_key: key
             }),
-            title: include('@lin3s_pattern_library_builder/svg/' ~ media ~ '.svg.twig')
+            title: include('@Lin3sPatternLibraryBuilder/svg/' ~ media ~ '.svg.twig')
         }]) %}
     {% endfor %}
 
-    {% include '@lin3s_pattern_library_builder/components/tabbed.html.twig' with {
+    {% include '@Lin3sPatternLibraryBuilder/components/tabbed.html.twig' with {
         modifier: item.preview_invert_background is defined and loop.index in item.preview_invert_background ? 'inverted-background' : '',
         tabs: preview_tabs|merge([{
             content: item_twig,

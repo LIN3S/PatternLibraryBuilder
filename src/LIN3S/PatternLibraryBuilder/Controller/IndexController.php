@@ -31,7 +31,7 @@ class IndexController
     public function __construct(
         StyleguideConfigLoader $loader,
         \Twig_Environment $twig,
-        string $twigFile = '@lin3s_pattern_library_builder/pages/architecture.html.twig'
+        string $twigFile = '@Lin3sPatternLibraryBuilder/pages/architecture.html.twig'
     ) {
         $this->loader = $loader;
         $this->twig = $twig;
@@ -62,7 +62,7 @@ class IndexController
     private function renderHomepage() : Response
     {
         return new Response(
-            $this->twig->render('@lin3s_pattern_library_builder/pages/home.html.twig', [
+            $this->twig->render('@Lin3sPatternLibraryBuilder/pages/home.html.twig', [
                 'menu' => $this->loader->allInHierarchy(),
             ])
         );
@@ -71,7 +71,7 @@ class IndexController
     private function renderIFrame($media, $item, $paramsId) : Response
     {
         return new Response($this->twig->render(
-            sprintf('@lin3s_pattern_library_builder/pages/iframe/%s.html.twig', $media), [
+            sprintf('@Lin3sPatternLibraryBuilder/pages/iframe/%s.html.twig', $media), [
                 'item'      => $item,
                 'params_id' => $paramsId,
             ]
@@ -81,7 +81,7 @@ class IndexController
     private function renderItemPage($item, string $slug) : Response
     {
         $twigTemplate = isset($item['template'])
-            ? '@lin3s_pattern_library_builder/pages/' . $item['template'] . '.html.twig'
+            ? '@Lin3sPatternLibraryBuilder/pages/' . $item['template'] . '.html.twig'
             : $this->twigFile;
 
         return new Response($this->twig->render($twigTemplate, [
