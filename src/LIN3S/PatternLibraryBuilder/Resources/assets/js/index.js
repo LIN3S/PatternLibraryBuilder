@@ -18,5 +18,6 @@ import 'prismjs/components/prism-twig';
 
 import './layouts/Finder/init';
 
-import './components/Tabbed/init';
 import './components/Accordion/init';
+import './components/Clipboard/init';
+import './components/Tabbed/init';

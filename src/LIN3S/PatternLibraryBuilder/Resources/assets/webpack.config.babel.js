@@ -15,7 +15,7 @@ import {Webpack} from 'lin3s-distribution';
 
 const options = {
   entry: {
-    'patternlibrary': './js/index.js',
+    'patternlibrary': './js/index.js'
   },
   input: {
     base: '',
@@ -25,19 +25,18 @@ const options = {
     jsPath: './build',
     jsPublicPath: '/',
     jsFilename: '[name].js',
-    jsFilenameProduction: '[name].[chunkhash].js',
+    jsFilenameProduction: '[name].js',
 
     cssPath: '',
     cssPublicPath: '/',
     cssFilename: '[name].css',
-    cssFilenameProduction: '[name].[contenthash].css'
+    cssFilenameProduction: '[name].css'
   },
   postcss: {
     autoprefixer: {
       browsers: ['last 2 versions']
     }
-  },
-  manifest: '../../manifest.json'
+  }
 };
 
 export default Webpack(options);

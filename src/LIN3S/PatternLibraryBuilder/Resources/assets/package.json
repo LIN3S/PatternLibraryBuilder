@@ -11,6 +11,7 @@
   "license": "MIT",
   "author": "LIN3S",
   "dependencies": {
+    "clipboard": "^1.7.1",
     "foundation-sites": "^6.3.1",
     "lin3s-event-bus": "^0.5.1",
     "lin3s-front-foundation": "^0.2.2",
@@ -30,8 +31,8 @@
   },
   "scripts": {
     "phoenix": "rm -rf node_modules && yarn install",
-    "build": "node_modules/webpack/bin/webpack.js",
-    "build:prod": "node_modules/webpack/bin/webpack.js --env.env prod -p",
+    "build": "node_modules/webpack/bin/webpack.js --env.env prod -p && rm -rf build/modernizr.js",
+    "build:dev": "node_modules/webpack/bin/webpack.js",
     "build:watch": "node_modules/webpack/bin/webpack.js --watch"
   }
 }
