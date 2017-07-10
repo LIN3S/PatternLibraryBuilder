@@ -16,6 +16,24 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <service id="lin3s.pattern_library_builder.command.load_thumbnails"
+                 class="LIN3S\PatternLibraryBuilder\Symfony\Command\LoadThumbnailsCommand">
+            <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
+            <tag name="console.command"/>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.controller.index_controller"
+                 class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
+            <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
+            <argument type="service" id="twig"/>
+            <argument>@lin3s_pattern_library_builder/pages/architecture.html.twig</argument>
+        </service>
+        <service id="lin3s.pattern_library_builder.controller.index_controller"
+                 class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
+            <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
+            <argument type="service" id="twig"/>
+            <argument>@lin3s_pattern_library_builder/pages/architecture.html.twig</argument>
+        </service>
 
         <service id="lin3s.pattern_library_builder.controller.index_controller"
                  class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
