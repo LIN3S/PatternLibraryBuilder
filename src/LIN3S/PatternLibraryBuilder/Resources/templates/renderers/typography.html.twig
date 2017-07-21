@@ -1,0 +1,10 @@
+{% for typography in typographies %}
+    <span>{{ typography.font_family }}</span><br>
+
+    {% for font in typography.fonts  %}
+        <span style="font-family: {{ typography.font_family }}; font-weight: {{ font.weight }}; font-size: {{ font.size }}">
+            {{ typography.sample_text }}
+        </span><br>
+    {% endfor %}
+    <br>
+{% endfor %}

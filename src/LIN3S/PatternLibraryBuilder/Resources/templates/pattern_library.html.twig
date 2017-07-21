@@ -39,11 +39,10 @@
 
             {% block article %}
                 {% embed '@Lin3sPatternLibraryBuilder/layouts/article.html.twig' with {
-                    items: items|default([]),
                     breadcrumbs: breadcrumbs
                 } %}
                     {% block article_content %}
-                        {{ styleguide_content }}
+                        {{ content|raw }}
                     {% endblock %}
                 {% endembed %}
             {% endblock %}

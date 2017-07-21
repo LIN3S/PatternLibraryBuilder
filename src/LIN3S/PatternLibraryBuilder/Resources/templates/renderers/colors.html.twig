@@ -1,0 +1,6 @@
+<div>
+    {% for color in colors %}
+        <div style="width: 50px; height: 50px; background-color: {{ color.color }}; border: 1px solid #eee"></div>
+        <span>{{ color.name|default(color.color) }}</span>
+    {% endfor %}
+</div>

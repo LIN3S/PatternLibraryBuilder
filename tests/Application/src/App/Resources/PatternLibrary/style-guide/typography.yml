@@ -1,0 +1,22 @@
+status: 0
+renderer:
+    type: typography
+    options:
+        typographies:
+            -
+                font_family: 'Roboto'
+                sample_text: 'Lorem ipsum'
+                fonts:
+                    -
+                        size: 18px
+                        weight: 400
+                    -
+                        size: 14px
+                        weight: 400
+                    -
+                        size: 12px
+                        weight: 400
+                    -
+                        size: 11px
+                        weight: 400
+

@@ -1,8 +1,10 @@
 status: 0
-twig: 'components/icon_card.html.twig'
-preview_parameters:
-    -
-        href: '/'
-        title: '¿Quieres más?'
 description: '<p>This is the icon card component description.</p>'
-menu: ''
+renderer:
+    type: twig
+    options:
+        template: 'components/icon_card.html.twig'
+        preview_parameters:
+            -
+                href: '/'
+                title: '¿Quieres más?'

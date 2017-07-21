@@ -30,22 +30,22 @@ class StyleguideConfigLoader
         $this->config = $this->loadConfig();
     }
 
-    public function allInHierarchy() : array
+    public function allInHierarchy(): array
     {
         return $this->config;
     }
 
-    public function allInPlain() : array
+    public function allInPlain(): array
     {
         return $this->findAllItemsRecursively($this->config);
     }
 
-    public function get(string $slug) : array
+    public function get(string $slug): ?array
     {
         return $this->findBySlugRecursively($slug, $this->config)['config'];
     }
 
-    private function findBySlugRecursively(string $slug, array $config) : ?array
+    private function findBySlugRecursively(string $slug, array $config): ?array
     {
         foreach ($config as $child) {
             if (isset($child['slug'])) {
@@ -65,7 +65,7 @@ class StyleguideConfigLoader
         return null;
     }
 
-    private function findAllItemsRecursively(array $config, array $items = []) : array
+    private function findAllItemsRecursively(array $config, array $items = []): array
     {
         foreach ($config as $child) {
             if (isset($child['config'])) {
@@ -80,7 +80,7 @@ class StyleguideConfigLoader
         return $items;
     }
 
-    private function loadConfig() : array
+    private function loadConfig(): array
     {
         $finder = new Finder();
         $dir = $finder->directories()->in($this->itemsPath)->depth(0);
@@ -89,7 +89,7 @@ class StyleguideConfigLoader
         return $items;
     }
 
-    private function getDirectoryContent(Finder $dir, string $slug, array $dirItems = []) : array
+    private function getDirectoryContent(Finder $dir, string $slug, array $dirItems = []): array
     {
         /** @var File $subDir */
         foreach ($dir as $subDir) {
@@ -114,8 +114,8 @@ class StyleguideConfigLoader
 
                 $dirItems[$subDir->getBasename()]['title'] = $subDir->getBasename();
                 $dirItems[$subDir->getBasename()]['children'][] = [
-                    'title'  => $filename,
-                    'slug'   => $slug . '/' . $subDir->getBasename() . '/' . $filename,
+                    'title' => $filename,
+                    'slug' => $slug . '/' . $subDir->getBasename() . '/' . $filename,
                     'config' => $itemConfig,
                     'status' => $itemConfig['status'],
                 ];

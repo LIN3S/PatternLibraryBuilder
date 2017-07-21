@@ -26,7 +26,7 @@
             {% set current_parameters = params %}
         {% endif %}
     {% endfor %}
-    {{ include(item.twig, current_parameters) }}
+    {{ include(item.template, current_parameters) }}
     <div class="js-bengor-cookies"></div> {# Prevent bengor-cookies console errors #}
     <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
 </body>

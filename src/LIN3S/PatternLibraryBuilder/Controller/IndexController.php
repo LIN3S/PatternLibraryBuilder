@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace LIN3S\PatternLibraryBuilder\Controller;
 
 use LIN3S\PatternLibraryBuilder\Loader\StyleguideConfigLoader;
+use LIN3S\PatternLibraryBuilder\Renderer\RendererRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -25,69 +26,43 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class IndexController
 {
     private $loader;
+    private $rendererRegistry;
     private $twig;
-    private $twigFile;
 
     public function __construct(
         StyleguideConfigLoader $loader,
-        \Twig_Environment $twig,
-        string $twigFile = '@Lin3sPatternLibraryBuilder/pages/architecture.html.twig'
+        RendererRegistry $rendererRegistry,
+        \Twig_Environment $twig
     ) {
         $this->loader = $loader;
+        $this->rendererRegistry = $rendererRegistry;
         $this->twig = $twig;
-        $this->twigFile = $twigFile;
     }
 
     public function __invoke(Request $request, string $slug = '') : Response
     {
         if (!$slug) {
-            return $this->renderHomepage();
+            $slug = 'homepage/index';
         }
 
-        $itemConfig = $this->loader->get($slug);
-        if (!$itemConfig) {
+        $item = $this->loader->get($slug);
+        if (!$item) {
             throw new NotFoundHttpException();
         }
 
-        $media = $request->query->get('media');
-        if ($media) {
-            $paramsId = $request->query->get('id');
+        $renderer = $this->rendererRegistry->get($item['renderer']['type']);
 
-            return $this->renderIFrame($media, $itemConfig, $paramsId);
+        $content = $renderer->renderFull($item);
+
+        if($request->query->has('content_only')) {
+            return new Response($content);
         }
 
-        return $this->renderItemPage($itemConfig, $slug);
-    }
-
-    private function renderHomepage() : Response
-    {
-        return new Response(
-            $this->twig->render('@Lin3sPatternLibraryBuilder/pages/home.html.twig', [
-                'menu' => $this->loader->allInHierarchy(),
-            ])
-        );
-    }
-
-    private function renderIFrame($media, $item, $paramsId) : Response
-    {
-        return new Response($this->twig->render(
-            sprintf('@Lin3sPatternLibraryBuilder/pages/iframe/%s.html.twig', $media), [
-                'item'      => $item,
-                'params_id' => $paramsId,
-            ]
-        ));
-    }
-
-    private function renderItemPage($item, string $slug) : Response
-    {
-        $twigTemplate = isset($item['template'])
-            ? '@Lin3sPatternLibraryBuilder/pages/' . $item['template'] . '.html.twig'
-            : $this->twigFile;
-
-        return new Response($this->twig->render($twigTemplate, [
-            'item'        => $item,
-            'menu'        => $this->loader->allInHierarchy(),
+        return new Response($this->twig->render('@Lin3sPatternLibraryBuilder/pattern_library.html.twig', [
+            'menu' => $this->loader->allInHierarchy(),
             'breadcrumbs' => $this->generateBreadcrumbs($slug),
+            'content' => $content,
+            'item' => $item
         ]));
     }
 

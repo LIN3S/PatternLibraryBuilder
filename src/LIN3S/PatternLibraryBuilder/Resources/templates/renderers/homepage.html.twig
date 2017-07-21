@@ -1,0 +1,13 @@
+{% for section in sections %}
+    <section>
+        <h2>{{ section.title }}</h2>
+        <p>{{ section.description }}</p>
+        <div>
+            {% for item in section.items %}
+                <div>
+                    TODO renderPreview
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endfor %}

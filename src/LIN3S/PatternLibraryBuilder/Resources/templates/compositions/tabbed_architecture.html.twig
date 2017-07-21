@@ -1,11 +1,11 @@
 {% set preview_styles = item.preview_styles ?? '' %}
 
 {% for key, params in item.preview_parameters %}
-    {% set item_preview = include(item.twig, params) %}
+    {% set item_preview = include(item.template, params) %}
 
     {% set item_twig %}
 <pre><code class="language-twig">
-{{- '{% include \'' ~ item.twig ~ '\' with {' -}}
+{{- '{% include \'' ~ item.template ~ '\' with {' -}}
 {{ indent_twig_parameters(params) }}
 {{- '} %}' -}}
 </code></pre>
