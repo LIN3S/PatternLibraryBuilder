@@ -9,7 +9,7 @@
                     <div class="homepage__item-render">
                         {% if item.config.config.renderer.type == 'twig' %}
                             {% set options = item.config.config.renderer.options %}
-                            {{ include(options.template, options.preview_parameters|first) }}
+                            {{ include(options.template, options.preview_parameters|first, with_context = false) }}
                         {% endif %}
                     </div>
                     <a class="homepage__item-link" href="{{ item.config.slug }}">
