@@ -2,22 +2,31 @@
 
 namespace LIN3S\PatternLibraryBuilder\Renderer;
 
-use Symfony\Component\DependencyInjection\Container;
-
 final class RendererRegistry
 {
-    private $container;
+    private $renderers;
 
-    public function __construct(Container $container)
+    public function add(Renderer $renderer, $name)
     {
-        $this->container = $container;
+        if(isset($this->renderers[$name])) {
+            throw new \Exception(sprintf(
+                'Renderer with name "%s" already exists',
+                $name
+            ));
+        }
+
+        $this->renderers[$name] = $renderer;
     }
 
-    public function get(string $renderer): Renderer
+    public function get(string $name): Renderer
     {
-        return $this->container->get(sprintf(
-            'lin3s.pattern_library_builder.renderer.%s',
-            $renderer
-        ));
+        if(!isset($this->renderers[$name])) {
+            throw new \Exception(sprintf(
+                'Renderer with name "%s" does not exist',
+                $name
+            ));
+        }
+
+        return $this->renderers[$name];
     }
 }
