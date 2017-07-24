@@ -71,6 +71,7 @@
         <service id="lin3s.pattern_library_builder.renderer.homepage"
                  class="LIN3S\PatternLibraryBuilder\Renderer\Homepage">
             <argument type="service" id="twig"/>
+            <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
             <tag name="lin3s.pattern_library_builder.renderer" alias="homepage"/>
         </service>
 

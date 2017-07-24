@@ -70,8 +70,8 @@ final class ConfigLoader
     private function slugFromPath(string $path): string
     {
         $slug = str_replace($this->itemsPath, '', $path);
+        $slug = str_replace('index.yml', '', $slug);
         $slug = ltrim($slug, '/');
-        $slug = str_replace('/index.yml', '', $slug);
         return str_replace('.yml', '', $slug);
     }
 

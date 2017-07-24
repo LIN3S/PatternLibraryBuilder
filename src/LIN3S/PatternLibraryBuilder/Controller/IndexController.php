@@ -49,9 +49,9 @@ class IndexController
             throw new NotFoundHttpException();
         }
 
-        $renderer = $this->rendererRegistry->get($item['renderer']['type']);
+        $renderer = $this->rendererRegistry->get($item['config']['renderer']['type']);
 
-        $content = $renderer->renderFull($item);
+        $content = $renderer->render($item);
 
         if($request->query->has('content_only')) {
             return new Response($content);
@@ -61,7 +61,7 @@ class IndexController
             'menu' => $config->allInHierarchy(),
             'breadcrumbs' => $this->generateBreadcrumbs($slug),
             'content' => $content,
-            'item' => $item
+            'item' => $item['config']
         ]));
     }
 

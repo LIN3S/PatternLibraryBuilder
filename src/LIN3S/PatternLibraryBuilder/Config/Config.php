@@ -37,7 +37,7 @@ final class Config
 
     public function get(string $slug): ?array
     {
-        return $this->findBySlugRecursively($slug, $this->config)['config'];
+        return $this->findBySlugRecursively($slug, $this->config);
     }
 
     private function findBySlugRecursively(string $slug, array $config): ?array

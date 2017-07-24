@@ -11,11 +11,7 @@ final class Colors implements Renderer
         $this->twig = $twig;
     }
 
-    public function renderPreview($item)
-    {
-    }
-
-    public function renderFull($item)
+    public function render($item)
     {
         return $this->twig->render('@Lin3sPatternLibraryBuilder/renderers/colors.html.twig', [
             'colors' => $item['renderer']['options']['colors'],

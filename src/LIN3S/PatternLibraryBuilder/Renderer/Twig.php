@@ -15,12 +15,7 @@ final class Twig implements Renderer
         $this->request = $requestStack->getMasterRequest();
     }
 
-    public function renderPreview($item)
-    {
-        // TODO: Implement renderPreview() method.
-    }
-
-    public function renderFull($item)
+    public function render($item)
     {
         $media = $this->request->query->get('media');
 

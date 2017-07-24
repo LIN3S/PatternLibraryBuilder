@@ -11,12 +11,7 @@ final class Iconography implements Renderer
         $this->twig = $twig;
     }
 
-    public function renderPreview($item)
-    {
-        // TODO: Implement renderPreview() method.
-    }
-
-    public function renderFull($item)
+    public function render($item)
     {
         return $this->twig->render('@Lin3sPatternLibraryBuilder/renderers/iconography.html.twig');
     }

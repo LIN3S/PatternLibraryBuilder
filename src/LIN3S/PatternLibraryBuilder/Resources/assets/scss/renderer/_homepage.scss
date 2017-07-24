@@ -1,0 +1,60 @@
+// This file is part of the Pattern Library Builder library.
+//
+// Copyright (c) 2017-present LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Beñat Espiña <benatespina@gmail.com>
+// @author Gorka Laucirica <gorka.lauzirika@gmail.com>
+// @author Mikel Tuesta <mikeltuesta@gmail.com>
+
+@import './../_variables/colors';
+@import './../_variables/transitions';
+@import './../_variables/typography';
+
+$homepage-title-font-family: $font-family-open-sans;
+$homepage-title-font-size: $font-size-26;
+$homepage-title-font-weight: $font-weight-bold;
+$homepage-title-text-color: $color-primary;
+
+$homepage-description-color: $color-mine-shaft;
+
+$homepage-item-link-color: $color-nobel;
+$homepage-item-link-size: $font-size-14;
+
+.homepage__section {
+  margin-top: 30px;
+}
+
+.homepage__title {
+  color: $homepage-title-text-color;
+  font-family: $font-family-open-sans;
+  font-size: $homepage-title-font-size;
+  font-weight: $homepage-title-font-weight;
+}
+
+.homepage__description {
+  color: $homepage-description-color;
+  margin-top: 15px;
+}
+
+.homepage__items {
+  align-items: baseline;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 100px;
+  margin-top: 15px;
+}
+
+.homepage__item-render {
+  border-bottom: 1px solid $homepage-item-link-color;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.homepage__item-link {
+  color: $homepage-item-link-color;
+  font-size: $homepage-item-link-size;
+}

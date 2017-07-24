@@ -1,11 +1,20 @@
 {% for section in sections %}
-    <section>
-        <h2>{{ section.title }}</h2>
-        <p>{{ section.description }}</p>
-        <div>
+    <section class="homepage__section">
+        <h2 class="homepage__title">{{ section.title }}</h2>
+        <p class="homepage__description">{{ section.description }}</p>
+        <div class="homepage__items">
             {% for item in section.items %}
-                <div>
-                    TODO renderPreview
+                <div class="homepage__item"
+                     style="grid-column: span {{ item.grid_cols|default(1) }}; grid-row: span {{ item.grid_rows|default(1) }}">
+                    <div class="homepage__item-render">
+                        {% if item.config.config.renderer.type == 'twig' %}
+                            {% set options = item.config.config.renderer.options %}
+                            {{ include(options.template, options.preview_parameters|first) }}
+                        {% endif %}
+                    </div>
+                    <a class="homepage__item-link" href="{{ item.config.slug }}">
+                        {{ item.config.title }}
+                    </a>
                 </div>
             {% endfor %}
         </div>
