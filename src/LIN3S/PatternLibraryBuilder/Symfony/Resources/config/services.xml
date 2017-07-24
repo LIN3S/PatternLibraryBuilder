@@ -53,7 +53,7 @@
 
         <service id="lin3s.pattern_library_builder.loader.styleguide_config_loader"
                  public="false"
-                 class="LIN3S\PatternLibraryBuilder\Loader\StyleguideConfigLoader">
+                 class="LIN3S\PatternLibraryBuilder\Config\ConfigLoader">
             <argument>null</argument>
         </service>
 

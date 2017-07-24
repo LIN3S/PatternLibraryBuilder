@@ -3,7 +3,6 @@
 
     {% set items = [] %}
     {% for item in children %}
-
         {% set item_class_name = null %}
         {% set item_title = item.title|replace({'-': ' '}) %}
 
@@ -14,39 +13,46 @@
             {% endif %}
         {% endfor %}
 
-        {% if item.children is defined and item.children is not empty %}
-            {% set accordion_item_title %}
-                {{ item_title }}
-                {% include '@Lin3sPatternLibraryBuilder/svg/icon_plus.svg.twig' %}
-            {% endset %}
-            {% set accordion_item_content = macros.accordion_menu(item.children, breadcrumbs) %}
-        {% else %}
+        {% set accordion_item_title %}
+            {{ item_title }}
+            {% include '@Lin3sPatternLibraryBuilder/svg/icon_plus.svg.twig' %}
+        {% endset %}
+
+        {% set items = items|merge([{
+            header: accordion_item_title,
+            content: macros.accordion_menu(item.children, breadcrumbs),
+            modifiers: modifiers,
+            class_name: item_class_name,
+            finder_value: item_title
+        }]) %}
+
+        {% for item in item.pages %}
             {% set accordion_item_title %}
                 {% embed '@Lin3sPatternLibraryBuilder/components/link.html.twig' with {
-                    url: item.slug,
+                    url: '/design-system/' ~ item.slug,
                     target: '_self'
                 } %}
                     {%- block link_content -%}
                         {% include '@Lin3sPatternLibraryBuilder/components/status.html.twig' with {
-                            level: item.status,
+                            level: item.status|default('    '),
                             tag: 'span'
                         } %}
-                        {{ item_title }}
+                        {{ item.title }}
                     {%- endblock -%}
                 {% endembed %}
             {% endset %}
 
             {% set modifiers = modifiers|merge(['leaf']) %}
             {% set item_class_name = 'finder__subject' %}
-        {% endif %}
 
-        {% set items = items|merge([{
-            header: accordion_item_title,
-            content: accordion_item_content|default,
-            modifiers: modifiers,
-            class_name: item_class_name,
-            finder_value: item_title
-        }]) %}
+            {% set items = items|merge([{
+                header: accordion_item_title,
+                content: null,
+                modifiers:  modifiers|merge(['leaf']) ,
+                class_name: 'finder__subject',
+                finder_value: item_title
+            }]) %}
+        {% endfor %}
     {% endfor %}
 
     {% include '@Lin3sPatternLibraryBuilder/components/accordion.html.twig' with {
@@ -69,7 +75,7 @@
         } %}
             {% block finder_subjects %}
                 {% import '@Lin3sPatternLibraryBuilder/layouts/aside.html.twig' as aside %}
-                {{ aside.accordion_menu(menu, breadcrumbs) }}
+                {{ aside.accordion_menu(menu.children, breadcrumbs) }}
             {% endblock %}
         {% endembed %}
     </div>

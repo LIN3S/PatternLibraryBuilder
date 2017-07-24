@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace LIN3S\PatternLibraryBuilder\Controller;
 
-use LIN3S\PatternLibraryBuilder\Loader\StyleguideConfigLoader;
+use LIN3S\PatternLibraryBuilder\Config\ConfigLoader;
 use LIN3S\PatternLibraryBuilder\Renderer\RendererRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +30,7 @@ class IndexController
     private $twig;
 
     public function __construct(
-        StyleguideConfigLoader $loader,
+        ConfigLoader $loader,
         RendererRegistry $rendererRegistry,
         \Twig_Environment $twig
     ) {
@@ -41,11 +41,10 @@ class IndexController
 
     public function __invoke(Request $request, string $slug = '') : Response
     {
-        if (!$slug) {
-            $slug = 'homepage/index';
-        }
+        $config = $this->loader->loadConfig();
 
-        $item = $this->loader->get($slug);
+        $item = $config->get($slug);
+
         if (!$item) {
             throw new NotFoundHttpException();
         }
@@ -59,7 +58,7 @@ class IndexController
         }
 
         return new Response($this->twig->render('@Lin3sPatternLibraryBuilder/pattern_library.html.twig', [
-            'menu' => $this->loader->allInHierarchy(),
+            'menu' => $config->allInHierarchy(),
             'breadcrumbs' => $this->generateBreadcrumbs($slug),
             'content' => $content,
             'item' => $item
