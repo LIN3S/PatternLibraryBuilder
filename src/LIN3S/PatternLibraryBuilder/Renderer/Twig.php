@@ -31,7 +31,7 @@ final class Twig implements Renderer
     private function renderItemPage($item)
     {
         return $this->twig->render('@Lin3sPatternLibraryBuilder/renderers/twig.html.twig', [
-            'item' => $item['renderer']['options'],
+            'item' => $item['config']['renderer']['options'],
         ]);
     }
 
@@ -39,7 +39,7 @@ final class Twig implements Renderer
     {
         return $this->twig->render(
             sprintf('@Lin3sPatternLibraryBuilder/pages/iframe/%s.html.twig', $media), [
-                'item'      => $item['renderer']['options'],
+                'item'      => $item['config']['renderer']['options'],
                 'params_id' => $paramsId,
             ]
         );
