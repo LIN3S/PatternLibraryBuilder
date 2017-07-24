@@ -587,8 +587,8 @@ code[class*="language-"], pre[class*="language-"] {
   margin-top: 15px; }
 
 .homepage__items {
-  -ms-flex-align: baseline;
-      align-items: baseline;
+  -ms-flex-align: end;
+      align-items: flex-end;
   display: -ms-grid;
   display: grid;
   grid-gap: 30px;

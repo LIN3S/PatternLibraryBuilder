@@ -40,7 +40,7 @@ $homepage-item-link-size: $font-size-14;
 }
 
 .homepage__items {
-  align-items: baseline;
+  align-items: flex-end;
   display: grid;
   grid-gap: 30px;
   grid-template-columns: repeat(4, 1fr);
