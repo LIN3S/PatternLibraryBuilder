@@ -14,7 +14,7 @@ final class Typography implements Renderer
     public function render($item)
     {
         return $this->twig->render('@Lin3sPatternLibraryBuilder/renderers/typography.html.twig', [
-            'typographies' => $item['renderer']['options']['typographies'],
+            'typographies' => $item['config']['renderer']['options']['typographies'],
         ]);
     }
 }
