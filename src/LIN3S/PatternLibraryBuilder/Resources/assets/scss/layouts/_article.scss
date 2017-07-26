@@ -17,19 +17,16 @@ $breadcrumbs-font-family: $font-family-open-sans;
 $breadcrumbs-font-size: $font-size-12;
 $breadcrumbs-font-weight: $font-weight-regular;
 $breadcrumbs-text-color: $color-nobel;
-
 $article-title-font-family: $font-family-open-sans;
 $article-title-font-size: $font-size-36;
 $article-title-font-weight: $font-weight-bold;
 $article-title-line-height: $article-title-font-size;
 $article-title-text-color: $color-mine-shaft;
-
 $article-description-font-family: $font-family-open-sans;
 $article-description-font-size: $font-size-16;
 $article-description-font-weight: $font-weight-regular;
 $article-description-line-height: $line-height-open-sans-font-size-16;
 $article-description-text-color: $color-tundora;
-
 $article-twig-output-font-size: $font-size-12;
 
 .plb-article__breadcrumbs {
@@ -64,6 +61,7 @@ $article-twig-output-font-size: $font-size-12;
   line-height: $article-description-line-height;
 }
 
-code[class*="language-"], pre[class*="language-"] {
+code[class*="language-"],
+pre[class*="language-"] {
   font-size: $article-twig-output-font-size;
 }

@@ -20,19 +20,15 @@ $accordion-item-border-color-nested: $color-mercury-lighter;
 $accordion-item-background-color-selected: $color-mercury-lightest;
 $accordion-item-background-color-selected-nested: $color-aqua-haze;
 $accordion-item-background-color-selected-nested-leaf: $color-white;
-
 $accordion-item-font-family: $font-family-open-sans;
 $accordion-item-font-weight: $font-weight-light;
 $accordion-item-font-weight-nested: $font-weight-regular;
-
 $accordion-item-icon-size: 14px;
 $accordion-item-font-size: $font-size-16;
 $accordion-item-font-size-nested: $font-size-14;
 $accordion-item-font-size-leaf: $font-size-15;
-
 $accordion-item-indicator-transition: $transition-transform;
 $accordion-item-indicator-background-color: $accordion-item-text-color;
-
 $accordion-item-transition: $transition-background-color;
 
 @mixin accordion-item(
@@ -135,7 +131,7 @@ $accordion-item-transition: $transition-background-color;
       transform: rotate(270deg);
     }
 
-    &:after {
+    &::after {
       transform: scaleX(1);
     }
   }
@@ -157,7 +153,7 @@ $accordion-item-transition: $transition-background-color;
     width: $accordion-item-icon-size;
   }
 
-  &:after {
+  &::after {
     background-color: $accordion-item-indicator-background-color;
     content: '';
     height: 100%;

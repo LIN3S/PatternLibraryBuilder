@@ -16,7 +16,6 @@ $tab-background-color: $color-white;
 $tab-content-background-color: $color-aqua-haze;
 $tab-border-color: $color-alto;
 $tab-transition: $transition-background-color;
-
 $tab-indicator-transition: $transition-transform;
 $tab-indicator-background-color: $color-mine-shaft;
 
@@ -55,7 +54,7 @@ $tab-indicator-background-color: $color-mine-shaft;
     border-right: 1px solid $tab-border-color;
   }
 
-  &:after {
+  &::after {
     background-color: $tab-indicator-background-color;
     content: '';
     height: 2px;
@@ -73,7 +72,7 @@ $tab-indicator-background-color: $color-mine-shaft;
   background-color: $tab-content-background-color;
   border-bottom: 1px solid $tab-content-background-color;
 
-  &:after {
+  &::after {
     transform: scaleY(1);
   }
 }

@@ -30,6 +30,6 @@ $icon-plus-transition: $transition-transform;
 }
 
 .plb-icon-plus__line {
-  transition: $icon-plus-transition;
   transform-origin: center center;
+  transition: $icon-plus-transition;
 }

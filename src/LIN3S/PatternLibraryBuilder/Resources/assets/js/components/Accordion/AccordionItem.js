@@ -9,8 +9,6 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-'use strict';
-
 import $ from 'jquery';
 import {onWindowResized} from 'lin3s-event-bus';
 
