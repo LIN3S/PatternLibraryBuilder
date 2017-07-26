@@ -20,8 +20,8 @@
         <service id="lin3s.pattern_library_builder.controller.index_controller"
                  class="LIN3S\PatternLibraryBuilder\Controller\IndexController">
             <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
+            <argument type="service" id="lin3s.pattern_library_builder.renderer.registry"/>
             <argument type="service" id="twig"/>
-            <argument>@Lin3sPatternLibraryBuilder/pages/architecture.html.twig</argument>
         </service>
 
         <service id="lin3s.pattern_library_builder.twig.indent_twig_code_extension"
@@ -53,8 +53,45 @@
 
         <service id="lin3s.pattern_library_builder.loader.styleguide_config_loader"
                  public="false"
-                 class="LIN3S\PatternLibraryBuilder\Loader\StyleguideConfigLoader">
+                 class="LIN3S\PatternLibraryBuilder\Config\ConfigLoader">
             <argument>null</argument>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.renderer.registry"
+                 public="false"
+                 class="LIN3S\PatternLibraryBuilder\Renderer\RendererRegistry">
+        </service>
+
+        <service id="lin3s.pattern_library_builder.renderer.colors"
+                 class="LIN3S\PatternLibraryBuilder\Renderer\Colors">
+            <argument type="service" id="twig"/>
+            <tag name="lin3s.pattern_library_builder.renderer" alias="colors"/>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.renderer.homepage"
+                 class="LIN3S\PatternLibraryBuilder\Renderer\Homepage">
+            <argument type="service" id="twig"/>
+            <argument type="service" id="lin3s.pattern_library_builder.loader.styleguide_config_loader"/>
+            <tag name="lin3s.pattern_library_builder.renderer" alias="homepage"/>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.renderer.iconography"
+                 class="LIN3S\PatternLibraryBuilder\Renderer\Iconography">
+            <argument type="service" id="twig"/>
+            <tag name="lin3s.pattern_library_builder.renderer" alias="iconography"/>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.renderer.twig"
+                 class="LIN3S\PatternLibraryBuilder\Renderer\Twig">
+            <argument type="service" id="twig"/>
+            <argument type="service" id="request_stack"/>
+            <tag name="lin3s.pattern_library_builder.renderer" alias="twig"/>
+        </service>
+
+        <service id="lin3s.pattern_library_builder.renderer.typography"
+                 class="LIN3S\PatternLibraryBuilder\Renderer\Typography">
+            <argument type="service" id="twig"/>
+            <tag name="lin3s.pattern_library_builder.renderer" alias="typography"/>
         </service>
     </services>
 </container>

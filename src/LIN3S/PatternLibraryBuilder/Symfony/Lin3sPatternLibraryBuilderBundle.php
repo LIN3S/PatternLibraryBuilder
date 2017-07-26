@@ -15,6 +15,7 @@ namespace LIN3S\PatternLibraryBuilder\Symfony;
 
 use LIN3S\PatternLibraryBuilder\Symfony\DependencyInjection\Compiler\AddConfigurationValuesToGlobalTwigVariablesPass;
 use LIN3S\PatternLibraryBuilder\Symfony\DependencyInjection\Compiler\CustomizeThemePass;
+use LIN3S\PatternLibraryBuilder\Symfony\DependencyInjection\Compiler\LoadRenderersPass;
 use LIN3S\PatternLibraryBuilder\Symfony\DependencyInjection\Compiler\SetTemplatesConfigFilesPathPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -38,6 +39,7 @@ class Lin3sPatternLibraryBuilderBundle extends Bundle
         $container->addCompilerPass(new AddConfigurationValuesToGlobalTwigVariablesPass());
         $container->addCompilerPass(new SetTemplatesConfigFilesPathPass());
         $container->addCompilerPass(new CustomizeThemePass());
+        $container->addCompilerPass(new LoadRenderersPass());
     }
 
     private function basePath() : string

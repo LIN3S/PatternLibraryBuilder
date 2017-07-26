@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width={%- block viewport_meta_device_width -%}{%- endblock -%}, height={%- block viewport_meta_device_height -%}{%- endblock -%}, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
+        {% include '@Lin3sPatternLibraryBuilder/partials/stylesheets.html.twig' %}
     </head>
     <style type="text/css">
         html {
@@ -26,8 +27,9 @@
             {% set current_parameters = params %}
         {% endif %}
     {% endfor %}
-    {{ include(item.twig, current_parameters) }}
+    {{ include(item.template, current_parameters) }}
     <div class="js-bengor-cookies"></div> {# Prevent bengor-cookies console errors #}
     <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
+    {% include '@Lin3sPatternLibraryBuilder/partials/javascripts.html.twig' %}
 </body>
 </html>

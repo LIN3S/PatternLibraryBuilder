@@ -1,0 +1,11 @@
+status: 0
+renderer:
+    type: colors
+    options:
+        colors:
+            -
+                color: '#ff6600'
+                name: 'Title'
+            -
+                color: '#white'
+                name: 'Title'

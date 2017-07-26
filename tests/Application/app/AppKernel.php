@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Tests\LIN3S\PatternLibraryBuilder;
 
 use LIN3S\PatternLibraryBuilder\Symfony\Lin3sPatternLibraryBuilderBundle;
+use Symfony\Bundle\DebugBundle\DebugBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
@@ -40,6 +41,7 @@ class AppKernel extends Kernel
 
         if ('dev' === $this->getEnvironment()) {
             $bundles[] = new WebServerBundle();
+            $bundles[] = new DebugBundle();
         }
 
         return $bundles;

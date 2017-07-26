@@ -1,3 +1,6 @@
 status: 0
 description: '<p>This is the Iconography description.</p>'
-template: 'iconography'
+renderer:
+    type: iconography
+    options:
+        folder: ''

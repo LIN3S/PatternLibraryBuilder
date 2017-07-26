@@ -11,7 +11,7 @@
     {% endfor %}
 
     <div class="article__description">
-        {{ item.description|raw }}
+        {{ item.description|default('')|raw }}
     </div>
 
     {%- block article_content -%}{%- endblock -%}

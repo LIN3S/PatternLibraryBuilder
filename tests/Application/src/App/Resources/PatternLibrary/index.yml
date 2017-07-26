@@ -1,0 +1,22 @@
+status: 0
+description: '<p>This is the icon card component description.</p>'
+renderer:
+    type: homepage
+    options:
+        sections:
+            -
+                title: 'Atoms'
+                description: 'These are the atoms'
+                items:
+                    -
+                        slug: 'architecture/atoms/button'
+                    -
+                        slug: 'architecture/atoms/link'
+            -
+                title: 'Components'
+                description: 'These are the components'
+                items:
+                    -
+                        grid_cols: 2
+                        grid_rows: 2
+                        slug: 'architecture/components/icon-card'
