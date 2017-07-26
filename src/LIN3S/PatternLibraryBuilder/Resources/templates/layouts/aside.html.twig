@@ -45,13 +45,13 @@
         {% endset %}
 
         {% set modifiers = [] %}
-        {% set item_class_name = 'finder__subject' %}
+        {% set item_class_name = 'plb-finder__subject' %}
 
         {% set items = items|merge([{
             header: accordion_item_title,
             content: null,
             modifiers:  modifiers|merge(['leaf']) ,
-            class_name: 'finder__subject',
+            class_name: 'plb-finder__subject',
             finder_value: item_title
         }]) %}
     {% endfor %}
@@ -62,13 +62,13 @@
     } %}
 {% endmacro %}
 
-<aside class="aside">
-    <div class="aside__header">
+<aside class="plb-aside">
+    <div class="plb-aside__header">
         {% block logo %}{% endblock %}
         <p>{{ title }}</p>
         <p>{{ description }}</p>
     </div>
-    <div class="aside__content">
+    <div class="plb-aside__content">
         {% embed '@Lin3sPatternLibraryBuilder/layouts/finder.html.twig' with {
             finder_id: 'styleguide-finder',
             finder_placeholder: 'type to filter by name...',

@@ -23,7 +23,7 @@ $status-color-doing: #fba30a;
 $status-color-pending-review: #16a5ba;
 $status-color-done: #598d09;
 
-.status {
+.plb-status {
   display: block;
   font-family: $status-font-family;
   font-size: $status-font-size;
@@ -34,18 +34,18 @@ $status-color-done: #598d09;
   text-transform: uppercase;
 }
 
-.status--todo {
+.plb-status--todo {
   color: $status-color-todo;
 }
 
-.status--doing {
+.plb-status--doing {
   color: $status-color-doing;
 }
 
-.status--pending-review {
+.plb-status--pending-review {
   color: $status-color-pending-review;
 }
 
-.status--done {
+.plb-status--done {
   color: $status-color-done;
 }

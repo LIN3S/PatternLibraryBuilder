@@ -1,18 +1,18 @@
 {% for section in sections %}
-    <section class="homepage__section">
-        <h2 class="homepage__title">{{ section.title }}</h2>
-        <p class="homepage__description">{{ section.description }}</p>
-        <div class="homepage__items">
+    <section class="plb-homepage__section">
+        <h2 class="plb-homepage__title">{{ section.title }}</h2>
+        <p class="plb-homepage__description">{{ section.description }}</p>
+        <div class="plb-homepage__items">
             {% for item in section.items %}
-                <div class="homepage__item"
+                <div class="plb-homepage__item"
                      style="grid-column: span {{ item.grid_cols|default(1) }}; grid-row: span {{ item.grid_rows|default(1) }}">
-                    <div class="homepage__item-render">
+                    <div class="plb-homepage__item-render">
                         {% if item.config.config.renderer.type == 'twig' %}
                             {% set options = item.config.config.renderer.options %}
                             {{ include(options.template, options.preview_parameters|first, with_context = false) }}
                         {% endif %}
                     </div>
-                    <a class="homepage__item-link" href="{{ item.config.slug }}">
+                    <a class="plb-homepage__item-link" href="{{ item.config.slug }}">
                         {{ item.config.title }}
                     </a>
                 </div>

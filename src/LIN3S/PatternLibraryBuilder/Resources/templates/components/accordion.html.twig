@@ -1,12 +1,12 @@
 {% set modifier = modifier is not empty ? ' accordion--' ~ modifier : null %}
 
-<div class="accordion js-accordion{{ modifier }}">
-    <nav class="accordion__nav">
-        <ul class="accordion__list">
+<div class="plb-accordion js-accordion{{ modifier }}">
+    <nav class="plb-accordion__nav">
+        <ul class="plb-accordion__list">
             {% for item in items %}
                 {% set item_modifiers = ' ' %}
                 {% for item_modifier in item.modifiers %}
-                    {% set item_modifiers = item_modifiers ~ ' accordion-item--' ~ item_modifier %}
+                    {% set item_modifiers = item_modifiers ~ ' plb-accordion-item--' ~ item_modifier %}
                 {% endfor %}
 
                 {% include '@Lin3sPatternLibraryBuilder/components/accordion_item.html.twig' with {

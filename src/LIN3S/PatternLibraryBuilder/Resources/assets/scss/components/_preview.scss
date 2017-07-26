@@ -9,43 +9,43 @@
 
 @import './../_variables/colors';
 
-.patternlibrary-preview {
+.plb-preview {
   position: relative;
 }
 
-.patternlibrary-preview--mobile {
-  .patternlibrary-preview__iframe {
+.plb-preview--mobile {
+  .plb-preview__iframe {
     height: 640px;
     width: 360px;
   }
 }
 
-.patternlibrary-preview--tablet_portrait {
-  .patternlibrary-preview__iframe {
+.plb-preview--tablet_portrait {
+  .plb-preview__iframe {
     height: 1024px;
     width: 768px;
   }
 }
 
-.patternlibrary-preview--tablet_landscape {
-  .patternlibrary-preview__iframe {
+.plb-preview--tablet_landscape {
+  .plb-preview__iframe {
     height: 768px;
     width: 1024px;
   }
 }
 
-.patternlibrary-preview--desktop {
-  .patternlibrary-preview__iframe {
+.plb-preview--desktop {
+  .plb-preview__iframe {
     height: 800px;
     width: 1280px;
   }
 }
 
-.patternlibrary-preview__frame {
+.plb-preview__frame {
   position: absolute;
   pointer-events: none;
 }
 
-.patternlibrary-preview__iframe {
+.plb-preview__iframe {
 
 }

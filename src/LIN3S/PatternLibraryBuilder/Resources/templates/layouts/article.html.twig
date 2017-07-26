@@ -1,16 +1,16 @@
-<article class="article">
-    <p class="article__breadcrumbs">
+<article class="plb-article">
+    <p class="plb-article__breadcrumbs">
     {% for breadcrumb in breadcrumbs %}
         {% if not loop.last %}
             {{ breadcrumb }}
-            <span class="article__breadcrumbs-separator">/</span>
+            <span class="plb-article__breadcrumbs-separator">/</span>
         {% else %}
     </p>
-            <h1 class="article__title">{{ breadcrumb|replace({'-': ' '}) }}</h1>
+            <h1 class="plb-article__title">{{ breadcrumb|replace({'-': ' '}) }}</h1>
         {% endif %}
     {% endfor %}
 
-    <div class="article__description">
+    <div class="plb-article__description">
         {{ item.description|default('')|raw }}
     </div>
 

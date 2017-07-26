@@ -23,23 +23,23 @@ $homepage-description-color: $color-mine-shaft;
 $homepage-item-link-color: $color-nobel;
 $homepage-item-link-size: $font-size-14;
 
-.homepage__section {
+.plb-homepage__section {
   margin-top: 30px;
 }
 
-.homepage__title {
+.plb-homepage__title {
   color: $homepage-title-text-color;
   font-family: $font-family-open-sans;
   font-size: $homepage-title-font-size;
   font-weight: $homepage-title-font-weight;
 }
 
-.homepage__description {
+.plb-homepage__description {
   color: $homepage-description-color;
   margin-top: 15px;
 }
 
-.homepage__items {
+.plb-homepage__items {
   align-items: flex-end;
   display: grid;
   grid-gap: 30px;
@@ -48,13 +48,13 @@ $homepage-item-link-size: $font-size-14;
   margin-top: 15px;
 }
 
-.homepage__item-render {
+.plb-homepage__item-render {
   border-bottom: 1px solid $homepage-item-link-color;
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
-.homepage__item-link {
+.plb-homepage__item-link {
   color: $homepage-item-link-color;
   font-size: $homepage-item-link-size;
 }

@@ -20,9 +20,9 @@ const initAccordions = () => {
 
   accordions.forEach(accordion => new Accordion(
     accordion, {
-      itemSelector: 'accordion-item',
-      itemOpenedClass: 'accordion-item--opened',
-      itemHeaderClassSelector: 'accordion-item__header'
+      itemSelector: 'plb-accordion-item',
+      itemOpenedClass: 'plb-accordion-item--opened',
+      itemHeaderClassSelector: 'plb-accordion-item__header'
     }
   ));
 };

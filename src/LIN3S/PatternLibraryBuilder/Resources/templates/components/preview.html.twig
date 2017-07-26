@@ -1,6 +1,6 @@
-<div class="patternlibrary-preview patternlibrary-preview--{{ preview_media }}">
-    <div class="patternlibrary-preview__frame">
+<div class="plb-preview plb-preview--{{ preview_media }}">
+    <div class="plb-preview__frame">
         {% include '@Lin3sPatternLibraryBuilder/svg/' ~ preview_media ~ '.svg.twig' %}
     </div>
-    <iframe class="patternlibrary-preview__iframe" src="?media={{ preview_media }}&id={{ preview_params_key }}&content_only"></iframe>
+    <iframe class="plb-preview__iframe" src="?media={{ preview_media }}&id={{ preview_params_key }}&content_only"></iframe>
 </div>

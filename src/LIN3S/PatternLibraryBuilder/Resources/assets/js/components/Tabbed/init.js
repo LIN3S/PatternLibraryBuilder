@@ -18,7 +18,7 @@ const initTabbeds = () => {
   const
     tabbeds = document.querySelectorAll('.js-tabbed');
 
-  tabbeds.forEach(tabbed => new Tabbed(tabbed, 'tabbed__nav-item', 'tabbed__tab'));
+  tabbeds.forEach(tabbed => new Tabbed(tabbed, 'plb-tabbed__nav-item', 'plb-tabbed__tab'));
 };
 
 onDomReady(initTabbeds);

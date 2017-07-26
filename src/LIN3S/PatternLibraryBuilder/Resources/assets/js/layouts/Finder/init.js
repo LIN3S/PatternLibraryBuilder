@@ -19,9 +19,9 @@ const initFinders = () => {
     finders = document.querySelectorAll('.js-finder');
 
   finders.forEach(finder => new Finder(finder, {
-    inputClassName: 'finder__input',
-    subjectClassName: 'finder__subject',
-    invalidSubjectClassName: 'finder__subject--hidden'
+    inputClassName: 'plb-finder__input',
+    subjectClassName: 'plb-finder__subject',
+    invalidSubjectClassName: 'plb-finder__subject--hidden'
   }));
 };
 
