@@ -7,10 +7,12 @@
 //
 // @author Mikel Tuesta <mikeltuesta@gmail.com>
 
+@import './../_definitions/animations';
 @import './../_variables/colors';
 @import './../_variables/typography';
 @import './../_variables/transitions';
 
+$accordion-item-animation: $animation-vertical-node-in;
 $accordion-item-text-color: $color-mine-shaft;
 $accordion-item-text-color-nested: $color-emperor;
 $accordion-item-text-color-over: darken($color-mine-shaft, 10%);
@@ -122,6 +124,11 @@ $accordion-item-transition: $transition-background-color;
 }
 
 .plb-accordion-item--opened {
+  > .plb-accordion-item__content {
+    animation: $accordion-item-animation;
+    display: block;
+  }
+
   > .plb-accordion-item__header {
     .plb-icon-plus__line--first {
       transform: rotate(180deg);
@@ -134,10 +141,6 @@ $accordion-item-transition: $transition-background-color;
     &::after {
       transform: scaleX(1);
     }
-  }
-
-  > .plb-accordion-item__content {
-    display: block;
   }
 }
 

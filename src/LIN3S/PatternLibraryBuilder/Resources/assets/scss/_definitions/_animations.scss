@@ -1,0 +1,22 @@
+// This file is part of the Euskaltel project.
+//
+// Copyright (c) 2017 LIN3S <info@lin3s.com>
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//
+// @author Mikel Tuesta <mikel@lin3s.com>
+
+$animation-vertical-node-in: vertical-node-in .5s ease-in-out;
+
+@keyframes vertical-node-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
