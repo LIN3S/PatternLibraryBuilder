@@ -11,7 +11,6 @@
 @import './../../node_modules/foundation-sites/scss/global';
 @import './../../node_modules/foundation-sites/scss/grid/grid';
 @import './../../node_modules/foundation-sites/scss/util/util';
-
 @import './../_variables/grid';
 @import './../_variables/transitions';
 
@@ -35,6 +34,6 @@
 
 @mixin media($value) {
   @include breakpoint($value) {
-    @content
+    @content;
   }
 }

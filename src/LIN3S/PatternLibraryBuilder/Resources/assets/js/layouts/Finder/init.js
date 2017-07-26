@@ -9,8 +9,6 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-'use strict';
-
 import {onDomReady} from 'lin3s-event-bus';
 import Finder from './Finder';
 

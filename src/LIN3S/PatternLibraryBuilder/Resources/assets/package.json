@@ -18,7 +18,7 @@
     "prismjs": "^1.6.0"
   },
   "devDependencies": {
-    "lin3s-distribution": "^2.4"
+    "lin3s-distribution": "^4.0.1"
   },
   "babel": {
     "presets": [
