@@ -6,10 +6,10 @@
     {% block finder_subjects %}
         <p class="plb-finder__tip"><strong>Click</strong> on any icon cell <strong>to copy</strong> it's name <strong>to the clipboard!</strong></p>
         <ul class="plb-icons">
-            {% for icon in find_icons() %}
+            {% for icon in lin3s_pattern_library_find_icons() %}
                 {% set icon_name = icon|replace({'_': ' '}) %}
                 <li class="plb-icons__icon plb-finder__subject js-clipboard" data-finder="{{ icon_name }}" data-clipboard-action="copy" data-clipboard-text="{{ icon }}">
-                    {{ icon(icon) }}
+                    {{ lin3s_pattern_library_icon(icon) }}
                     <span class="plb-icons__icon-name">{{ icon_name }}</span>
                 </li>
             {% endfor %}

@@ -30,7 +30,7 @@ final class IconExtension extends \Twig_Extension
     public function getFunctions() : array
     {
         return [
-            new \Twig_SimpleFunction('icon', [$this, 'renderIcon'], ['is_safe' => ['html']]),
+            new \Twig_SimpleFunction('lin3s_pattern_library_icon', [$this, 'renderIcon'], ['is_safe' => ['html']]),
         ];
     }
 
