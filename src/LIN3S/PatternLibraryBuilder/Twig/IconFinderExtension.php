@@ -33,7 +33,7 @@ final class IconFinderExtension extends \Twig_Extension
     public function getFunctions() : array
     {
         return [
-            new \Twig_SimpleFunction('find_icons', [$this, 'findIcons']),
+            new \Twig_SimpleFunction('lin3s_pattern_library_find_icons', [$this, 'findIcons']),
         ];
     }
 
