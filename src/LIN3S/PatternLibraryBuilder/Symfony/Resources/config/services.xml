@@ -36,21 +36,6 @@
             <tag name="twig.extension"/>
         </service>
 
-        <service id="lin3s.pattern_library_builder.twig.icon_finder"
-                 public="false"
-                 class="LIN3S\PatternLibraryBuilder\Twig\IconFinderExtension">
-            <argument>%lin3s_pattern_library_builder.config%</argument>
-            <tag name="twig.extension"/>
-        </service>
-
-        <service id="lin3s.pattern_library_builder.twig.icon"
-                 public="false"
-                 class="LIN3S\PatternLibraryBuilder\Twig\IconExtension">
-            <argument type="service" id="twig"/>
-            <argument>%lin3s_pattern_library_builder.config%</argument>
-            <tag name="twig.extension"/>
-        </service>
-
         <service id="lin3s.pattern_library_builder.loader.styleguide_config_loader"
                  public="false"
                  class="LIN3S\PatternLibraryBuilder\Config\ConfigLoader">
