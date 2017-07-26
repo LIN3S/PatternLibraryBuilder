@@ -7,9 +7,16 @@
 //
 // @author Mikel Tuesta <mikeltuesta@gmail.com>
 
-.plb-form-group {
-  .plb-form-label {
-    display: block;
-    margin-bottom: 6px;
+$animation-vertical-node-in: vertical-node-in .5s ease-in-out;
+
+@keyframes vertical-node-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
