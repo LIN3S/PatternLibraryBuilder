@@ -3,4 +3,7 @@ description: '<p>This is the Iconography description.</p>'
 renderer:
     type: iconography
     options:
-        folder: ''
+        folders:
+            -
+                path: './../templates/svg'
+                twig_namespace: 'svg'
