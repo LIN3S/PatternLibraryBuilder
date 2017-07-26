@@ -20,7 +20,7 @@ $aside-header-font-weight: $font-weight-bold;
 $aside-header-line-height: $line-height-open-sans-font-size-16;
 $aside-header-text-color: $color-white;
 
-.aside__header {
+.plb-aside__header {
   background-color: $aside-header-background-color;
   color: $aside-header-text-color;
   font-family: $aside-header-font-family;
@@ -29,7 +29,7 @@ $aside-header-text-color: $color-white;
   line-height: $aside-header-line-height;
   padding: 30px;
 
-  .logo {
+  .plb-logo {
     height: auto;
     margin-bottom: 10px;
     max-width: 170px;
@@ -37,11 +37,11 @@ $aside-header-text-color: $color-white;
   }
 }
 
-.aside__content {
+.plb-aside__content {
   overflow: hidden;
   padding: 65px 0;
 
-  .finder__header {
+  .plb-finder__header {
     max-width: none;
     padding: 34px 30px 30px;
     width: 100%;

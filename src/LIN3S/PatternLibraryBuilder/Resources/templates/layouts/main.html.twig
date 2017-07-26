@@ -1,8 +1,8 @@
-<main class="main{{ is_sticky|default(false) ? ' js-sticky' : '' }}">
-    <div class="main__aside">
+<main class="plb-main{{ is_sticky|default(false) ? ' js-sticky' : '' }}">
+    <div class="plb-main__aside">
         {%- block aside -%}{%- endblock -%}
     </div>
-    <div class="main__article">
+    <div class="plb-main__article">
         {%- block article -%}{%- endblock -%}
     </div>
 </main>

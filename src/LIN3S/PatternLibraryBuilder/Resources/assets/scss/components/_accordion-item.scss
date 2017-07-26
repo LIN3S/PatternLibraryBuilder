@@ -52,22 +52,17 @@ $accordion-item-transition: $transition-background-color;
     color: $text-color--over;
   }
 
-  &.accordion-item--opened {
+  &.plb-accordion-item--opened {
     background-color: $background-color;
   }
 
-  .accordion-item__header {
-    //border-bottom: 1px solid;
-    //border-bottom-color: $border-color;
-    //border-top: 1px solid;
-    //border-top-color: $border-color;
-    //padding: $header-padding;
+  .plb-accordion-item__header {
     border-bottom: 1px solid $border-color;
     border-top: 1px solid $border-color;
     padding: $header-padding;
   }
 
-  .link {
+  .plb-link {
     color: $text-color;
     display: block;
     font-size: $font-size;
@@ -80,7 +75,7 @@ $accordion-item-transition: $transition-background-color;
   }
 }
 
-.accordion-item {
+.plb-accordion-item {
   @include accordion-item(
     $accordion-item-background-color-selected,
     $accordion-item-border-color,
@@ -97,7 +92,7 @@ $accordion-item-transition: $transition-background-color;
   position: relative;
   transition: $accordion-item-transition;
 
-  .accordion-item {
+  .plb-accordion-item {
     @include accordion-item(
       $accordion-item-background-color-selected-nested,
       $accordion-item-border-color-nested,
@@ -109,7 +104,7 @@ $accordion-item-transition: $transition-background-color;
     );
   }
 
-  .accordion-item--leaf {
+  .plb-accordion-item--leaf {
     @include accordion-item(
       $accordion-item-background-color-selected-nested-leaf,
       transparent,
@@ -120,23 +115,23 @@ $accordion-item-transition: $transition-background-color;
       $accordion-item-text-color-over-nested
     );
 
-    .accordion-item__header {
+    .plb-accordion-item__header {
       padding: 0;
     }
 
-    .link {
+    .plb-link {
       padding: 15px 30px;
     }
   }
 }
 
-.accordion-item--opened {
-  > .accordion-item__header {
-    .icon-plus__line--first {
+.plb-accordion-item--opened {
+  > .plb-accordion-item__header {
+    .plb-icon-plus__line--first {
       transform: rotate(180deg);
     }
 
-    .icon-plus__line--last {
+    .plb-icon-plus__line--last {
       transform: rotate(270deg);
     }
 
@@ -145,16 +140,16 @@ $accordion-item-transition: $transition-background-color;
     }
   }
 
-  > .accordion-item__content {
+  > .plb-accordion-item__content {
     display: block;
   }
 }
 
-.accordion-item__header {
+.plb-accordion-item__header {
   position: relative;
   text-transform: capitalize;
 
-  .icon-plus {
+  .plb-icon-plus {
     height: $accordion-item-icon-size;
     position: absolute;
     right: 30px;
@@ -176,6 +171,6 @@ $accordion-item-transition: $transition-background-color;
   }
 }
 
-.accordion-item__content {
+.plb-accordion-item__content {
   display: none;
 }

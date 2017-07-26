@@ -21,7 +21,7 @@ $form-input-font-size: $font-size-16;
 $form-input-font-weight: $font-weight-regular;
 $form-input-line-height: $line-height-open-sans-font-size-16;
 
-.form-input {
+.plb-form-input {
   appearance: none;
   border: 1px solid $form-input-border-color;
   box-shadow: none;
@@ -46,7 +46,7 @@ $form-input-line-height: $line-height-open-sans-font-size-16;
   }
 }
 
-.form-input--transparent {
+.plb-form-input--transparent {
   background: none;
   border: 0;
 

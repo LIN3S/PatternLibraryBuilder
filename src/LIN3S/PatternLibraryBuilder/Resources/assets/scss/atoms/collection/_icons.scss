@@ -25,12 +25,12 @@ $icons-icon-background-color-hover: $color-gallery;
 $icons-icon-background-color-active: $color-alto;
 $icons-icon-transition: $transition-background-color;
 
-.icons {
+.plb-icons {
   display: flex;
   flex-wrap: wrap;
 }
 
-.icons__icon {
+.plb-icons__icon {
   background-color: $icons-icon-background-color;
   border: $icons-icon-border;
   cursor: copy;
@@ -60,7 +60,7 @@ $icons-icon-transition: $transition-background-color;
   &:hover {
     background-color: $icons-icon-background-color-hover;
 
-    .icons__icon-name {
+    .plb-icons__icon-name {
       background-color: $icons-icon-background-color-hover;
     }
   }
@@ -69,13 +69,13 @@ $icons-icon-transition: $transition-background-color;
     background-color: $icons-icon-background-color-active;
     cursor: context-menu;
 
-    .icons__icon-name {
+    .plb-icons__icon-name {
       background-color: $icons-icon-background-color-active;
     }
   }
 }
 
-.icons__icon-name {
+.plb-icons__icon-name {
   background-color: $icons-icon-background-color;
   bottom: 5px;
   display: block;
@@ -91,7 +91,7 @@ $icons-icon-transition: $transition-background-color;
 }
 
 @include media(large up) {
-  .icons__icon {
+  .plb-icons__icon {
     width: 10%;
   }
 }

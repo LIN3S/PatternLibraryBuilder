@@ -1,11 +1,11 @@
 {% set form_label_modifiers = ' ' %}
 {% for modifier in modifiers %}
-    {% set form_label_modifiers = form_label_modifiers ~ ' form-label--' ~ modifier %}
+    {% set form_label_modifiers = form_label_modifiers ~ ' plb-form-label--' ~ modifier %}
 {% endfor %}
 
-<label class="form-label{{ form_label_modifiers }} {{ class_name }}" {% if for|default %}for="{{ for }}"{% endif %}>
+<label class="plb-form-label{{ form_label_modifiers }} {{ class_name }}" {% if for|default %}for="{{ for }}"{% endif %}>
     {% if required|default(false) %}
-        <span class="form-label__required">*</span>
+        <span class="plb-form-label__required">*</span>
     {% endif %}
     {{ title }}
 </label>

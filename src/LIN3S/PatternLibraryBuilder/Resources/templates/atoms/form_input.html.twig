@@ -1,6 +1,6 @@
 {% set form_input_modifiers = ' ' %}
 {% for modifier in modifiers %}
-    {% set form_input_modifiers = form_input_modifiers ~ ' form-input--' ~ modifier %}
+    {% set form_input_modifiers = form_input_modifiers ~ ' plb-form-input--' ~ modifier %}
 {% endfor %}
 
-<input class="form-input{{ form_input_modifiers }} {{ class_name }}" type="{{ type|default('text') }}" placeholder="{{ placeholder }}" {% if id|default %}id="{{ id }}" name="{{ id }}"{% endif %}/>
+<input class="plb-form-input{{ form_input_modifiers }} {{ class_name }}" type="{{ type|default('text') }}" placeholder="{{ placeholder }}" {% if id|default %}id="{{ id }}" name="{{ id }}"{% endif %}/>

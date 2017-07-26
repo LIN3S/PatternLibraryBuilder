@@ -20,23 +20,23 @@ $tab-transition: $transition-background-color;
 $tab-indicator-transition: $transition-transform;
 $tab-indicator-background-color: $color-mine-shaft;
 
-.tabbed {
+.plb-tabbed {
   margin-top: 60px;
 }
 
-.tabbed__nav {
+.plb-tabbed__nav {
   margin-bottom: -1px;
   position: relative;
   z-index: 10;
 }
 
-.tabbed__nav-list {
+.plb-tabbed__nav-list {
   align-items: stretch;
   display: flex;
   justify-content: flex-start;
 }
 
-.tabbed__nav-item {
+.plb-tabbed__nav-item {
   background-color: $tab-background-color;
   border-bottom: 1px solid $tab-border-color;
   border-left: 1px solid $tab-border-color;
@@ -46,7 +46,7 @@ $tab-indicator-background-color: $color-mine-shaft;
   position: relative;
   transition: $tab-transition;
 
-  .patternlibrary-icon {
+  .plb-icon {
     height: 30px;
     width: 30px;
   }
@@ -69,7 +69,7 @@ $tab-indicator-background-color: $color-mine-shaft;
   }
 }
 
-.tabbed__nav-item--active {
+.plb-tabbed__nav-item--active {
   background-color: $tab-content-background-color;
   border-bottom: 1px solid $tab-content-background-color;
 
@@ -78,7 +78,7 @@ $tab-indicator-background-color: $color-mine-shaft;
   }
 }
 
-.tabbed__content {
+.plb-tabbed__content {
   background-color: $tab-content-background-color;
   border: 1px solid $tab-border-color;
   padding: 18px;
@@ -86,11 +86,11 @@ $tab-indicator-background-color: $color-mine-shaft;
   z-index: 0;
 }
 
-.tabbed__tab {
+.plb-tabbed__tab {
   display: none;
 }
 
-.tabbed__tab--active {
+.plb-tabbed__tab--active {
   display: block;
   z-index: 10;
 }

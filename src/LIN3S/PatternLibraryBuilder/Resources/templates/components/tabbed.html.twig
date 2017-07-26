@@ -1,18 +1,18 @@
 {% set modifier = modifier is not empty ? ' tabbed--' ~ modifier : null %}
 
-<div class="tabbed js-tabbed{{ modifier }}">
-    <nav class="tabbed__nav">
-        <ul class="tabbed__nav-list">
+<div class="plb-tabbed js-tabbed{{ modifier }}">
+    <nav class="plb-tabbed__nav">
+        <ul class="plb-tabbed__nav-list">
             {% for tab in tabs %}
-                <li class="tabbed__nav-item{% if loop.first %} tabbed__nav-item--active{% endif %}">
+                <li class="plb-tabbed__nav-item{% if loop.first %} plb-tabbed__nav-item--active{% endif %}">
                     {{- tab.title|raw -}}
                 </li>
             {% endfor %}
         </ul>
     </nav>
-    <div class="tabbed__content">
+    <div class="plb-tabbed__content">
         {% for tab in tabs %}
-            <div class="tabbed__tab{% if loop.first %} tabbed__tab--active{% endif %}">
+            <div class="plb-tabbed__tab{% if loop.first %} plb-tabbed__tab--active{% endif %}">
                 {% autoescape 'html' %}
                     {{- tab.content|raw -}}
                 {% endautoescape %}

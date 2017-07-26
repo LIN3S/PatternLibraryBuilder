@@ -32,7 +32,7 @@ $article-description-text-color: $color-tundora;
 
 $article-twig-output-font-size: $font-size-12;
 
-.article__breadcrumbs {
+.plb-article__breadcrumbs {
   color: $breadcrumbs-text-color;
   font-family: $breadcrumbs-font-family;
   font-size: $breadcrumbs-font-size;
@@ -41,11 +41,11 @@ $article-twig-output-font-size: $font-size-12;
   text-transform: capitalize;
 }
 
-.article__breadcrumbs-separator {
+.plb-article__breadcrumbs-separator {
   margin: 0 3px;
 }
 
-.article__title {
+.plb-article__title {
   color: $article-title-text-color;
   font-family: $article-title-font-family;
   font-size: $article-title-font-size;
@@ -56,7 +56,7 @@ $article-twig-output-font-size: $font-size-12;
   text-transform: capitalize;
 }
 
-.article__description {
+.plb-article__description {
   color: $article-description-text-color;
   font-family: $article-description-font-family;
   font-size: $article-description-font-size;

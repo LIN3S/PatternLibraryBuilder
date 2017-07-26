@@ -14,20 +14,20 @@
 
 $sticky-aside-background-color: $color-mercury;
 
-.main {
+.plb-main {
   @include row(null, expand);
 
   min-height: 100vh;
 }
 
-.main__aside {
+.plb-main__aside {
   @include column(3, 0);
 
   background-color: $sticky-aside-background-color;
   padding: 0;
 }
 
-.main__article {
+.plb-main__article {
   @include column(9, 0);
 
   padding: 80px 60px;

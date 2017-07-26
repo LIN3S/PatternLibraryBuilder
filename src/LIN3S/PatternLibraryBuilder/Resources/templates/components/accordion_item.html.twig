@@ -1,11 +1,11 @@
 {% set tag = tag|default('div') %}
 
-<{{ tag }} class="accordion-item{{ modifier|default(null) }}{% if class_name|default %} {{ class_name }}{% endif %}"{% if finder_value|default %} data-finder="{{ finder_value }}{% endif %}">
-    <div class="accordion-item__header">
+<{{ tag }} class="plb-accordion-item{{ modifier|default(null) }}{% if class_name|default %} {{ class_name }}{% endif %}"{% if finder_value|default %} data-finder="{{ finder_value }}{% endif %}">
+    <div class="plb-accordion-item__header">
         {{- header|raw -}}
     </div>
     {% if content is not empty %}
-        <div class="accordion-item__content">
+        <div class="plb-accordion-item__content">
             {{- content|raw -}}
         </div>
     {% endif %}

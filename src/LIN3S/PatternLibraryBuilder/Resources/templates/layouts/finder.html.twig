@@ -1,14 +1,14 @@
-<div class="finder js-finder">
-    <div class="finder__header">
+<div class="plb-finder js-finder">
+    <div class="plb-finder__header">
         {% include '@Lin3sPatternLibraryBuilder/components/form_group.html.twig' with {
             id: finder_id,
             label_title: finder_label_title,
-            input_class_name: 'finder__input',
+            input_class_name: 'plb-finder__input',
             input_placeholder: finder_placeholder,
             input_type: 'text'
         } %}
     </div>
-    <div class="finder__subjects">
+    <div class="plb-finder__subjects">
         {% block finder_subjects %}{% endblock %}
     </div>
 </div>

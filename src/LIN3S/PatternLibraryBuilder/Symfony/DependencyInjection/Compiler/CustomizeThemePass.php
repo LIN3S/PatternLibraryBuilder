@@ -129,21 +129,21 @@ class CustomizeThemePass implements CompilerPassInterface
         $container->getDefinition('twig')->addMethodCall('addGlobal', ['theme_styles', $theme]);
     }
 
-    const THEME = '.main__aside{background-color:%s}
-        .main__article{background-color:%s}
-        .aside__header{background-color:%s;color:%s;font-family:%s}
-        .accordion-item{color:%s;font-family:%s}.accordion-item:hover{color:%s}.accordion-item.accordion-item--opened{background-color:%s}.accordion-item .accordion-item__header{border-bottom-color:%s;border-top-color:%s}.accordion-item .link {color:%s}.accordion-item .link:hover{color:%s}
-        .accordion-item .accordion-item{color:%s}.accordion-item .accordion-item:hover{color:%s}.accordion-item .accordion-item.accordion-item--opened{background-color:%s}.accordion-item .accordion-item .accordion-item__header{border-bottom-color:%s;border-top-color:%s}.accordion-item .accordion-item .link{color:%s}.accordion-item .accordion-item .link:hover{color:%s}
-        .accordion-item .accordion-item--leaf{color:%s}.accordion-item .accordion-item--leaf:hover{color:%s}.accordion-item .accordion-item--leaf.accordion-item--opened{background-color:%s}.accordion-item .accordion-item--leaf .link{color:%s;font-family:%s}.accordion-item .accordion-item--leaf .link:hover{color:%s}
-        .accordion-item__header:after{background-color:%s}
-        .status{font-family:%s}.status--todo{color:%s}.status--doing{color:%s}.status--pending-review{color:%s}.status--done{color:%s}
-        .tabbed__nav-item{background-color:%s;border-bottom-color:%s;border-top-color:%s;border-left-color:%s}.tabbed__nav-item:last-child{border-right-color:%s}.tabbed__nav-item:after{background-color:%s}.tabbed__nav-item--active{background-color:%s;border-bottom-color:%s}.tabbed__content{background-color:%s;border-color:%s}
-        .article__breadcrumbs{color:%s;font-family:%s}
-        .article__title{color:%s;font-family:%s}
-        .article__description{color:%s;font-family:%s}
-        .finder__tip{font-family:%s}
-        .form-input{border-color:%s;font-family:%s}.form-input:focus{border-color:%s}
-        .form-label{color:%s;font-family:%s}.form-label__required{color:%s}
-        .link {font-family:%s}
-        .icon-plus{fill:%s}';
+    const THEME = '.plb-main__aside{background-color:%s}
+        .plb-main__article{background-color:%s}
+        .plb-aside__header{background-color:%s;color:%s;font-family:%s}
+        .plb-accordion-item{color:%s;font-family:%s}.plb-accordion-item:hover{color:%s}.plb-accordion-item.plb-accordion-item--opened{background-color:%s}.plb-accordion-item .plb-accordion-item__header{border-bottom-color:%s;border-top-color:%s}.plb-accordion-item .plb-link {color:%s}.plb-accordion-item .plb-link:hover{color:%s}
+        .plb-accordion-item .plb-accordion-item{color:%s}.plb-accordion-item .plb-accordion-item:hover{color:%s}.plb-accordion-item .plb-accordion-item.plb-accordion-item--opened{background-color:%s}.plb-accordion-item .plb-accordion-item .plb-accordion-item__header{border-bottom-color:%s;border-top-color:%s}.plb-accordion-item .plb-accordion-item .plb-link{color:%s}.plb-accordion-item .plb-accordion-item .plb-link:hover{color:%s}
+        .plb-accordion-item .plb-accordion-item--leaf{color:%s}.plb-accordion-item .plb-accordion-item--leaf:hover{color:%s}.plb-accordion-item .plb-accordion-item--leaf.plb-accordion-item--opened{background-color:%s}.plb-accordion-item .plb-accordion-item--leaf .plb-link{color:%s;font-family:%s}.plb-accordion-item .plb-accordion-item--leaf .plb-link:hover{color:%s}
+        .plb-accordion-item__header:after{background-color:%s}
+        .plb-status{font-family:%s}.plb-status--todo{color:%s}.plb-status--doing{color:%s}.plb-status--pending-review{color:%s}.plb-status--done{color:%s}
+        .plb-tabbed__nav-item{background-color:%s;border-bottom-color:%s;border-top-color:%s;border-left-color:%s}.plb-tabbed__nav-item:last-child{border-right-color:%s}.plb-tabbed__nav-item:after{background-color:%s}.plb-tabbed__nav-item--active{background-color:%s;border-bottom-color:%s}.plb-tabbed__content{background-color:%s;border-color:%s}
+        .plb-article__breadcrumbs{color:%s;font-family:%s}
+        .plb-article__title{color:%s;font-family:%s}
+        .plb-article__description{color:%s;font-family:%s}
+        .plb-finder__tip{font-family:%s}
+        .plb-form-input{border-color:%s;font-family:%s}.plb-form-input:focus{border-color:%s}
+        .plb-form-label{color:%s;font-family:%s}.plb-form-label__required{color:%s}
+        .plb-link {font-family:%s}
+        .plb-icon-plus{fill:%s}';
 }
