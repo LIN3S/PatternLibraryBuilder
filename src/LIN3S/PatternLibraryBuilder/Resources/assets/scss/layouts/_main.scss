@@ -11,24 +11,35 @@
 
 @import './../_helpers/mixins';
 @import './../_variables/colors';
+@import './../_variables/grid';
 
 $sticky-aside-background-color: $color-mercury;
 
-.plb-main {
-  @include row(null, expand);
-
-  min-height: 100vh;
-}
-
 .plb-main__aside {
-  @include column(3, 0);
-
   background-color: $sticky-aside-background-color;
   padding: 0;
+  width: 100%;
 }
 
 .plb-main__article {
-  @include column(9, 0);
+  padding: 60px 30px;
+  width: 100%;
+}
 
-  padding: 80px 60px;
+@include media($large-up) {
+  .plb-main {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+  }
+
+  .plb-main__aside {
+    @include column(3, 0);
+  }
+
+  .plb-main__article {
+    @include column(9, 0);
+
+    padding: 80px 60px;
+  }
 }

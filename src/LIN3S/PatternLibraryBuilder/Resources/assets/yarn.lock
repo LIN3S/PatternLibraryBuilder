@@ -2368,13 +2368,6 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
-foundation-sites@^6.3.1:
-  version "6.3.1"
-  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.3.1.tgz#23853372deb9480c13b426499eaf0c8f90cdbe1d"
-  dependencies:
-    jquery ">=2.2.0"
-    what-input "^4.0.3"
-
 fs-extra@^0.30.0:
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
@@ -3013,10 +3006,6 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
-jquery@>=2.2.0:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
-
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.1.9.tgz#f0e80ae039a4bd654b5f281fc93f04a914a7fcce"
@@ -3237,10 +3226,6 @@ lin3s-event-bus@^0.5.1:
   resolved "https://registry.yarnpkg.com/lin3s-event-bus/-/lin3s-event-bus-0.5.1.tgz#baa0553eec6ed9d9d14afeb6d178bb1efe8070ac"
   dependencies:
     lodash.debounce "^4.0.8"
-
-lin3s-front-foundation@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/lin3s-front-foundation/-/lin3s-front-foundation-0.2.2.tgz#aed08f03f7196352c4f0b1eadf5a2f2067dcf5d3"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -6037,10 +6022,6 @@ webpack@^3.1.0:
     watchpack "^1.4.0"
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
-
-what-input@^4.0.3:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/what-input/-/what-input-4.1.3.tgz#3898c92b44eff48a34c6371f3a69d3730ea7c588"
 
 whet.extend@~0.9.9:
   version "0.9.9"

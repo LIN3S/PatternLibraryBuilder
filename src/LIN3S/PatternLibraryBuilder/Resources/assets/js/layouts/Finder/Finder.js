@@ -9,45 +9,45 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-import $ from 'jquery';
-
 import debounce from 'lodash.debounce';
 
 class Finder {
 
   domNode;
-  $input;
-  $subjects;
+  input;
+  subjects;
   invalidSubjectClassName;
 
   cachedSubjectsFilterValues;
 
   constructor(domNode, {inputClassName, subjectClassName, invalidSubjectClassName} = {}) {
-    const $domNode = $(domNode);
-    this.$input = $domNode.find(`.${inputClassName}`);
-    this.$subjects = $domNode.find(`.${subjectClassName}`);
+    this.input = domNode.querySelector(`.${inputClassName}`);
+    this.subjects = domNode.querySelectorAll(`.${subjectClassName}`);
     this.invalidSubjectClassName = invalidSubjectClassName;
-    this.cachedSubjectsFilterValues = Array.from(this.$subjects).map(subject =>
-      $(subject).data('finder').toLowerCase());
+    this.cachedSubjectsFilterValues = Array.from(this.subjects).map(subject =>
+      subject.dataset.finder.toLowerCase());
     this.debouncedFilter = debounce(() => {
-      this.filter(this.$input.val());
+      this.filter(this.input.value);
     }, 500);
 
     this.bindListeners();
-    this.$input.focus();
   }
 
   bindListeners() {
-    this.$input.on('input', this.debouncedFilter.bind(this));
+    this.input.addEventListener('input', this.debouncedFilter.bind(this));
   }
 
   filter(stringToFilter) {
     const stringToFilterWords = stringToFilter.toLowerCase().split(' ');
-    Array.from(this.$subjects).forEach((subject, index) => {
+    Array.from(this.subjects).forEach((subject, index) => {
       const
         subjectFilterValue = this.cachedSubjectsFilterValues[index],
         isSubjectValid = stringToFilterWords.every(word => subjectFilterValue.includes(word));
-      $(subject).toggleClass(this.invalidSubjectClassName, !isSubjectValid);
+      if (!isSubjectValid) {
+        subject.classList.add(this.invalidSubjectClassName);
+      } else {
+        subject.classList.remove(this.invalidSubjectClassName);
+      }
     });
   }
 }

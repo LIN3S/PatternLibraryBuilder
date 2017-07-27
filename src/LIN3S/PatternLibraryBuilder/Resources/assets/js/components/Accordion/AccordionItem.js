@@ -9,13 +9,13 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-import $ from 'jquery';
 import {onWindowResized} from 'lin3s-event-bus';
+import {getDirectDomChildrenByCssClassSelector} from './../../_helpers/DomTraversing';
 
 class AccordionItem {
 
-  $item;
-  $itemHeader;
+  domNode;
+  itemHeader;
   itemOpenedClass;
 
   isCollapsed;
@@ -26,8 +26,8 @@ class AccordionItem {
     domNode,
     {itemOpenedClass, itemHeaderClassSelector, onItemClickCallback = () => {}, isInitiallyCollapsed = true}
   ) {
-    this.$item = $(domNode);
-    this.$itemHeader = $(domNode).children(`.${itemHeaderClassSelector}`);
+    this.domNode = domNode;
+    this.itemHeader = getDirectDomChildrenByCssClassSelector(this.domNode, itemHeaderClassSelector)[0];
     this.itemOpenedClass = itemOpenedClass;
     this.onItemClickCallback = onItemClickCallback;
     this.isCollapsed = isInitiallyCollapsed;
@@ -45,12 +45,12 @@ class AccordionItem {
   }
 
   open() {
-    this.$item.addClass(this.itemOpenedClass);
+    this.domNode.classList.add(this.itemOpenedClass);
     this.isCollapsed = false;
   }
 
   close() {
-    this.$item.removeClass(this.itemOpenedClass);
+    this.domNode.classList.remove(this.itemOpenedClass);
     this.isCollapsed = true;
   }
 
@@ -63,7 +63,7 @@ class AccordionItem {
   }
 
   bindListeners() {
-    this.$itemHeader.on('click', () => {
+    this.itemHeader.addEventListener('click', () => {
       this.onItemClickCallback(this);
     });
 

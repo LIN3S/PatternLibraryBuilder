@@ -16,7 +16,7 @@ const initAccordions = () => {
   const
     accordions = document.querySelectorAll('.js-accordion');
 
-  accordions.forEach(accordion => new Accordion(
+  Array.from(accordions).forEach(accordion => new Accordion(
     accordion, {
       itemSelector: 'plb-accordion-item',
       itemOpenedClass: 'plb-accordion-item--opened',

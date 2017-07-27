@@ -10,6 +10,8 @@
 @import './../_variables/colors';
 
 .plb-preview {
+  overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
 }
 

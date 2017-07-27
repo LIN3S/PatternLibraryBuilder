@@ -9,28 +9,28 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-import $ from 'jquery';
 import AccordionItem from './AccordionItem';
+import {getFirstLevelDomDescendantsByCssClassSelector} from './../../_helpers/DomTraversing';
 
 class Accordion {
 
   items = [];
 
   constructor(domNode, {itemSelector, itemOpenedClass, itemHeaderClassSelector}) {
-    const $accordionItems = $(domNode).find(`.${itemSelector}`).first().parent().children(`.${itemSelector}`);
+    const accordionItems = getFirstLevelDomDescendantsByCssClassSelector(domNode, itemSelector);
 
-    Array.from($accordionItems).forEach(accordionItemNode =>
+    accordionItems.forEach(accordionItemNode =>
       this.items.push(new AccordionItem(accordionItemNode, {
         itemOpenedClass,
         itemHeaderClassSelector,
         onItemClickCallback: this.onAccordionItemSelected.bind(this),
-        isInitiallyCollapsed: !$(accordionItemNode).hasClass(itemOpenedClass)
+        isInitiallyCollapsed: !accordionItemNode.classList.contains(itemOpenedClass)
       }))
     );
   }
 
   onAccordionItemSelected(anAccordionItem) {
-    this.items.forEach(accordionItem => {
+    Array.from(this.items).forEach(accordionItem => {
       if (accordionItem === anAccordionItem) {
         accordionItem.toggle();
       } else {
