@@ -9,31 +9,27 @@
  * @author Mikel Tuesta <mikeltuesta@gmail.com>
  */
 
-import $ from 'jquery';
-
 class Tabbed {
 
   tabNavItemSelector;
   tabContentSelector;
 
-  $tabs;
-  $navItems;
+  tabs;
+  navItems;
 
   constructor(domNode, tabNavItemSelector, tabContentSelector) {
     this.tabNavItemSelector = tabNavItemSelector;
     this.tabContentSelector = tabContentSelector;
 
-    const $tabbed = $(domNode);
-
-    this.$navItems = $tabbed.find(`.${this.tabNavItemSelector}`);
-    this.$tabs = $tabbed.find(`.${this.tabContentSelector}`);
+    this.navItems = domNode.querySelectorAll(`.${this.tabNavItemSelector}`);
+    this.tabs = domNode.querySelectorAll(`.${this.tabContentSelector}`);
 
     this.bindListeners();
   }
 
   bindListeners() {
-    Array.from(this.$navItems).forEach((navItem, index) => {
-      $(navItem).on('click', (event) => {
+    this.navItems.forEach((navItem, index) => {
+      navItem.addEventListener('click', (event) => {
         event.stopPropagation();
         event.preventDefault();
 
@@ -47,11 +43,21 @@ class Tabbed {
       activeNavItemClass = `${this.tabNavItemSelector}--active`,
       activeTabClass = `${this.tabContentSelector}--active`;
 
-    this.$navItems.removeClass(activeNavItemClass);
-    this.$navItems.eq(tabIndex).addClass(activeNavItemClass);
+    Array.from(this.navItems).forEach((navItem, index) => {
+      if (index === tabIndex) {
+        navItem.classList.add(activeNavItemClass);
+      } else {
+        navItem.classList.remove(activeNavItemClass);
+      }
+    });
 
-    this.$tabs.removeClass(activeTabClass);
-    this.$tabs.eq(tabIndex).addClass(activeTabClass);
+    Array.from(this.tabs).forEach((tab, index) => {
+      if (index === tabIndex) {
+        tab.classList.add(activeTabClass);
+      } else {
+        tab.classList.remove(activeTabClass);
+      }
+    });
   }
 
 }

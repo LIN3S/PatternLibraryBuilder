@@ -9,6 +9,7 @@
 // @author Gorka Laucirica <gorka.lauzirika@gmail.com>
 // @author Mikel Tuesta <mikeltuesta@gmail.com>
 
+@import './../_helpers/mixins';
 @import './../_variables/colors';
 @import './../_variables/transitions';
 @import './../_variables/typography';
@@ -39,11 +40,16 @@ $aside-header-text-color: $color-white;
 
 .plb-aside__content {
   overflow: hidden;
-  padding: 65px 0;
 
   .plb-finder__header {
     max-width: none;
     padding: 34px 30px 30px;
     width: 100%;
+  }
+}
+
+@include media($large-up) {
+  .plb-aside__content {
+    padding: 65px 0;
   }
 }

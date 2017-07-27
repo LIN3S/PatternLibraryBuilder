@@ -12,9 +12,7 @@
   "author": "LIN3S",
   "dependencies": {
     "clipboard": "^1.7.1",
-    "foundation-sites": "^6.3.1",
     "lin3s-event-bus": "^0.5.1",
-    "lin3s-front-foundation": "^0.2.2",
     "prismjs": "^1.6.0"
   },
   "devDependencies": {

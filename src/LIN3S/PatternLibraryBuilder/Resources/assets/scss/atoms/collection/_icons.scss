@@ -7,11 +7,11 @@
 //
 // @author Mikel Tuesta <mikeltuesta@gmail.com>
 
+@import './../../_helpers/mixins';
 @import './../../_variables/colors';
+@import './../../_variables/grid';
 @import './../../_variables/typography';
 @import './../../_variables/transitions';
-
-@import './../../_helpers/mixins';
 
 $icons-icon-name-font-family: $font-family-open-sans;
 $icons-icon-name-font-size: $font-size-12;
@@ -90,7 +90,7 @@ $icons-icon-transition: $transition-background-color;
   width: 90%;
 }
 
-@include media(large up) {
+@include media($large-up) {
   .plb-icons__icon {
     width: 10%;
   }

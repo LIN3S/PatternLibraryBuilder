@@ -3,8 +3,11 @@
 
     {% set items = [] %}
     {% for item in children %}
-        {% set item_class_name = null %}
         {% set item_title = item.title|replace({'-': ' '}) %}
+        {% set accordion_item_title %}
+            {{ item_title }}
+            {% include '@Lin3sPatternLibraryBuilder/svg/icon_plus.svg.twig' %}
+        {% endset %}
 
         {% set modifiers = [] %}
         {% for breadcrumb in breadcrumbs %}
@@ -13,16 +16,11 @@
             {% endif %}
         {% endfor %}
 
-        {% set accordion_item_title %}
-            {{ item_title }}
-            {% include '@Lin3sPatternLibraryBuilder/svg/icon_plus.svg.twig' %}
-        {% endset %}
-
         {% set items = items|merge([{
             header: accordion_item_title,
             content: macros.accordion_menu(item.children, item.pages, breadcrumbs),
             modifiers: modifiers,
-            class_name: item_class_name,
+            class_name: null,
             finder_value: item_title
         }]) %}
     {% endfor %}
@@ -36,8 +34,8 @@
             } %}
                 {%- block link_content -%}
                     {% include '@Lin3sPatternLibraryBuilder/components/status.html.twig' with {
-                    level: item.status|default('    '),
-                    tag: 'span'
+                        level: item.status|default(''),
+                        tag: 'span'
                     } %}
                     {{ item.title }}
                 {%- endblock -%}
@@ -45,7 +43,11 @@
         {% endset %}
 
         {% set modifiers = [] %}
-        {% set item_class_name = 'plb-finder__subject' %}
+        {% for breadcrumb in breadcrumbs %}
+            {% if breadcrumb == item.title %}
+                {% set modifiers = ['opened'] %}
+            {% endif %}
+        {% endfor %}
 
         {% set items = items|merge([{
             header: accordion_item_title,
@@ -60,6 +62,7 @@
         items: items,
         modifier: modifier|default
     } %}
+
 {% endmacro %}
 
 <aside class="plb-aside">

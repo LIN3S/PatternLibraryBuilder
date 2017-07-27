@@ -7,33 +7,18 @@
 //
 // @author Mikel Tuesta <mikeltuesta@gmail.com>
 
-@import './../../node_modules/foundation-sites/scss/grid/flex-grid';
-@import './../../node_modules/foundation-sites/scss/global';
-@import './../../node_modules/foundation-sites/scss/grid/grid';
-@import './../../node_modules/foundation-sites/scss/util/util';
 @import './../_variables/grid';
-@import './../_variables/transitions';
 
-@mixin row(
-  $behavior: null,
-  $size: $grid-row-width,
-  $columns: null,
-  $base: true,
-  $wrap: true,
-  $gutters: $grid-column-gutter
-) {
-  @include flex-grid-row($behavior, $size, $columns, $base, $wrap, $gutters);
+@mixin column($columns: $column-count, $gutter: $column-gutter) {
+  flex: 1 1 #{100% / $column-count * $columns};
+  max-width: #{100% / $column-count * $columns};
+  padding-left: #{$gutter / 2};
+  padding-right: #{$gutter / 2};
+  width: 100%;
 }
 
-@mixin column(
-  $columns: expand,
-  $gutters: $grid-column-gutter
-) {
-  @include flex-grid-column($columns, $gutters);
-}
-
-@mixin media($value) {
-  @include breakpoint($value) {
+@mixin media($breakpoint) {
+  @media #{$breakpoint} {
     @content;
   }
 }

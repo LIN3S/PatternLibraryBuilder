@@ -9,6 +9,7 @@
 // @author Gorka Laucirica <gorka.lauzirika@gmail.com>
 // @author Mikel Tuesta <mikeltuesta@gmail.com>
 
+@import './../_helpers/mixins';
 @import './../_variables/colors';
 @import './../_variables/transitions';
 
@@ -41,7 +42,7 @@ $tab-indicator-background-color: $color-mine-shaft;
   border-left: 1px solid $tab-border-color;
   border-top: 1px solid $tab-border-color;
   cursor: pointer;
-  padding: 18px 40px;
+  padding: 12px 15px;
   position: relative;
   transition: $tab-transition;
 
@@ -92,4 +93,10 @@ $tab-indicator-background-color: $color-mine-shaft;
 .plb-tabbed__tab--active {
   display: block;
   z-index: 10;
+}
+
+@include media($large-up) {
+  .plb-tabbed__nav-item {
+    padding: 18px 40px;
+  }
 }
