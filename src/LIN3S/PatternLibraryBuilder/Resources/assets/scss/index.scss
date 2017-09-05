@@ -11,6 +11,9 @@
 
 @import './../node_modules/prismjs/themes/prism-okaidia.css';
 
+@import '_base/common';
+@import '_base/reset';
+
 @import 'svg/icon-plus';
 
 @import 'atoms/collection/icons';
