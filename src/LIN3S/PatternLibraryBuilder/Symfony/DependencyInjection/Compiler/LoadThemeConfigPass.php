@@ -17,9 +17,9 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
-class AddConfigurationValuesToGlobalTwigVariablesPass implements CompilerPassInterface
+class LoadThemeConfigPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
@@ -29,8 +29,11 @@ class AddConfigurationValuesToGlobalTwigVariablesPass implements CompilerPassInt
 
         $config = $container->getParameter('lin3s_pattern_library_builder.config');
 
-        $container->getDefinition('twig')
-            ->addMethodCall('addGlobal', ['title', $config['title']])
-            ->addMethodCall('addGlobal', ['description', $config['description']]);
+        $container->getDefinition('lin3s.pattern_library_builder.config.theme')
+            ->replaceArgument(0, $config['theme']['title'])
+            ->replaceArgument(1, $config['theme']['description'])
+            ->replaceArgument(2, $config['theme']['stylesheets'])
+            ->replaceArgument(3, $config['theme']['javascripts'])
+            ->replaceArgument(4, $config['theme']['custom_styles']);
     }
 }

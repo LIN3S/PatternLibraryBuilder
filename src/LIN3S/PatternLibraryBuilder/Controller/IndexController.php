@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace LIN3S\PatternLibraryBuilder\Controller;
 
 use LIN3S\PatternLibraryBuilder\Config\ConfigLoader;
+use LIN3S\PatternLibraryBuilder\Config\ThemeConfig;
 use LIN3S\PatternLibraryBuilder\Renderer\RendererRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,18 +24,21 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  * @author Beñat Espiña <benatespina@gmail.com>
  */
-class IndexController
+final class IndexController
 {
     private $loader;
+    private $templateConfig;
     private $rendererRegistry;
     private $twig;
 
     public function __construct(
         ConfigLoader $loader,
+        ThemeConfig $templateConfig,
         RendererRegistry $rendererRegistry,
         \Twig_Environment $twig
     ) {
         $this->loader = $loader;
+        $this->templateConfig = $templateConfig;
         $this->rendererRegistry = $rendererRegistry;
         $this->twig = $twig;
     }
@@ -58,6 +62,11 @@ class IndexController
         }
 
         return new Response($this->twig->render('@Lin3sPatternLibraryBuilder/pattern_library.html.twig', [
+            'title' => $this->templateConfig->title(),
+            'description' => $this->templateConfig->description(),
+            'stylesheets' => $this->templateConfig->stylesheets(),
+            'javascripts' => $this->templateConfig->javascripts(),
+            'custom_styles' => $this->templateConfig->customStyles(),
             'menu' => $config->allInHierarchy(),
             'breadcrumbs' => $this->generateBreadcrumbs($slug),
             'content' => $content,

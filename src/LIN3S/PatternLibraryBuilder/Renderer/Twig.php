@@ -2,17 +2,21 @@
 
 namespace LIN3S\PatternLibraryBuilder\Renderer;
 
+use LIN3S\PatternLibraryBuilder\Config\ThemeConfig;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final class Twig implements Renderer
 {
     private $twig;
     private $request;
+    private $templateConfig;
 
-    public function __construct(\Twig_Environment $twig, RequestStack $requestStack)
+    public function __construct(\Twig_Environment $twig, RequestStack $requestStack, ThemeConfig $templateConfig)
     {
         $this->twig = $twig;
         $this->request = $requestStack->getMasterRequest();
+        $this->requestStack = $requestStack;
+        $this->templateConfig = $templateConfig;
     }
 
     public function render($item)
@@ -41,6 +45,9 @@ final class Twig implements Renderer
             sprintf('@Lin3sPatternLibraryBuilder/pages/iframe/%s.html.twig', $media), [
                 'item'      => $item['config']['renderer']['options'],
                 'params_id' => $paramsId,
+                'stylesheets' => $this->templateConfig->stylesheets(),
+                'javascripts' => $this->templateConfig->javascripts(),
+                'custom_styles' => $this->templateConfig->customStyles(),
             ]
         );
     }

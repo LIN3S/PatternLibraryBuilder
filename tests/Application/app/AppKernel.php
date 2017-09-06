@@ -26,6 +26,7 @@ use Symfony\Component\Routing\RouteCollectionBuilder;
 
 /**
  * @author Beñat Espiña <benatespina@gmail.com>
+ * @author Gorka Laucirica <gorka.lauzirika@gmail.com>
  */
 class AppKernel extends Kernel
 {
@@ -71,44 +72,16 @@ class AppKernel extends Kernel
                 __DIR__ . '/../templates' => '__main__',
             ],
         ])->loadFromExtension('lin3s_pattern_library_builder', [
-            'title'                       => 'Test pattern library',
-            'description'                 => 'This is the testing purposes pattern library',
-            'templates_config_files_path' => __DIR__ . '/../src/App/Resources/PatternLibrary',
-            'theme'                       => [
-                'color_primary'                                 => '#0099ff',
-                'font_family_primary'                           => 'Open Sans',
-                'font_family_secondary'                         => 'Roboto',
-                'article_background_color'                      => '#fefefe',
-                'aside_background_color'                        => '#e1e1e1',
-                'aside_header_background_color'                 => '#0099ff',
-                'aside_header_text_color'                       => '#fff',
-                'accordion_item_level1_text_color'              => '#333',
-                'accordion_item_level1_text_color_hover'        => '#545454',
-                'accordion_item_level1_background_color_opened' => '#ececec',
-                'accordion_item_level1_header_border_color'     => '#d1d1d1',
-                'accordion_item_level2_text_color'              => '#666',
-                'accordion_item_level2_text_color_hover'        => '#999',
-                'accordion_item_level2_background_color_opened' => '#f8fbfb',
-                'accordion_item_level2_header_border_color'     => '#e5e5e5',
-                'accordion_item_level3_text_color'              => '#999',
-                'accordion_item_level3_text_color_hover'        => '#a3a3a3',
-                'accordion_item_level3_background_color'        => '#fff',
-                'status_text_color_todo'                        => '#f14133',
-                'status_text_color_doing'                       => '#fba30a',
-                'status_text_color_pending_review'              => '#16a5ba',
-                'status_text_color_done'                        => '#598d09',
-                'tabbed_background_color'                       => '',
-                'tabbed_border_color'                           => '',
-                'tabbed_content_background_color'               => '',
-                'tabbed_content_border_color'                   => '',
-                'breadcrumbs_text_color'                        => '#b6b6b6',
-                'title_text_color'                              => '#0099ff',
-                'description_text_color'                        => '#444',
-                'form_input_border_color'                       => '#b0b0b0',
-                'form_input_border_color_hover'                 => '#0099ff',
-                'form_label_text_color'                         => '#444',
-                'icon_fill_color'                               => '#0099ff',
+            'theme' => [
+                'title'         => 'LIN3S',
+                'description'   => 'Pattern Library Builder',
+                'stylesheets'   => ['https://www.euskaltel.com/assets/euskaltel.21f40baa7611ea899495aba95bc09f67.css'],
+                'custom_styles' => [
+                    'color_primary' => '#222',
+                ]
             ],
+            'templates_config_files_path' => __DIR__ . '/../src/App/Resources/PatternLibrary',
+
         ]);
     }
 
