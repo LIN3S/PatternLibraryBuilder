@@ -17,7 +17,7 @@ final class Iconography implements Renderer
     public function render($item)
     {
         $folders = $item['config']['renderer']['options']['folders'];
-        
+
         return $this->twig->render('@Lin3sPatternLibraryBuilder/renderers/iconography.html.twig', [
             'icons' => $this->findIcons($folders)
         ]);
@@ -29,7 +29,7 @@ final class Iconography implements Renderer
 
         foreach($folders as $folder) {
             $finder = new Finder();
-            $files = $finder->directories()->in($folder['path'])->files();
+            $files = $finder->directories()->in(__DIR__ . $folder['path'])->files();
 
             foreach ($files as $file) {
                 $icons[] = [
