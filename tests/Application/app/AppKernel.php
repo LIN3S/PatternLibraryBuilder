@@ -75,7 +75,6 @@ class AppKernel extends Kernel
             'theme' => [
                 'title'         => 'LIN3S',
                 'description'   => 'Pattern Library Builder',
-                'stylesheets'   => ['https://www.euskaltel.com/assets/euskaltel.21f40baa7611ea899495aba95bc09f67.css'],
                 'custom_styles' => [
                     'color_primary' => '#222',
                 ]

@@ -9,7 +9,6 @@
 // @author Gorka Laucirica <gorka.lauzirika@gmail.com>
 // @author Mikel Tuesta <mikeltuesta@gmail.com>
 
-//Default CSS Vars, can be override using configuration
 
 @import './../node_modules/prismjs/themes/prism-okaidia.css';
 
@@ -36,6 +35,7 @@
 
 @import 'renderers/homepage';
 
+//Default CSS Vars, can be override using configuration
 :root {
   --pbl-color-primary: $color-mine-shaft;
 }
