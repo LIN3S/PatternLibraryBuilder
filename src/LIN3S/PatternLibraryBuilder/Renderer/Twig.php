@@ -9,14 +9,14 @@ final class Twig implements Renderer
 {
     private $twig;
     private $request;
-    private $templateConfig;
+    private $themeConfig;
 
-    public function __construct(\Twig_Environment $twig, RequestStack $requestStack, ThemeConfig $templateConfig)
+    public function __construct(\Twig_Environment $twig, RequestStack $requestStack, ThemeConfig $themeConfig)
     {
         $this->twig = $twig;
         $this->request = $requestStack->getMasterRequest();
         $this->requestStack = $requestStack;
-        $this->templateConfig = $templateConfig;
+        $this->themeConfig = $themeConfig;
     }
 
     public function render($item)
@@ -45,9 +45,9 @@ final class Twig implements Renderer
             sprintf('@Lin3sPatternLibraryBuilder/pages/iframe/%s.html.twig', $media), [
                 'item'      => $item['config']['renderer']['options'],
                 'params_id' => $paramsId,
-                'stylesheets' => $this->templateConfig->stylesheets(),
-                'javascripts' => $this->templateConfig->javascripts(),
-                'custom_styles' => $this->templateConfig->customStyles(),
+                'stylesheets' => $this->themeConfig->stylesheets(),
+                'javascripts' => $this->themeConfig->javascripts(),
+                'custom_styles' => $this->themeConfig->customStyles(),
             ]
         );
     }
