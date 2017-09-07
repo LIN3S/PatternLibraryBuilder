@@ -27,18 +27,18 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 final class IndexController
 {
     private $loader;
-    private $templateConfig;
+    private $themeConfig;
     private $rendererRegistry;
     private $twig;
 
     public function __construct(
         ConfigLoader $loader,
-        ThemeConfig $templateConfig,
+        ThemeConfig $themeConfig,
         RendererRegistry $rendererRegistry,
         \Twig_Environment $twig
     ) {
         $this->loader = $loader;
-        $this->templateConfig = $templateConfig;
+        $this->themeConfig = $themeConfig;
         $this->rendererRegistry = $rendererRegistry;
         $this->twig = $twig;
     }
@@ -62,11 +62,11 @@ final class IndexController
         }
 
         return new Response($this->twig->render('@Lin3sPatternLibraryBuilder/pattern_library.html.twig', [
-            'title' => $this->templateConfig->title(),
-            'description' => $this->templateConfig->description(),
-            'stylesheets' => $this->templateConfig->stylesheets(),
-            'javascripts' => $this->templateConfig->javascripts(),
-            'custom_styles' => $this->templateConfig->customStyles(),
+            'title' => $this->themeConfig->title(),
+            'description' => $this->themeConfig->description(),
+            'stylesheets' => $this->themeConfig->stylesheets(),
+            'javascripts' => $this->themeConfig->javascripts(),
+            'custom_styles' => $this->themeConfig->customStyles(),
             'menu' => $config->allInHierarchy(),
             'breadcrumbs' => $this->generateBreadcrumbs($slug),
             'content' => $content,
