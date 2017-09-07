@@ -12,11 +12,17 @@
         <meta name="description" content="{{ description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block head_styles %}
+        {% block pattern_library_styles %}
             <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
-            {% include '@Lin3sPatternLibraryBuilder/partials/stylesheets.html.twig' %}
+            {% include '@Lin3sPatternLibraryBuilder/partials/custom_styles.html.twig' with custom_styles %}
         {% endblock %}
-        <style>{{ theme_styles }}</style>
+
+        {% block app_styles %}
+            {% for stylesheet in stylesheets %}
+                <link rel="stylesheet" href="{{ stylesheet }}"/>
+            {% endfor %}
+        {% endblock %}
+
     </head>
 {% endblock %}
 
@@ -51,13 +57,15 @@
 
     {% block footer %}{% endblock %}
 
-    {% block body_end_before_js %}{% endblock %}
+    {% block pattern_library_scripts %}
+        <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
+    {% endblock %}
 
-{% block foot_script %}
-    <script src="{{ assets_path ~ '/patternlibrary.js' }}"></script>
-    {% include '@Lin3sPatternLibraryBuilder/partials/javascripts.html.twig' %}
-{% endblock %}
-
+    {% block app_scripts %}
+        {% for javascript in javascripts %}
+            <script src="{{ javascript }}"></script>
+        {% endfor %}
+    {% endblock %}
 {% endblock %}
 </body>
 </html>

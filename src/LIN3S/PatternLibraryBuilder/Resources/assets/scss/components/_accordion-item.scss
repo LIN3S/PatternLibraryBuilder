@@ -30,7 +30,7 @@ $accordion-item-font-size: $font-size-16;
 $accordion-item-font-size-nested: $font-size-14;
 $accordion-item-font-size-leaf: $font-size-15;
 $accordion-item-indicator-transition: $transition-transform;
-$accordion-item-indicator-background-color: $accordion-item-text-color;
+$accordion-item-indicator-background-color: $color-primary;
 $accordion-item-transition: $transition-background-color;
 
 @mixin accordion-item(
