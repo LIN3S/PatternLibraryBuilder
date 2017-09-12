@@ -67,8 +67,16 @@
 
 <aside class="plb-aside">
     <div class="plb-aside__header">
-        {% block logo %}{% endblock %}
-        <p>{{ title }}</p>
+        {% block logo %}
+            {% if logo %}
+                <div class="plb-logo">
+                    {% include logo %}
+                </div>
+            {% endif %}
+        {% endblock %}
+        {% if not logo %}
+            <p>{{ title }}</p>
+        {% endif %}
         <p>{{ description }}</p>
     </div>
     <div class="plb-aside__content">

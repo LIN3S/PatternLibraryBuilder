@@ -36,6 +36,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('title')
                             ->isRequired()
                         ->end()
+                        ->scalarNode('logo')->end()
                         ->scalarNode('description')
                             ->defaultValue('')
                         ->end()

@@ -67,6 +67,7 @@ final class IndexController
             'stylesheets' => $this->themeConfig->stylesheets(),
             'javascripts' => $this->themeConfig->javascripts(),
             'custom_styles' => $this->themeConfig->customStyles(),
+            'logo' => $this->themeConfig->logo(),
             'menu' => $config->allInHierarchy(),
             'breadcrumbs' => $this->generateBreadcrumbs($slug),
             'content' => $content,

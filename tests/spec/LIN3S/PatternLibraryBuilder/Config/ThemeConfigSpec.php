@@ -9,7 +9,14 @@ class ThemeConfigSpec extends ObjectBehavior
 {
     function it_holds_template_config()
     {
-        $this->beConstructedWith('Title', 'Description', ['app.css'], ['app.js'], ['primary_color' => 'black']);
+        $this->beConstructedWith(
+            'Title',
+            'Description',
+            ['app.css'],
+            ['app.js'],
+            ['primary_color' => 'black'],
+            '@AppBundle/svg/logo.html.twig'
+        );
 
         $this->shouldHaveType(ThemeConfig::class);
 
@@ -18,5 +25,6 @@ class ThemeConfigSpec extends ObjectBehavior
         $this->stylesheets()->shouldReturn(['app.css']);
         $this->javascripts()->shouldReturn(['app.js']);
         $this->customStyles()->shouldReturn(['primary_color' => 'black']);
+        $this->logo()->shouldReturn('@AppBundle/svg/logo.html.twig');
     }
 }
