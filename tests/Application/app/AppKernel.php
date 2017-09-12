@@ -77,7 +77,8 @@ class AppKernel extends Kernel
                 'description'   => 'Pattern Library Builder',
                 'custom_styles' => [
                     'color_primary' => '#222',
-                ]
+                ],
+                'logo' => 'svg/lin3s_logo.svg.twig'
             ],
             'templates_config_files_path' => __DIR__ . '/../src/App/Resources/PatternLibrary',
 

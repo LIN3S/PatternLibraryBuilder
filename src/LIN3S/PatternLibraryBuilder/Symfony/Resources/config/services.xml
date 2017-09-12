@@ -51,6 +51,7 @@
             <argument>[]</argument>
             <argument>[]</argument>
             <argument>[]</argument>
+            <argument>null</argument>
         </service>
 
         <service id="lin3s.pattern_library_builder.renderer.registry"

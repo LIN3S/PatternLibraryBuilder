@@ -9,19 +9,22 @@ final class ThemeConfig
     private $stylesheets;
     private $javascripts;
     private $customStyles;
+    private $logo;
 
     public function __construct(
-        string $title, 
-        string $description, 
+        string $title,
+        string $description,
         array $stylesheets = [],
         array $javascripts = [],
-        array $customStyles = []
+        array $customStyles = [],
+        string $logo = null
     ) {
         $this->title = $title;
         $this->description = $description;
         $this->stylesheets = $stylesheets;
         $this->javascripts = $javascripts;
         $this->customStyles = $customStyles;
+        $this->logo = $logo;
     }
 
     public function title()
@@ -47,5 +50,10 @@ final class ThemeConfig
     public function customStyles()
     {
         return $this->customStyles;
+    }
+
+    public function logo()
+    {
+        return $this->logo;
     }
 }

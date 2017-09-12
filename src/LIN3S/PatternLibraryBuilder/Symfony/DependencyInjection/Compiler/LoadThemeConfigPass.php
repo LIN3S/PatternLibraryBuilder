@@ -34,6 +34,7 @@ class LoadThemeConfigPass implements CompilerPassInterface
             ->replaceArgument(1, $config['theme']['description'])
             ->replaceArgument(2, $config['theme']['stylesheets'])
             ->replaceArgument(3, $config['theme']['javascripts'])
-            ->replaceArgument(4, $config['theme']['custom_styles']);
+            ->replaceArgument(4, $config['theme']['custom_styles'])
+            ->replaceArgument(5, $config['theme']['logo']);
     }
 }
