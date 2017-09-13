@@ -8,10 +8,15 @@ renderer:
                 title: 'Atoms'
                 description: 'These are the atoms'
                 items:
-                    - 'architecture/atoms/button'
-                    - 'architecture/atoms/link'
+                    -
+                        slug: 'architecture/atoms/button'
+                    -
+                        slug: 'architecture/atoms/link'
             -
                 title: 'Components'
                 description: 'These are the components'
                 items:
-                    - 'architecture/components/icon-card'
+                    -
+                        grid_cols: 2
+                        grid_rows: 2
+                        slug: 'architecture/components/icon-card'
