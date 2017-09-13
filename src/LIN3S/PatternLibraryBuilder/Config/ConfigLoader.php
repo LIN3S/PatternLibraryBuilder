@@ -72,6 +72,7 @@ final class ConfigLoader
         $slug = str_replace($this->itemsPath, '', $path);
         $slug = str_replace('index.yml', '', $slug);
         $slug = ltrim($slug, '/');
+        $slug = rtrim($slug, '/');
         return str_replace('.yml', '', $slug);
     }
 
