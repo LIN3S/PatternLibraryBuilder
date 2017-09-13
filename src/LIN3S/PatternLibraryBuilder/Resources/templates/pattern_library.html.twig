@@ -8,17 +8,17 @@
     <head>
         <meta charset="{{ _charset }}">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{%- block title -%}{{ title }}{%- endblock -%}</title>
-        <meta name="description" content="{{ description }}">
+        <title>{%- block title -%}{{ theme.title }}{%- endblock -%}</title>
+        <meta name="description" content="{{ theme.description }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% block pattern_library_styles %}
             <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
-            {% include '@Lin3sPatternLibraryBuilder/partials/custom_styles.html.twig' with custom_styles %}
+            {% include '@Lin3sPatternLibraryBuilder/partials/custom_styles.html.twig' with theme.customStyles %}
         {% endblock %}
 
         {% block app_styles %}
-            {% for stylesheet in stylesheets %}
+            {% for stylesheet in theme.stylesheets %}
                 <link rel="stylesheet" href="{{ stylesheet }}"/>
             {% endfor %}
         {% endblock %}
@@ -62,7 +62,7 @@
     {% endblock %}
 
     {% block app_scripts %}
-        {% for javascript in javascripts %}
+        {% for javascript in theme.javascripts %}
             <script src="{{ javascript }}"></script>
         {% endfor %}
     {% endblock %}

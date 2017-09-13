@@ -68,16 +68,16 @@
 <aside class="plb-aside">
     <div class="plb-aside__header">
         {% block logo %}
-            {% if logo %}
+            {% if theme.logo %}
                 <div class="plb-logo">
-                    {% include logo %}
+                    {% include theme.logo %}
                 </div>
             {% endif %}
         {% endblock %}
-        {% if not logo %}
+        {% if not theme.logo %}
             <p>{{ title }}</p>
         {% endif %}
-        <p>{{ description }}</p>
+        <p>{{ theme.description }}</p>
     </div>
     <div class="plb-aside__content">
         {% embed '@Lin3sPatternLibraryBuilder/layouts/finder.html.twig' with {

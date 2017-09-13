@@ -4,11 +4,11 @@
         <meta name="viewport" content="width={%- block viewport_meta_device_width -%}{%- endblock -%}, height={%- block viewport_meta_device_height -%}{%- endblock -%}, initial-scale=1, maximum-scale=1, user-scalable=no">
         {% block pattern_library_styles %}
             <link rel="stylesheet" href="{{ assets_path ~ '/patternlibrary.css' }}"/>
-            {% include '@Lin3sPatternLibraryBuilder/partials/custom_styles.html.twig' with custom_styles %}
+            {% include '@Lin3sPatternLibraryBuilder/partials/custom_styles.html.twig' with theme.customStyles %}
         {% endblock %}
 
         {% block app_styles %}
-            {% for stylesheet in stylesheets %}
+            {% for stylesheet in theme.stylesheets %}
                 <link rel="stylesheet" href="{{ stylesheet }}"/>
             {% endfor %}
         {% endblock %}
@@ -42,7 +42,7 @@
     {% endblock %}
 
     {% block app_scripts %}
-        {% for javascript in javascripts %}
+        {% for javascript in theme.javascripts %}
             <script src="{{ javascript }}"></script>
         {% endfor %}
     {% endblock %}
