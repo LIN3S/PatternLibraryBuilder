@@ -14,7 +14,7 @@ import Accordion from './Accordion';
 
 const initAccordions = () => {
   const
-    accordions = document.querySelectorAll('.js-accordion');
+    accordions = document.querySelectorAll('.js-plb-accordion');
 
   Array.from(accordions).forEach(accordion => new Accordion(
     accordion, {

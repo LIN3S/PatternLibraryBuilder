@@ -8,7 +8,7 @@
         <ul class="plb-icons">
             {% for icon in icons %}
                 {% set icon_name = icon.name|replace({'_': ' '}) %}
-                <li class="plb-icons__icon plb-finder__subject js-clipboard" data-finder="{{ icon_name }}" data-clipboard-action="copy" data-clipboard-text="{{ icon.name }}">
+                <li class="plb-icons__icon plb-finder__subject js-plb-clipboard" data-finder="{{ icon_name }}" data-clipboard-action="copy" data-clipboard-text="{{ icon.name }}">
                     {% include icon.twig_namespace ~ '/' ~ icon.name ~ '.svg.twig' %}
                     <span class="plb-icons__icon-name">{{ icon_name }}</span>
                 </li>

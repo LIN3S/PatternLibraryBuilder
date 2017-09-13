@@ -14,7 +14,7 @@ import Finder from './Finder';
 
 const initFinders = () => {
   const
-    finders = document.querySelectorAll('.js-finder');
+    finders = document.querySelectorAll('.js-plb-finder');
 
   finders.forEach(finder => new Finder(finder, {
     inputClassName: 'plb-finder__input',
