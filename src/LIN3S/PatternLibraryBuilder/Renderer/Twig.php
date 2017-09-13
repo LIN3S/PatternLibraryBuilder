@@ -45,7 +45,14 @@ final class Twig implements Renderer
             sprintf('@Lin3sPatternLibraryBuilder/pages/iframe/%s.html.twig', $media), [
                 'item'      => $item['config']['renderer']['options'],
                 'params_id' => $paramsId,
-                'theme' => $this->themeConfig,
+                'theme' => [
+                    'title' => $this->themeConfig->title(),
+                    'description' => $this->themeConfig->description(),
+                    'stylesheets' => $this->themeConfig->stylesheets(),
+                    'javascripts' => $this->themeConfig->javascripts(),
+                    'customStyles' => $this->themeConfig->customStyles(),
+                    'logo' => $this->themeConfig->logo(),
+                ],
             ]
         );
     }
