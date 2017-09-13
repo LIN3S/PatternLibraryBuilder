@@ -62,7 +62,14 @@ final class IndexController
         }
 
         return new Response($this->twig->render('@Lin3sPatternLibraryBuilder/pattern_library.html.twig', [
-            'theme' => $this->themeConfig,
+            'theme' => [
+                'title' => $this->themeConfig->title(),
+                'description' => $this->themeConfig->description(),
+                'stylesheets' => $this->themeConfig->stylesheets(),
+                'javascripts' => $this->themeConfig->javascripts(),
+                'customStyles' => $this->themeConfig->customStyles(),
+                'logo' => $this->themeConfig->logo(),
+            ],
             'menu' => $config->allInHierarchy(),
             'breadcrumbs' => $this->generateBreadcrumbs($slug),
             'content' => $content,
