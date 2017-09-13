@@ -14,7 +14,7 @@ import Tabbed from './Tabbed';
 
 const initTabbeds = () => {
   const
-    tabbeds = document.querySelectorAll('.js-tabbed');
+    tabbeds = document.querySelectorAll('.js-plb-tabbed');
 
   tabbeds.forEach(tabbed => new Tabbed(tabbed, 'plb-tabbed__nav-item', 'plb-tabbed__tab'));
 };

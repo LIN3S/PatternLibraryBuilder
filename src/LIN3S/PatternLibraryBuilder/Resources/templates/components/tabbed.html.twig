@@ -1,6 +1,6 @@
-{% set modifier = modifier is not empty ? ' tabbed--' ~ modifier : null %}
+{% set modifier = modifier is not empty ? ' plb-tabbed--' ~ modifier : null %}
 
-<div class="plb-tabbed js-tabbed{{ modifier }}">
+<div class="plb-tabbed js-plb-tabbed{{ modifier }}">
     <nav class="plb-tabbed__nav">
         <ul class="plb-tabbed__nav-list">
             {% for tab in tabs %}

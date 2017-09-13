@@ -13,7 +13,7 @@ import {onDomReady} from 'lin3s-event-bus';
 import Clipboard from 'clipboard';
 
 const initClipboard = () => {
-  new Clipboard('.js-clipboard');
+  new Clipboard('.js-plb-clipboard');
 };
 
 onDomReady(initClipboard);

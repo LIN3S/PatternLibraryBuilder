@@ -1,6 +1,6 @@
 {% set modifier = modifier is not empty ? ' plb-accordion--' ~ modifier : null %}
 
-<div class="plb-accordion js-accordion{{ modifier }}">
+<div class="plb-accordion js-plb-accordion{{ modifier }}">
     <nav class="plb-accordion__nav">
         <ul class="plb-accordion__list">
             {% for item in items %}
