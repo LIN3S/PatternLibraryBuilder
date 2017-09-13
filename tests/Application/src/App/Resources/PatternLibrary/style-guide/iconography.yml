@@ -5,5 +5,5 @@ renderer:
     options:
         folders:
             -
-                path: './../templates/svg'
+                path: '/../../../../tests/Application/templates/svg'
                 twig_namespace: 'svg'
