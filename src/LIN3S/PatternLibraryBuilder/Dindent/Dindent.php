@@ -12,9 +12,9 @@
 declare(strict_types=1);
 
 /**
- * @see https://github.com/gajus/dintent for the canonical source repository
+ * @see https://github.com/gajus/dindent for the canonical source repository
  *
- * @license https://github.com/gajus/dintent/blob/master/LICENSE BSD 3-Clause
+ * @license https://github.com/gajus/dindent/blob/master/LICENSE BSD 3-Clause
  *
  * The following code is a Gajus' Dindent library.
  *
