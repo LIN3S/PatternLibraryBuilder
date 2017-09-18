@@ -1,3 +1,14 @@
 # Symfony Configuration reference
 
-> TODO
+These are the parameters accepted by Pattern Library Builder
+
+```yaml
+lin3s_pattern_library_builder:
+    theme:
+        title: "My title"
+        description: "My description"
+        custom_styles:
+            color_primary: "#000"
+        logo: ~
+    templates_config_files_path: "%kernel.root_dir%/PatternLibrary"
+```
