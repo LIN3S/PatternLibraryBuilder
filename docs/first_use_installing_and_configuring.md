@@ -38,7 +38,6 @@ renderer:
     options:
         sections: []
 ```
-Create a folder in your project's root named `templates` with the different subfolders of templates you want to have. 
 
 Install assets 
 ```bash
