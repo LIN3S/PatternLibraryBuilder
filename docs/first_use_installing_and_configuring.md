@@ -21,6 +21,8 @@ lin3s_pattern_library_builder:
         custom_styles:
             color_primary: "#000"
         logo: ~
+        javascripts: []
+        stylesheets: []
     templates_config_files_path: "%kernel.root_dir%/PatternLibrary"
 ```
 Add routes to access the Design System in your routing file:
