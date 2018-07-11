@@ -70,7 +70,7 @@
         {% block logo %}
             {% if theme.logo %}
                 <div class="plb-logo">
-                    {% include theme.logo %}
+                    <a href="{{ path('lin3s_pattern_library_builder_home') }}">{% include theme.logo %}</a>
                 </div>
             {% endif %}
         {% endblock %}
