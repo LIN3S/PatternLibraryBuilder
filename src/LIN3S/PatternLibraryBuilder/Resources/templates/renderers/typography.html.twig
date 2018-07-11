@@ -1,10 +1,14 @@
 {% for typography in typographies %}
-    <span>{{ typography.font_family }}</span><br>
+    <h2 class="plb-article__subtitle">{{- typography.font_family -}}</h2>
 
-    {% for font in typography.fonts  %}
-        <span style="font-family: {{ typography.font_family }}; font-weight: {{ font.weight }}; font-size: {{ font.size }}">
-            {{ typography.sample_text }}
-        </span><br>
-    {% endfor %}
+    <div class="plb-article__description plb-article__description--typography">
+        {% for font in typography.fonts %}
+            {% set line_height = font['line-height'] is defined and font['line-height'] is not empty ? 'line-height: ' ~ font['line-height']|default : '' %}
+            <code style="font-family: 'Courier New'; font-style: italic; font-size: .8em;">{{- font.name|default -}}</code>
+            <p style="font-family: {{ typography.font_family }}; font-weight: {{ font.weight }}; font-size: {{ font.size }}; {{- line_height -}}">
+                {{- typography.sample_text -}}
+            </p>
+        {% endfor %}
+    </div>
     <br>
 {% endfor %}

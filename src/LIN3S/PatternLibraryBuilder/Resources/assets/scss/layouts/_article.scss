@@ -22,6 +22,11 @@ $article-title-font-size: $font-size-36;
 $article-title-font-weight: $font-weight-bold;
 $article-title-line-height: $article-title-font-size;
 $article-title-text-color: $color-primary;
+$article-subtitle-font-family: $font-family-open-sans;
+$article-subtitle-font-size: $font-size-28;
+$article-subtitle-font-weight: $font-weight-bold;
+$article-subtitle-line-height: $article-title-font-size;
+$article-subtitle-text-color: $color-primary;
 $article-description-font-family: $font-family-open-sans;
 $article-description-font-size: $font-size-16;
 $article-description-font-weight: $font-weight-regular;
@@ -53,12 +58,26 @@ $article-twig-output-font-size: $font-size-12;
   text-transform: capitalize;
 }
 
+.plb-article__subtitle {
+  color: $article-subtitle-text-color;
+  font-family: $article-subtitle-font-family;
+  font-size: $article-subtitle-font-size;
+  font-weight: $article-subtitle-font-weight;
+  line-height: $article-subtitle-line-height;
+  margin-bottom: 16px;
+  text-transform: capitalize;
+}
+
 .plb-article__description {
   color: $article-description-text-color;
   font-family: $article-description-font-family;
   font-size: $article-description-font-size;
   font-weight: $article-description-font-weight;
   line-height: $article-description-line-height;
+}
+
+.plb-article__description--typography {
+  margin-left: 16px;
 }
 
 code[class*="language-"],
