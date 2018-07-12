@@ -29,10 +29,11 @@ $aside-header-text-color: $color-white;
   font-weight: $aside-header-font-weight;
   line-height: $aside-header-line-height;
   padding: 30px;
+  text-align: center;
 
   .plb-logo {
     height: auto;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
     max-width: 170px;
     width: 100%;
   }

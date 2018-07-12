@@ -5,7 +5,19 @@ renderer:
         colors:
             -
                 color: '#ff6600'
-                name: 'Title'
+                name: 'Blaze Orange'
             -
-                color: '#white'
-                name: 'Title'
+                color: '#fff'
+                name: 'White'
+            -
+                color: '#de3b3b'
+                name: 'Punch'
+            -
+                color: '#3bdcde'
+                name: 'Turquoise'
+            -
+                color: '#583bde'
+                name: 'Purple Heart'
+            -
+                color: '#3bde3d'
+                name: 'Malachite'

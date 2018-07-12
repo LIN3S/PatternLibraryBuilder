@@ -1,6 +1,9 @@
-<div>
+<div class="plb-color-palette">
     {% for color in colors %}
-        <div style="width: 50px; height: 50px; background-color: {{ color.color }}; border: 1px solid #eee"></div>
-        <span>{{ color.name|default(color.color) }}</span>
+        <div class="plb-color-palette-item">
+            <div class="plb-color-palette-item__color" style="background-color: {{- color.color -}};"></div>
+            <div>{{- color.name | default(color.color) -}}</div>
+            <div class="plb-color-palette-item__hex">{{- color.color -}}</div>
+        </div>
     {% endfor %}
 </div>

@@ -5,11 +5,16 @@ renderer:
         typographies:
             -
                 font_family: 'Roboto'
-                sample_text: 'Lorem ipsum'
+                sample_text: 'The quick brown fox jumps over the lazy dog'
                 fonts:
+                    -
+                        size: 32px
+                        weight: 600
+                        line-height: 38px
                     -
                         size: 18px
                         weight: 400
+                        line-height: 28px
                     -
                         size: 14px
                         weight: 400
@@ -17,6 +22,24 @@ renderer:
                         size: 12px
                         weight: 400
                     -
+                        size: 11px
+                        weight: 400
+            -
+                font_family: 'Open Sans'
+                sample_text: 'The quick brown fox jumps over the lazy dog'
+                fonts:
+                    -
+                        name: '.title'
+                        size: 32px
+                        weight: 600
+                        line-height: 38px
+                    -
+                        name: '.subtitle'
+                        size: 18px
+                        weight: 400
+                        line-height: 28px
+                    -
+                        name: '.paragraph'
                         size: 11px
                         weight: 400
 
