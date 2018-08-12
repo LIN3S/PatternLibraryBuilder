@@ -1,5 +1,7 @@
 <style>
     :root {
         --pbl-color-primary: {{ color_primary }};
+        {{ primary_typography ? '--pbl-primary-typography: ' ~ primary_typography }};
+        {{ secondary_typography ? '--pbl-secondary-typography: ' ~ secondary_typography }};
     }
 </style>

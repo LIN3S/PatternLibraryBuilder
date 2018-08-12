@@ -78,5 +78,7 @@ class Configuration implements ConfigurationInterface
 
     const THEME_PROPERTIES = [
         'color_primary',
+        'primary_typography',
+        'secondary_typography',
     ];
 }
